@@ -1,0 +1,40 @@
+﻿@model IEnumerable<DataTransferObjects.Transaction>
+
+@{
+    ViewBag.Title = "TransactionHistory";
+}
+
+<h2>TransactionHistory</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TransactionDateTime)
+        </th>
+        <!--
+        <th>
+            @@Html.DisplayNameFor(model => model.SubTotal)
+        </th>
+        -->
+        <th>
+            @Html.DisplayNameFor(model => model.Total)
+        </th>                
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TransactionDateTime)
+        </td>
+        <!--
+        <td>
+            @@Html.DisplayFor(modelItem => item.SubTotal)
+        </td>
+        -->
+        <td>
+            @Html.DisplayFor(modelItem => item.Total)
+        </td>        
+    </tr>
+}
+
+</table>

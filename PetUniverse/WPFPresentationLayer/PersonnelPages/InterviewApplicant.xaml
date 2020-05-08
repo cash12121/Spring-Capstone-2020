@@ -1,0 +1,447 @@
+﻿<!-- CREATED BY: Matt Deaton
+    DATE: 2020-04-11
+    CHECKED BY: Steve Coonrod
+        
+    This page is for viewing information to be used -->
+
+<Page x:Class="WPFPresentationLayer.PersonnelPages.InterviewApplicant"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFPresentationLayer.PersonnelPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="900"
+      Title="InterviewApplicant" Height="550" Width="900" Margin="10" Loaded="Page_Loaded">
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <!--Header-->
+            <RowDefinition Height="60"></RowDefinition>
+            <!--Main Body-->
+            <RowDefinition></RowDefinition>
+            <!--Footer-->
+            <RowDefinition Height="60"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!--Header-->
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="150"></ColumnDefinition>
+                <ColumnDefinition Width="50"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="lblHeader" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+			       FontSize="30" FontWeight="DemiBold" Content="Applicant Interview"></Label>
+            <Label x:Name="lblApplicationNumber" Grid.Column="2" VerticalContentAlignment="Top" HorizontalContentAlignment="Right"
+                   FontSize="12" FontWeight="DemiBold">Application Number:</Label>
+            <Label x:Name="lblApplicationID" Grid.Column="3" VerticalContentAlignment="Top" HorizontalContentAlignment="Right"
+                   FontSize="12" FontWeight="DemiBold"></Label>
+        </Grid>
+        <!--End Header-->
+
+        <!--Main Body-->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <!--Left Side-->
+            <Grid Grid.Column="0" Margin="25 0 25 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="170"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="180"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="78"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="lblDate" Grid.Column="0" FontSize="12" FontWeight="Bold"
+                           VerticalContentAlignment="Center" HorizontalContentAlignment="Left">Date:</Label>
+                    <Label x:Name="lblInterviewDate" Grid.Column="1" FontSize="12" FontWeight="DemiBold"
+                           VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="78"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="lblPosition" Grid.Column="0" FontSize="12" FontWeight="Bold"
+                           VerticalContentAlignment="Center" HorizontalContentAlignment="Left">Position:</Label>
+                    <Label x:Name="lblPositionName" Grid.Column="1" FontSize="12" FontWeight="DemiBold"
+                           VerticalContentAlignment="Center" HorizontalContentAlignment="Left"></Label>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="31*"/>
+                        <ColumnDefinition Width="19*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="txtInterviewNotes" Margin="5" FontSize="12" TextWrapping="Wrap" 
+                             Text="Interview Notes" Grid.ColumnSpan="2" SpellCheck.IsEnabled="True"></TextBox>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="lblHomeCheckDate" FontSize="12" FontWeight="Bold"
+                           VerticalContentAlignment="Center" HorizontalContentAlignment="Left">Home Check:</Label>
+                    <TextBox x:Name="txtHomeCheckDate" Grid.Column="1" Margin="2" FontSize="14" 
+                             FontWeight="DemiBold" HorizontalContentAlignment="Center" IsReadOnly="True"></TextBox>
+                </Grid>
+                <Grid Grid.Row="4">
+                    <Calendar x:Name="calHomeCheck" Grid.Column="0" VerticalAlignment="Center" 
+							  SelectedDatesChanged="calHomeCheck_SelectedDatesChanged"></Calendar>
+                </Grid>
+            </Grid>
+
+            <!--Right Side-->
+            <Grid Grid.Column="1" Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="55"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Label x:Name="lblContact" FontSize="13" FontWeight="Bold"
+                           VerticalAlignment="Center" HorizontalContentAlignment="Left">Contact Information</Label>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="35"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="35"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Label x:Name="lblFirstName" FontSize="12" FontWeight="DemiBold"
+                           VerticalAlignment="Center" HorizontalAlignment="Left">First:</Label>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <TextBox x:Name="txtFirstName" Margin="2" FontSize="14" FontWeight="DemiBold"
+                                 HorizontalContentAlignment="Center" IsReadOnly="True">
+                        </TextBox>
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        <Label x:Name="lblLastName" FontSize="12" FontWeight="DemiBold"
+                           VerticalAlignment="Center" HorizontalAlignment="Left">Last:</Label>
+                    </Grid>
+                    <Grid Grid.Column="3">
+                        <TextBox x:Name="txtLastName" Margin="2" FontSize="14" FontWeight="DemiBold"
+                                 HorizontalContentAlignment="Center" IsReadOnly="True">
+                        </TextBox>
+                    </Grid>
+                    <Grid Grid.Column="4">
+                        <Label x:Name="lblMiddleName" FontSize="12" FontWeight="DemiBold"
+                           VerticalAlignment="Center" HorizontalAlignment="Left">Middle:</Label>
+                    </Grid>
+                    <Grid Grid.Column="5">
+                        <TextBox x:Name="txtMiddleName" Margin="2" FontSize="14" FontWeight="DemiBold"
+                                 HorizontalContentAlignment="Center" IsReadOnly="True">
+                        </TextBox>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="56"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="35"></ColumnDefinition>
+                        <ColumnDefinition Width="120"></ColumnDefinition>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="75"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Label x:Name="lblAddress" FontSize="12" FontWeight="DemiBold"
+                           VerticalAlignment="Center" HorizontalAlignment="Left">Address:</Label>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <TextBox x:Name="txtAddress" Margin="2" FontSize="14" FontWeight="DemiBold"
+                                 HorizontalContentAlignment="Center" IsReadOnly="True">
+                        </TextBox>
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        <Label x:Name="lblCity" FontSize="12" FontWeight="DemiBold"
+                           VerticalAlignment="Center" HorizontalAlignment="Left">City:</Label>
+                    </Grid>
+                    <Grid Grid.Column="3">
+                        <TextBox x:Name="txtCity" Margin="2" FontSize="14" FontWeight="DemiBold" 
+                                 HorizontalContentAlignment="Center" IsReadOnly="True">
+                        </TextBox>
+                    </Grid>
+                    <Grid Grid.Column="4">
+                        <Label x:Name="lblState" FontSize="12" FontWeight="DemiBold"
+                           VerticalAlignment="Center" HorizontalAlignment="Left">State:</Label>
+                    </Grid>
+                    <Grid Grid.Column="5">
+                        <TextBox x:Name="txtState" Margin="2" FontSize="14" FontWeight="DemiBold" 
+                                 HorizontalContentAlignment="Center" IsReadOnly="True">
+                        </TextBox>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="35"></ColumnDefinition>
+                        <ColumnDefinition Width="75"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Label x:Name="lblEmail" FontSize="12" FontWeight="DemiBold"
+                           VerticalAlignment="Center" HorizontalAlignment="Left">Email:</Label>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <TextBox x:Name="txtEmail" Margin="2" FontSize="14" FontWeight="DemiBold"
+                                 HorizontalContentAlignment="Center" IsReadOnly="True"></TextBox>
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        <Label x:Name="lblPhone" FontSize="12" FontWeight="DemiBold"
+                           VerticalAlignment="Center" HorizontalAlignment="Left">Phone:</Label>
+                    </Grid>
+                    <Grid Grid.Column="3">
+                        <TextBox x:Name="txtPhone" Margin="2" FontSize="14" FontWeight="DemiBold"
+                                 HorizontalContentAlignment="Center" IsReadOnly="True"></TextBox>
+                    </Grid>
+                    <Grid Grid.Column="4">
+                        <Label x:Name="lblZip" FontSize="12" FontWeight="DemiBold"
+                           VerticalAlignment="Center" HorizontalAlignment="Left">Zip:</Label>
+                    </Grid>
+                    <Grid Grid.Column="5">
+                        <TextBox x:Name="txtZip" Margin="2" FontSize="14" FontWeight="DemiBold" 
+                                 HorizontalContentAlignment="Center" IsReadOnly="True">
+                        </TextBox>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="4">
+                    <Label x:Name="lblEducation" FontSize="13" FontWeight="Bold"
+                           VerticalAlignment="Center" HorizontalContentAlignment="Left">Education Information</Label>
+                </Grid>
+                <Grid Grid.Row="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition Width="150"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Label x:Name="lblSchoolOneName" FontSize="12" FontWeight="DemiBold"
+                           VerticalAlignment="Center" HorizontalAlignment="Left">School Name:</Label>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <TextBox x:Name="txtSchoolOneName" Margin="2" FontSize="14" FontWeight="DemiBold" 
+                                 HorizontalContentAlignment="Center" IsReadOnly="True"></TextBox>
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        <Label x:Name="lblSchoolOneLevel" FontSize="12" FontWeight="DemiBold"
+                           VerticalAlignment="Center" HorizontalAlignment="Left">Level:</Label>
+                    </Grid>
+                    <Grid Grid.Column="3">
+                        <TextBox x:Name="txtSchoolOneLevel" Margin="2" FontSize="14" FontWeight="DemiBold" 
+                                 HorizontalContentAlignment="Center" IsReadOnly="True"></TextBox>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition Width="150"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Label x:Name="lblSchoolOneCity" FontSize="12" FontWeight="DemiBold"
+                           VerticalAlignment="Center" HorizontalAlignment="Left">School City:</Label>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <TextBox x:Name="txtSchoolOneCity" Margin="2" FontSize="14" FontWeight="DemiBold" 
+                                 HorizontalContentAlignment="Center" IsReadOnly="True"></TextBox>
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        <Label x:Name="lblSchoolOneState" FontSize="12" FontWeight="DemiBold"
+                           VerticalAlignment="Center" HorizontalAlignment="Left">State:</Label>
+                    </Grid>
+                    <Grid Grid.Column="3">
+                        <TextBox x:Name="txtSchoolOneState" Margin="2" FontSize="14" FontWeight="DemiBold" 
+                                 HorizontalContentAlignment="Center" IsReadOnly="True"></TextBox>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="7">
+                    <Label x:Name="lblReferences" FontSize="13" FontWeight="Bold"
+                           VerticalAlignment="Center" HorizontalContentAlignment="Left">Reference</Label>
+                </Grid>
+                <Grid Grid.Row="8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="80"></ColumnDefinition>
+                        <ColumnDefinition ></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Label x:Name="lblReferenceOneName" FontSize="12" FontWeight="DemiBold"
+                           VerticalAlignment="Center" HorizontalAlignment="Left">Name:</Label>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <TextBox x:Name="txtReferenceOneName" Margin="2" FontSize="14" FontWeight="DemiBold" 
+                                 HorizontalContentAlignment="Center" IsReadOnly="True"></TextBox>
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        <Label x:Name="lblReferenceOneRelationship" FontSize="12" FontWeight="DemiBold"
+                           VerticalAlignment="Center" HorizontalAlignment="Left">Relationship:</Label>
+                    </Grid>
+                    <Grid Grid.Column="3">
+                        <TextBox x:Name="txtReferenceOneRelationship" Margin="2" FontSize="14" FontWeight="DemiBold" 
+                                 HorizontalContentAlignment="Center" IsReadOnly="True"></TextBox>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="9">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Label x:Name="lblReferenceOneEmail" FontSize="12" FontWeight="DemiBold"
+                           VerticalAlignment="Center" HorizontalAlignment="Left">Email:</Label>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <TextBox x:Name="txtReferenceOneEmail" Margin="2" FontSize="14" FontWeight="DemiBold" 
+                                 HorizontalContentAlignment="Center" IsReadOnly="True"></TextBox>
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        <Label x:Name="lblReferenceOnePhone" FontSize="12" FontWeight="DemiBold"
+                           VerticalAlignment="Center" HorizontalAlignment="Left">Phone:</Label>
+                    </Grid>
+                    <Grid Grid.Column="3">
+                        <TextBox x:Name="txtReferenceOnePhone" Margin="2" FontSize="14" FontWeight="DemiBold" 
+                                 HorizontalContentAlignment="Center" IsReadOnly="True"></TextBox>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="10">
+                    <Label x:Name="lblPreviousExperience" FontSize="13" FontWeight="Bold"
+                           VerticalAlignment="Center" HorizontalContentAlignment="Left">Previous Experience</Label>
+                </Grid>
+                <Grid Grid.Row="11">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition Width="150"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Label x:Name="lblPreviousWorkName" FontSize="12" FontWeight="DemiBold"
+                           VerticalAlignment="Center" HorizontalAlignment="Left">Previous Work:</Label>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <TextBox x:Name="txtPreviousWorkName" Margin="2" FontSize="14" FontWeight="DemiBold" 
+                                 HorizontalContentAlignment="Center" IsReadOnly="True"></TextBox>
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        <Label x:Name="lblPreviousWorkType" FontSize="12" FontWeight="DemiBold"
+                           VerticalAlignment="Center" HorizontalAlignment="Left">Type:</Label>
+                    </Grid>
+                    <Grid Grid.Column="3">
+                        <TextBox x:Name="txtPreviousWorkType" Margin="2" FontSize="14" FontWeight="DemiBold" 
+                                 HorizontalContentAlignment="Center" IsReadOnly="True"></TextBox>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition Width="150"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Label x:Name="lblPreviousWorkCity" FontSize="12" FontWeight="DemiBold"
+                           VerticalAlignment="Center" HorizontalAlignment="Left">City:</Label>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <TextBox x:Name="txtPreviousWorkCity" Margin="2" FontSize="14" FontWeight="DemiBold" 
+                                 HorizontalContentAlignment="Center" IsReadOnly="True"></TextBox>
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        <Label x:Name="lblPreviousWorkState" FontSize="12" FontWeight="DemiBold"
+                           VerticalAlignment="Center" HorizontalAlignment="Left">State:</Label>
+                    </Grid>
+                    <Grid Grid.Column="3">
+                        <TextBox x:Name="txtPreviousWorkState" Margin="2" FontSize="14" FontWeight="DemiBold" 
+                                 HorizontalContentAlignment="Center" IsReadOnly="True"></TextBox>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="13" Height="30">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="190"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="lblSkills" Grid.Column="0" FontSize="13" FontWeight="Bold"
+                           VerticalAlignment="Center" HorizontalContentAlignment="Left">Skills</Label>
+                    <Label x:Name="lblApplicationStatus" Grid.Column="1" FontSize="13" FontWeight="Bold"
+                           VerticalContentAlignment="Center" HorizontalContentAlignment="Right">Application Stauts:</Label>
+                    <ComboBox x:Name="cboApplicationStatus" Grid.Column="2" Height="23" Margin="5" FontWeight="DemiBold" 
+                              FontSize="12" VerticalContentAlignment="Center" 
+                              HorizontalContentAlignment="Center" VerticalAlignment="Top" ></ComboBox>
+                </Grid>
+                <Grid Grid.Row="14">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <TextBox x:Name="txtSkills" Margin="5 2 5 5" TextWrapping="Wrap" FontSize="12" 
+                                 FontWeight="DemiBold" HorizontalContentAlignment="Left" IsReadOnly="True"></TextBox>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="14">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </Grid>
+            <!--End Right Side-->
+        </Grid>
+        <!--End Main Body-->
+
+        <!--Footer-->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"></ColumnDefinition>
+                <ColumnDefinition Width="150"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="150"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnSave" Grid.Column="0" Width="120" Height="40"  
+                    FontSize="16" Click="btnSave_Click" >Save</Button>
+            <Button x:Name="btnViewResume" Grid.Column="1" Margin="10" Width="120" Height="30"  
+                    FontSize="16" HorizontalAlignment="Left" VerticalContentAlignment="Center"
+                    Click="btnViewResume_Click">View Resume</Button>
+            <TextBox x:Name="txtResumeFileName" Grid.Column="2" Margin="10" Width="430"
+                     HorizontalAlignment="Right"></TextBox>
+            <Button x:Name="btnCancel" Grid.Column="3" Width="120" Height="40"  
+                    FontSize="16" Click="btnCancel_Click" >Cancel</Button>
+        </Grid>
+        <!--End Footer-->
+    </Grid>
+</Page>

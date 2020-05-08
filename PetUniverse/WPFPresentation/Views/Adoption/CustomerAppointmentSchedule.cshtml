@@ -1,0 +1,69 @@
+﻿@model IEnumerable<DataTransferObjects.AdoptionAppointmentVM>
+
+
+<br/>
+<h2>@ViewBag.Title</h2>
+
+
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.LocationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AppointmentTypeID)
+        </th>
+        <th>
+            Appointment Date
+        </th>
+        <th>
+            Appointment Time
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AnimalName)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.AnimalSpeciesID)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.LocationName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppointmentTypeID)
+        </td>
+        <td>
+            @item.AppointmentDateTime.ToShortDateString()
+        </td>
+
+        <td>
+            @item.AppointmentDateTime.ToShortTimeString()
+        </td>
+        
+        
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.AnimalName)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.AnimalSpeciesID)
+        </td>
+        
+        <td>
+            
+            @Html.ActionLink("Appointment Details", "AppointmentDetails", new {  id=item.AppointmentID }, new { @class = "btn btn-primary"})
+            
+        </td>
+    </tr>
+}
+
+</table>

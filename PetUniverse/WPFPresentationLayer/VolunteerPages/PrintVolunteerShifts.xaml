@@ -1,0 +1,45 @@
+﻿<!--
+    AUTHOR: Timothy Lickteig
+    DATE: 2020-03-13
+    CHECKED BY: 
+    -->
+<Page x:Class="WPFPresentationLayer.VolunteerPages.PrintVolunteerShifts"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:WPFPresentationLayer.VolunteerPages"
+      mc:Ignorable="d"
+      d:DesignHeight="450"
+      d:DesignWidth="800"
+      Title="PrintVolunteerShifts">
+
+    <Canvas x:Name="ViewVolunteer" Visibility="Visible" Width="1200" Height="850">
+        <Canvas>
+            <Canvas x:Name="canViewVol">
+                <Grid Width="1200" Height="800">
+                    <DataGrid x:Name="dgShiftList" Margin="0 103 0 0" Height="634" VerticalAlignment="Top"
+                  BeginningEdit="DgShiftList_BeginningEdit"                  
+                  SelectedCellsChanged="DgShiftList_SelectedCellsChanged"></DataGrid>
+                    <Grid VerticalAlignment="Bottom">
+                        <Button x:Name="btnSaveChanges" Height="30" 
+                    HorizontalAlignment="Center"
+                    Width="100"
+                    Margin="480 0 0 13"
+                    Click="BtnSaveChanges_Click">Save Changes</Button>
+                        <Button x:Name="btnRefresh"
+                    Height="30"
+                    Margin="0 0 190 13"
+                    HorizontalAlignment="Right"
+                    Width="100"
+                    Click="BtnRefresh_Click">Refresh</Button>
+                        <Label HorizontalAlignment="Center" Height="25" Margin="175 0 0 14">Only Show Available</Label>
+                        <CheckBox  x:Name="chkAvailable" Margin="325 0 0 10" HorizontalAlignment="Center" 
+                      VerticalAlignment="Center"
+                       Click="ChkAvailable_Click"></CheckBox>
+                    </Grid>
+                </Grid>
+            </Canvas>
+        </Canvas>
+    </Canvas>
+</Page>

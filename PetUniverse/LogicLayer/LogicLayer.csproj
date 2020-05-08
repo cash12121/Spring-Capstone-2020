@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2D19B84B-F8E1-41FD-AB21-DF4953181871}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LogicLayer</RootNamespace>
+    <AssemblyName>LogicLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Prod|AnyCPU'">
+    <OutputPath>bin\Prod\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdoptionAnimalManager.cs" />
+    <Compile Include="AdoptionApplicationManager.cs" />
+    <Compile Include="AdoptionAppointmentManager.cs" />
+    <Compile Include="AdoptionCustomerManager.cs" />
+    <Compile Include="AdoptionInterviewerManager.cs" />
+    <Compile Include="AnimalActivityManager.cs" />
+    <Compile Include="AnimalHandlingManager.cs" />
+    <Compile Include="AnimalKennelCleaningManager.cs" />
+    <Compile Include="AnimalKennelManager.cs" />
+    <Compile Include="AnimalManager.cs" />
+    <Compile Include="AnimalMedicalHistoryManager.cs" />
+    <Compile Include="AnimalPrescriptionManager.cs" />
+    <Compile Include="AnimalStatusManager.cs" />
+    <Compile Include="ApplicantManager.cs" />
+    <Compile Include="ApplicationManager.cs" />
+    <Compile Include="AppointmentManager.cs" />
+    <Compile Include="AppointmentTypeManager.cs" />
+    <Compile Include="AvailabilityManager.cs" />
+    <Compile Include="BaseScheduleManager.cs" />
+    <Compile Include="CustomerManager.cs" />
+    <Compile Include="CustomerPortalManager.cs" />
+    <Compile Include="DepartmentManager.cs" />
+    <Compile Include="DonationManager.cs" />
+    <Compile Include="EmployeeAvailabilityManager.cs" />
+    <Compile Include="ERoleManager.cs" />
+    <Compile Include="FacilityInspectionItemManager.cs" />
+    <Compile Include="FacilityInspectionManager.cs" />
+    <Compile Include="FacilityMaintenanceManager.cs" />
+    <Compile Include="FacilityTaskManager.cs" />
+    <Compile Include="FosterAppointmentManager.cs" />
+    <Compile Include="HomeInspectorManager.cs" />
+    <Compile Include="InHomeInspectionAppointmentDecisionManager.cs" />
+    <Compile Include="InventoryItemsManager.cs" />
+    <Compile Include="ItemCategoryManager.cs" />
+    <Compile Include="ItemManager.cs" />
+    <Compile Include="ItemReportManager.cs" />
+    <Compile Include="JobListingManager.cs" />
+    <Compile Include="LocationManager.cs" />
+    <Compile Include="LogManager.cs" />
+    <Compile Include="MedicineManager.cs" />
+    <Compile Include="MessagesManager.cs" />
+    <Compile Include="NewAnimalChecklistManager.cs" />
+    <Compile Include="OrderItemLineManager.cs" />
+    <Compile Include="OrderLineManager.cs" />
+    <Compile Include="OrderManager.cs" />
+    <Compile Include="PetUniverseUserERolesManager.cs" />
+    <Compile Include="PictureManager.cs" />
+    <Compile Include="ProductManager.cs" />
+    <Compile Include="ManageBackstockRecords.cs" />
+    <Compile Include="PromotionManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PUEventManager.cs" />
+    <Compile Include="ReceivingRecordManager.cs" />
+    <Compile Include="RequestManager.cs" />
+    <Compile Include="ReviewerManager.cs" />
+    <Compile Include="SalesDataManager.cs" />
+    <Compile Include="SalesTaxManager.cs" />
+    <Compile Include="ScheduleHoursManager.cs" />
+    <Compile Include="ScheduleManager.cs" />
+    <Compile Include="ShiftManager.cs" />
+    <Compile Include="ShiftTimeManager.cs" />
+    <Compile Include="ShipperManager.cs" />
+    <Compile Include="SpecialOrderItemLineManager.cs" />
+    <Compile Include="SpecialOrderManager.cs" />
+    <Compile Include="StatusManager.cs" />
+    <Compile Include="TrainingVideoManager.cs" />
+    <Compile Include="TransactionAdminManager.cs" />
+    <Compile Include="TransactionManager.cs" />
+    <Compile Include="TreatmentRecordManager.cs" />
+    <Compile Include="UserManager.cs" />
+    <Compile Include="VendorManager.cs" />
+    <Compile Include="VetAppointmentManager.cs" />
+    <Compile Include="VolunteerEventManager.cs" />
+    <Compile Include="VolunteerManager.cs" />
+    <Compile Include="VolunteerShiftManager.cs" />
+    <Compile Include="VolunteerTaskManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessFakes\DataAccessFakes.csproj">
+      <Project>{c6fd50e2-3d51-419b-9a9f-2bbe84cb74ad}</Project>
+      <Name>DataAccessFakes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccessInterfaces\DataAccessInterfaces.csproj">
+      <Project>{c9c0c512-dbd6-4250-b98f-1b50e597bdef}</Project>
+      <Name>DataAccessInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{94686078-ab66-4fac-a2aa-749745d62436}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataTransferObjects\DataTransferObjects.csproj">
+      <Project>{B3679B25-08AD-45B6-9057-5784C8CCF5F7}</Project>
+      <Name>DataTransferObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogicLayerInterfaces\LogicLayerInterfaces.csproj">
+      <Project>{ababe315-2fff-4c0b-ae80-1d1c90eb1fa4}</Project>
+      <Name>LogicLayerInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PresentationUtilityCode\PresentationUtilityCode.csproj">
+      <Project>{ec9bf040-a08b-495f-85b0-2de9e6feb64c}</Project>
+      <Name>PresentationUtilityCode</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

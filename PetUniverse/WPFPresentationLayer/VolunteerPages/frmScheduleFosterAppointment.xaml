@@ -1,0 +1,70 @@
+﻿<!--
+    AUTHOR: Timothy Lickteig
+    DATE: 2020-04-27
+    XAML code for updating and making new foster appointments
+    -->
+<Window x:Class="WPFPresentationLayer.VolunteerPages.frmScheduleFosterAppointment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFPresentationLayer.VolunteerPages"
+        mc:Ignorable="d"
+        Title="frmScheduleFosterAppointment"
+        Height="450"
+        Width="420">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label x:Name="lblSelectVolunteer"
+               Grid.Row="0"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Center"
+               FontSize="24">Select Volunteer:</Label>
+        <Label x:Name="lblStartTime"
+               Grid.Row="1"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Center"
+               FontSize="24">Start Time:</Label>
+        <Label x:Name="lblEndTime"
+               Grid.Row="2"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Center"
+               FontSize="24">End Time:</Label>
+        <Label x:Name="lblDescription"
+               Grid.Row="3"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Center"
+               FontSize="24">Description:</Label>
+        <ComboBox x:Name="cboVolunteerList"
+                  Grid.Row="0"
+                  Grid.Column="1"
+                  Margin="20 20 20 20"></ComboBox>
+        <TextBox x:Name="txtStartTime"
+                 Grid.Row="1"
+                 Grid.Column="1"
+                 Margin="20 20 20 20"></TextBox>
+        <TextBox x:Name="txtEndTime"
+                 Grid.Row="2"
+                 Grid.Column="1"
+                 Margin="20 20 20 20"></TextBox>
+        <TextBox x:Name="txtDescription"
+                 Grid.Row="3"
+                 Grid.Column="1"
+                 Margin="20 20 20 20"></TextBox>
+        <Button x:Name="btnSubmit"
+                Grid.Row="4"
+                Grid.Column="1"
+                Margin="20 20 20 20"
+                Click="BtnSubmit_Click">Submit</Button>
+    </Grid>
+</Window>

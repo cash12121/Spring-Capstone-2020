@@ -1,0 +1,13 @@
+﻿
+@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Ruh-roh!";
+}
+<br />
+<br />
+<h1 class="text-danger">Ruh-Roh!</h1>
+<h2 class="text-danger">Something went wrong!</h2>
+<p>Return to <a href="~/@ViewBag.ControllerRedirect/@ViewBag.Page">@ViewBag.Page</a></p>
+<img src="~/Content/Images/error_dog.jpg" class="img-fluid" />
+

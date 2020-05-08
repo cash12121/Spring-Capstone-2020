@@ -1,0 +1,47 @@
+﻿@*
+    Creator: Robert Holmes
+    Created: 04/29/2020
+    Approver:
+
+    Partial view containing dropdowns for filtering products.
+    Updater:
+    Updated:
+    Update:
+*@
+@model WPFPresentation.Models.FilterViewModel
+
+@using (Html.BeginForm("Index", "Product"))
+{
+    <div class="row my-2">
+        <div class="col">
+            <select class="custom-select" id="category" name="category">
+                <option selected value="">Category</option>
+                @foreach (var cat in Model.Categories)
+                {
+                    <option value="@cat">@cat</option>
+                }
+            </select>
+        </div>
+        <div class="col">
+            <select class="custom-select" id="type" name="type">
+                <option selected value="">Type</option>
+                @foreach (var type in Model.Types)
+                {
+                    <option value="@type">@type</option>
+                }
+            </select>
+        </div>
+        <div class="col">
+            <select class="custom-select" id="brand" name="brand">
+                <option selected value="">Brand</option>
+                @foreach (var brand in Model.Brands)
+                {
+                    <option value="@brand">@brand</option>
+                }
+            </select>
+        </div>
+        <div class="col">
+            <button class="btn btn-secondary" type="submit">Filter</button>
+        </div>
+    </div>
+}

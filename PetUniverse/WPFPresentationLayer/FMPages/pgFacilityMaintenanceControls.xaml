@@ -1,0 +1,140 @@
+﻿<Page x:Class="WPFPresentationLayer.FMPages.FacilityMaintenanceControls"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFPresentationLayer.FMPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="845" d:DesignWidth="1280"
+      Title="FacilityMaintenanceControls">
+    <!-- Name: Carl Davis,
+               Chuck Baxter 
+             Date: 2/21/2020
+             CHECKED BY: Steven Cardona
+             
+             xaml to view, edit, and create facility maintenace records
+              
+             UPDATE BY: NA
+             UPDATED NA
+             CHANGE: NA -->
+    <Canvas x:Name="canViewFacilityMaintenance" Height="845" Margin="0,0,111,0">
+        <Canvas x:Name="canView" Visibility="Visible">
+            <Grid Width="1000" Canvas.Left="80">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="675"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btnRefresh" Grid.Row="1" Grid.Column="1" Width="100" Margin="564,8,-164,637" HorizontalAlignment="Center" Click="BtnRefresh_Click">Refresh</Button>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="170"></ColumnDefinition>
+                        <ColumnDefinition Width="120"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <ComboBox x:Name="cmbFacilityMaintenanceFields" Grid.Row="0" Height="30" Width="200"
+                      Margin="-40,48,50,-38" VerticalContentAlignment="Center" FontSize="16" HorizontalAlignment="Right"  />
+                    <TextBox x:Name="txtSearchItem" Grid.Row="0" Width="150" Background="LightGray" Height="30" 
+                     Margin="165,48,65,-38" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="16" Grid.ColumnSpan="2" />
+                    <Button x:Name="btnSearch" Grid.Row="0" Grid.Column="1" Width="100" Margin="110,48,0,-38" HorizontalAlignment="Left" Click="BtnSearch_Click" Grid.ColumnSpan="2">Search</Button>
+                </Grid>
+                <DataGrid x:Name="dgFacilityMaintenance" Grid.ColumnSpan="2" SelectionMode="Single"
+                   Padding="0"
+                  IsReadOnly="True" CanUserResizeRows="False" 
+                  CanUserResizeColumns="False" CanUserReorderColumns="False" Loaded="DgFacilityMaintenance_Loaded" MouseDoubleClick="dgFacilityMaintenance_MouseDoubleClick" Margin="-40,60,-164,55" Grid.Row="1" Grid.RowSpan="2"/>
+                <Grid Grid.Row="2" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="btnDeleteFacilityMaintenance" Margin="310,30,-160,0" Grid.Column="1" Width="100" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Height="30" Click="BtnDeleteFacilityMaintenance_Click">Deactivate Record</Button>
+
+                    <Grid Grid.Column="1" Margin="30,12,51,-12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label x:Name="lblActive" Grid.Row="0" HorizontalAlignment="Center">Active Maintenance Records</Label>
+                        <CheckBox x:Name="chkActive" Grid.Row="1" HorizontalAlignment="Center" IsChecked="True" Click="ChkActive_Click"></CheckBox>
+                    </Grid>
+                </Grid>
+
+                <Button x:Name="btnAddFacilityMaintenance" Margin="452,30,-52,0" Grid.Row="2" Grid.Column="1" Width="100" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Height="30" Click="BtnAddFacilityMaintenance_Click">Add Record</Button>
+
+            </Grid>
+        </Canvas>
+        <Canvas Height="845" Width=" 1280" x:Name="canAddFacilityMaintenance"  Visibility="Hidden">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="lblFacilityMaintenance" FontSize="36" VerticalAlignment="Center" Grid.Row="1" Margin="308,75,204,254">Enter Facility Maintenance Record</Label>
+                <Grid Grid.Row="1" Margin="100,201,-100,-201">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="39*"></RowDefinition>
+                        <RowDefinition Height="39*"></RowDefinition>
+                        <RowDefinition Height="39*"></RowDefinition>
+                        <RowDefinition Height="39*"></RowDefinition>
+                        <RowDefinition Height="33"></RowDefinition>
+                        <RowDefinition Height="0*"></RowDefinition>
+                        <RowDefinition Height="128"></RowDefinition>
+                        <RowDefinition Height="68*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="500"></ColumnDefinition>
+                        <ColumnDefinition Width="600"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <!--User ID-->
+                    <Label x:Name="lblUserID" Grid.Row="0" Grid.Column="0" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Left" Height="39" Width="91">User ID:</Label>
+                    <TextBox x:Name="txtUserID"  Grid.Row="0" Grid.Column="1" Background="LightGray" 
+                     Margin="25,4,25,5" VerticalContentAlignment="Center" FontSize="16" IsReadOnly="True"/>
+
+                    <!--Maintenance Name-->
+                    <Label x:Name="lblMaintenanceName" Grid.Row="1" Grid.Column="0" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Left" Height="39" Width="217">Maintenance Name:</Label>
+                    <TextBox x:Name="txtMaintenanceName"  Grid.Row="1" Grid.Column="1" Background="LightGray" 
+                     Margin="25,5,25,4" VerticalContentAlignment="Center" FontSize="16"/>
+
+                    <!--Maintnenance Interval-->
+                    <Label x:Name="lblMaintenanceInterval" Grid.Row="2" Grid.Column="0" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Left" Height="39" Width="236">Maintenance Interval:</Label>
+                    <TextBox  x:Name="txtMaintenanceInterval" Grid.Row="2" Grid.Column="1" Background="LightGray" 
+                      Margin="25,4,25,5" VerticalContentAlignment="Center" FontSize="16"/>
+
+                    <!--Maintenance Description-->
+                    <Label x:Name="lblMaintenanceDescription" Grid.Row="3" Grid.Column="0" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Left" Height="39" Width="274">Maintenance Description:</Label>
+                    <TextBox  x:Name="txtMaintenanceDescription" Grid.Row="3" Grid.Column="1" Background="LightGray" 
+                      Margin="25,5,25,4" VerticalContentAlignment="Center" FontSize="16"/>
+
+                    <!--Submit-->
+                    <Button x:Name="BtnSubmitMaintenanceRecord" Grid.Row="7" Grid.Column="1" 
+                    Width="100" Height="30"
+                    VerticalAlignment="Center" HorizontalAlignment="Center" Click="BtnSubmitMaintenanceRecord_Click" Margin="538,126,-38,-86">Submit</Button>
+
+                    <!--Update-->
+                    <Button x:Name="btnUpdateBuildingMaintenanceRecord" Grid.Row="7" Grid.Column="1" 
+                    Width="100" Visibility="Hidden" Height="30"
+                    VerticalAlignment="Center" HorizontalAlignment="Center" Margin="538,126,-38,-86" Click="btnUpdateBuildingMaintenanceRecord_Click">Update</Button>
+
+                    <!--Cancel-->
+                    <Button x:Name="btnCancelMaintenanceRecord" Grid.Row="7" Grid.Column="1" 
+                     Width="100" Height="30"
+                     VerticalAlignment="Center" HorizontalAlignment="Center" Click="BtnCancelMaintenanceRecord_Click" Margin="433,126,67,-86">Cancel</Button>
+
+
+                </Grid>
+
+            </Grid>
+
+
+        </Canvas>
+    </Canvas>
+</Page>

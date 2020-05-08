@@ -1,0 +1,82 @@
+﻿<!-- CREATOR: Steve Coonrod
+     CREATED: 2/8/2020
+     APPROVER: Ryan Morganti
+     
+     This window is used for deleting an event, UC-608(DeleteEvent) 
+      
+     UPDATE BY: NA
+     UPDATE DATE: NA
+     CHANGE: NA -->
+<Window x:Class="WPFPresentationLayer.RecruitingPages.frmDeleteEvent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFPresentationLayer"
+        mc:Ignorable="d"
+        Title="Delete Event" Height="450" Width="300" Background="#fff8e3" 
+		WindowStartupLocation="CenterOwner" ResizeMode="NoResize" Loaded="Window_Loaded">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40"></RowDefinition>
+			<RowDefinition Height="140"></RowDefinition>
+			<RowDefinition Height="200"></RowDefinition>
+			<RowDefinition></RowDefinition>
+		</Grid.RowDefinitions>
+
+		<Label Grid.Row="0" FontSize="24" Foreground="#FF202020" Content="Delete Event" 
+			   VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+
+		<Image Grid.Row="1" x:Name="imgEvent" Margin="45 5">
+
+		</Image>
+
+
+		<Grid Grid.Row="2">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="30"></RowDefinition>
+				<RowDefinition Height="30"></RowDefinition>
+				<RowDefinition Height="30"></RowDefinition>
+				<RowDefinition Height="50"></RowDefinition>
+				<RowDefinition Height="30"></RowDefinition>
+				<RowDefinition Height="30"></RowDefinition>
+			</Grid.RowDefinitions>
+			<Label Grid.Row="0" x:Name="lblBannerPath" Content="Picture Banner Path"
+				  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+				   FontSize="12">
+			</Label>
+			<Label Grid.Row="1" x:Name="lblEventName" Content="Event Name"
+				  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+				   FontSize="16" FontWeight="DemiBold">
+			</Label>
+			<Label Grid.Row="2" Content="Location:"
+				  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+				   FontSize="14" FontWeight="DemiBold">
+			</Label>
+			<Label Grid.Row="3" x:Name="lblLocation" Content="Event Location"
+				  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+				   FontSize="12"  FontWeight="DemiBold">
+			</Label>
+			<Label Grid.Row="4" Content="Time:"
+				  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+				   FontSize="14" FontWeight="DemiBold">
+			</Label>
+			<Label Grid.Row="5" x:Name="lblEventTime" Content="Event Time"
+				  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+				   FontSize="14" FontWeight="DemiBold">
+			</Label>
+		</Grid>
+
+		<Grid Grid.Row="3">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition></ColumnDefinition>
+				<ColumnDefinition></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+			<Button x:Name="btnCancel" Margin="30 5" Background="#FF505050" FontSize="14" Foreground="#FFBBBBBB" 
+					Click="btnCancel_Click">Cancel</Button>
+			<Button x:Name="btnDelete" Grid.Column="1" Margin="30 5" Background="#FF506080" FontSize="14" Foreground="#FFBBBBBB" Click="btnDelete_Click"  
+					>Delete</Button>
+		</Grid>
+
+	</Grid>
+</Window>

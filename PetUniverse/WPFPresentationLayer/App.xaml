@@ -1,0 +1,21 @@
+﻿<Application x:Class="WPFPresentationLayer.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WPFPresentationLayer"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style TargetType="TabItem">
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+    </Application.Resources>
+</Application>

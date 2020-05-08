@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ABABE315-2FFF-4C0B-AE80-1D1C90EB1FA4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LogicLayerInterfaces</RootNamespace>
+    <AssemblyName>LogicLayerInterfaces</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Prod|AnyCPU'">
+    <OutputPath>bin\Prod\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IAdoptionAnimalManager.cs" />
+    <Compile Include="IAdoptionApplicationManager.cs" />
+    <Compile Include="IAdoptionAppointmentManager.cs" />
+    <Compile Include="IAdoptionCustomerManager.cs" />
+    <Compile Include="IAdoptionInterviewerManager.cs" />
+    <Compile Include="IAdoptionManager.cs" />
+    <Compile Include="IAnimalActivityManager.cs" />
+    <Compile Include="IAnimalHandlingManager.cs" />
+    <Compile Include="IAnimalKennelCleaningManager.cs" />
+    <Compile Include="IAnimalKennelManager.cs" />
+    <Compile Include="IAnimalManager.cs" />
+    <Compile Include="IAnimalMedicalHistoryManager.cs" />
+    <Compile Include="IAnimalPrescriptionManager.cs" />
+    <Compile Include="IAnimalStatusManager.cs" />
+    <Compile Include="IApplicantManager.cs" />
+    <Compile Include="IApplicationManager.cs" />
+    <Compile Include="IAppointmentManager.cs" />
+    <Compile Include="IAppointmentTypeManager.cs" />
+    <Compile Include="IAvailabilityManager.cs" />
+    <Compile Include="IBaseScheduleManager.cs" />
+    <Compile Include="ICustomerManager.cs" />
+    <Compile Include="IDepartmentManager.cs" />
+    <Compile Include="IDonationManager.cs" />
+    <Compile Include="IEmployeeAvailabilityManager.cs" />
+    <Compile Include="IERoleManager.cs" />
+    <Compile Include="IFacilityInspectionItemManager.cs" />
+    <Compile Include="IFacilityInspectionManager.cs" />
+    <Compile Include="IFacilityMaintenanceManager.cs" />
+    <Compile Include="IFacilityTaskManager.cs" />
+    <Compile Include="IFosterAppointmentManager.cs" />
+    <Compile Include="IHomeInspectorManager.cs" />
+    <Compile Include="IInHomeInspectionAppointmentDecisionManager.cs" />
+    <Compile Include="IInventoryItemsManager.cs" />
+    <Compile Include="IItemCategoryManager.cs" />
+    <Compile Include="IItemManager.cs" />
+    <Compile Include="IItemReportManager.cs" />
+    <Compile Include="IJobListingManager.cs" />
+    <Compile Include="ILocationManager.cs" />
+    <Compile Include="ILogManager.cs" />
+    <Compile Include="IMedicineManager.cs" />
+    <Compile Include="IMessagesManager.cs" />
+    <Compile Include="INewAnimalChecklistManager.cs" />
+    <Compile Include="IOrderItemLineManager.cs" />
+    <Compile Include="IOrderLineManager.cs" />
+    <Compile Include="IOrderManager.cs" />
+    <Compile Include="IPetUniverseUserERolesManager.cs" />
+    <Compile Include="IPictureManager.cs" />
+    <Compile Include="IPoSCustomerPortalManager.cs" />
+    <Compile Include="IProductManager.cs" />
+    <Compile Include="IManageBackstockRecords.cs" />
+    <Compile Include="IPUEventManager.cs" />
+    <Compile Include="IReceivingRecordManager.cs" />
+    <Compile Include="IRequestManager.cs" />
+    <Compile Include="ISalesDataManager.cs" />
+    <Compile Include="ISalesTaxManager.cs" />
+    <Compile Include="IScheduleHoursManager.cs" />
+    <Compile Include="IScheduleManager.cs" />
+    <Compile Include="IShiftManager.cs" />
+    <Compile Include="IShiftTimeManager.cs" />
+    <Compile Include="IShipperManager.cs" />
+    <Compile Include="ISpecialOrderItemLineManager.cs" />
+    <Compile Include="ISpecialOrderManager.cs" />
+    <Compile Include="IStatusManager.cs" />
+    <Compile Include="ITrainingVideoManager.cs" />
+    <Compile Include="ITransactionAdminManager.cs" />
+    <Compile Include="ITransactionManager.cs" />
+    <Compile Include="ITreatmentRecordManager.cs" />
+    <Compile Include="IUserManager.cs" />
+    <Compile Include="IVendorManager.cs" />
+    <Compile Include="IVetAppointmentManager.cs" />
+    <Compile Include="IVolunteerEventManager.cs" />
+    <Compile Include="IVolunteerManager.cs" />
+    <Compile Include="IVolunteerShiftManager.cs" />
+    <Compile Include="IVolunteerTaskManager.cs" />
+    <Compile Include="IPromotionManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessInterfaces\DataAccessInterfaces.csproj">
+      <Project>{c9c0c512-dbd6-4250-b98f-1b50e597bdef}</Project>
+      <Name>DataAccessInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataTransferObjects\DataTransferObjects.csproj">
+      <Project>{B3679B25-08AD-45B6-9057-5784C8CCF5F7}</Project>
+      <Name>DataTransferObjects</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

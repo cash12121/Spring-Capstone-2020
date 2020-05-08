@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\MSTest.TestAdapter.2.1.1\build\net45\MSTest.TestAdapter.props" Condition="Exists('..\packages\MSTest.TestAdapter.2.1.1\build\net45\MSTest.TestAdapter.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{11DF1AA3-CB54-4FB2-93F1-57C91B7C50F1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LogicLayerTests</RootNamespace>
+    <AssemblyName>LogicLayerTests</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Prod|AnyCPU'">
+    <OutputPath>bin\Prod\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSTest.TestFramework.2.1.1\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSTest.TestFramework.2.1.1\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdoptionAnimalManagerTests.cs" />
+    <Compile Include="AdoptionApplicationManagerTests.cs" />
+    <Compile Include="AdoptionAppointmentManagerTests.cs" />
+    <Compile Include="AdoptionCustomerManagerTests.cs" />
+    <Compile Include="AdoptionInterviewerManagerTestes.cs" />
+    <Compile Include="AnimalActivityManagerTests.cs" />
+    <Compile Include="AnimalChecklistManagerTests.cs" />
+    <Compile Include="AnimalHandlingManagerTests.cs" />
+    <Compile Include="AnimalKennelCleaningManagerTests.cs" />
+    <Compile Include="AnimalKennelManagerTests.cs" />
+    <Compile Include="AnimalManagerTests.cs" />
+    <Compile Include="AnimalMedicalHistoryManagerTests.cs" />
+    <Compile Include="AnimalStatusManagerTests.cs" />
+    <Compile Include="AppointmentTypeManagerTests.cs" />
+    <Compile Include="AvailabilityManagerTests.cs" />
+    <Compile Include="BaseScheduleManagerTests.cs" />
+    <Compile Include="DonationManagerTests.cs" />
+    <Compile Include="EmployeeAvailabilityManagerTests.cs" />
+    <Compile Include="FacilityInspectionItemManagerTests.cs" />
+    <Compile Include="FacilityInspectionManagerTests.cs" />
+    <Compile Include="FosterAppointmentManagerTests.cs" />
+    <Compile Include="ItemReportManagerTests.cs" />
+    <Compile Include="LocationManagerTests.cs" />
+    <Compile Include="MedicineManagerTests.cs" />
+    <Compile Include="MessagesTests.cs" />
+    <Compile Include="OrderLineManagerTests.cs" />
+    <Compile Include="OrderManagerTests.cs" />
+    <Compile Include="PetUniverseUserERolesManagerTests.cs" />
+    <Compile Include="PoSCustomerPortalTests.cs" />
+    <Compile Include="ProductManagerTests.cs" />
+    <Compile Include="AnimalPrescriptionManagerTests.cs" />
+    <Compile Include="ApplicantManagerTests.cs" />
+    <Compile Include="AppointmentManagerTest.cs" />
+    <Compile Include="BackRecordMangerTester.cs" />
+    <Compile Include="CustomerManagerTests.cs" />
+    <Compile Include="DepartmentManagerTests.cs" />
+    <Compile Include="ERoleManagerTests.cs" />
+    <Compile Include="EventManagerTests.cs" />
+    <Compile Include="FacilityMaintenanceManagerTests.cs" />
+    <Compile Include="HomeInspectorManagerTest.cs" />
+    <Compile Include="InHomeInspectionAppointmentDecisionManagerTests.cs" />
+    <Compile Include="InventoryItemsManagerTests.cs" />
+    <Compile Include="ItemCategoryManagerTests.cs" />
+    <Compile Include="ItemManagerTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="LogManagerTests.cs" />
+    <Compile Include="ReceivingRecordManagerTests.cs" />
+    <Compile Include="RequestManagerTests.cs" />
+    <Compile Include="ReviewerManagerTest.cs" />
+    <Compile Include="SalesTaxManagerTests.cs" />
+    <Compile Include="ScheduleHoursManagerTests.cs" />
+    <Compile Include="ScheduleManagerTests.cs" />
+    <Compile Include="ShiftManagerTests.cs" />
+    <Compile Include="ShiftTimeManagerTests.cs" />
+    <Compile Include="ShipperManagerTests.cs" />
+    <Compile Include="SpecialOrderManagerTests.cs" />
+    <Compile Include="StatusManagerTests.cs" />
+    <Compile Include="TrainingVideoTests.cs" />
+    <Compile Include="TransactionAdminTests.cs" />
+    <Compile Include="TransactionManagerTests.cs" />
+    <Compile Include="PromotionManagerTests.cs" />
+    <Compile Include="SalesDataManagerTests.cs" />
+    <Compile Include="PictureManagerTests.cs" />
+    <Compile Include="FacilityTaskManagerTests.cs" />
+    <Compile Include="TreatmentRecordTests.cs" />
+    <Compile Include="UserManagerTests.cs" />
+    <Compile Include="VendorManagerTests.cs" />
+    <Compile Include="VetAppointmentManagerTests.cs" />
+    <Compile Include="VolunteerEventTests.cs" />
+    <Compile Include="VolunteerManagerTests.cs" />
+    <Compile Include="VolunteerShiftTests.cs" />
+    <Compile Include="VolunteerTaskManagerTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessFakes\DataAccessFakes.csproj">
+      <Project>{c6fd50e2-3d51-419b-9a9f-2bbe84cb74ad}</Project>
+      <Name>DataAccessFakes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccessInterfaces\DataAccessInterfaces.csproj">
+      <Project>{C9C0C512-DBD6-4250-B98F-1B50E597BDEF}</Project>
+      <Name>DataAccessInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataTransferObjects\DataTransferObjects.csproj">
+      <Project>{b3679b25-08ad-45b6-9057-5784c8ccf5f7}</Project>
+      <Name>DataTransferObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogicLayerInterfaces\LogicLayerInterfaces.csproj">
+      <Project>{ababe315-2fff-4c0b-ae80-1d1c90eb1fa4}</Project>
+      <Name>LogicLayerInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogicLayer\LogicLayer.csproj">
+      <Project>{2d19b84b-f8e1-41fd-ab21-df4953181871}</Project>
+      <Name>LogicLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MSTest.TestAdapter.2.1.1\build\net45\MSTest.TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.2.1.1\build\net45\MSTest.TestAdapter.props'))" />
+    <Error Condition="!Exists('..\packages\MSTest.TestAdapter.2.1.1\build\net45\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.2.1.1\build\net45\MSTest.TestAdapter.targets'))" />
+  </Target>
+  <Import Project="..\packages\MSTest.TestAdapter.2.1.1\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.2.1.1\build\net45\MSTest.TestAdapter.targets')" />
+</Project>

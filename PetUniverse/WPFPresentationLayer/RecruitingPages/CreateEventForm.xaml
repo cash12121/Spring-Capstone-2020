@@ -1,0 +1,215 @@
+﻿<!-- CREATOR: Steve Coonrod
+     CREATED: 2/8/2020
+     APPROVER: Ryan Morganti 
+     
+     This window is used for creating and editing an event, UC-606 & UC-607 
+      
+     UPDATE BY: NA
+     UPDATE DATE: NA
+     CHANGE: NA -->
+<Page x:Class="WPFPresentationLayer.RecruitingPages.CreateEventForm"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFPresentationLayer.RecruitingPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="900"
+      Title="CreateEventForm" Loaded="Page_Loaded" Background="#2e3137">
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="60"></RowDefinition>
+			<!-- Header Row -->
+			<RowDefinition></RowDefinition>
+			<!-- Main Body Row -->
+			<RowDefinition Height="60"></RowDefinition>
+			<!-- Footer Row -->
+		</Grid.RowDefinitions>
+
+		<Grid Grid.Row="0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="200"></ColumnDefinition>
+				<ColumnDefinition></ColumnDefinition>
+				<ColumnDefinition Width="200"></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+			<Label x:Name="lblUserID" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+			   FontSize="20" Foreground="#fff8e3" FontWeight="DemiBold" Content="UserID"></Label>
+			<Label x:Name="lblHeader" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+			   FontSize="30" Foreground="#fff8e3" FontWeight="DemiBold" Content="Create an Event"></Label>
+		</Grid>
+
+
+		<!-- Start Main Body Row -->
+		<Grid Grid.Row="1" Margin="50 0 0 0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition></ColumnDefinition>
+				<ColumnDefinition></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+
+			<Grid Grid.Column="0">
+				<!-- Right Column -->
+				<Grid.RowDefinitions>
+					<RowDefinition Height="200"></RowDefinition>
+					<RowDefinition Height="50"></RowDefinition>
+					<RowDefinition></RowDefinition>
+				</Grid.RowDefinitions>
+				<Image Grid.Row="0" x:Name="picEventPicture" Height="200" Width="300"></Image>
+				<Grid Grid.Row="1">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="120"></ColumnDefinition>
+						<ColumnDefinition></ColumnDefinition>
+					</Grid.ColumnDefinitions>
+					<Button x:Name="btnChoosePicture" Grid.Column="0" Margin="10" Click="btnChoosePicture_Click">Picture File</Button>
+					<TextBox x:Name="txtPictureFileName" Grid.Column="1" Margin="10" Background="#fff8e3" Foreground="#FF303030"></TextBox>
+				</Grid>
+				<Grid Grid.Row="3">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition></ColumnDefinition>
+						<ColumnDefinition></ColumnDefinition>
+					</Grid.ColumnDefinitions>
+					<Calendar x:Name="calendar" Grid.Column="0" VerticalAlignment="Center" 
+							  Background="#fff8e3" Foreground="#FF303030" SelectedDatesChanged="calendar_SelectedDatesChanged"></Calendar>
+					<Grid Grid.Column="1">
+						<Grid.RowDefinitions>
+							<RowDefinition></RowDefinition>
+							<RowDefinition></RowDefinition>
+							<RowDefinition></RowDefinition>
+							<RowDefinition></RowDefinition>
+						</Grid.RowDefinitions>
+						<Label x:Name="lblDate" Grid.Row="0" Foreground="#fff8e3" FontSize="16" FontWeight="DemiBold"
+							   VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center">Date of Event:</Label>
+						<TextBox x:Name="txtDate" Grid.Row="1" Height="30" Width="175" Background="#fff8e3" Foreground="#FF303030"
+								 FontSize="16" FontWeight="DemiBold" HorizontalContentAlignment="Center" IsReadOnly="True">Today</TextBox>
+						<Label x:Name="lblTime" Grid.Row="2" Foreground="#fff8e3" FontSize="16" FontWeight="DemiBold"
+							   VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" VerticalAlignment="Center">Time of Event:</Label>
+						<Grid Grid.Row="3">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition></ColumnDefinition>
+								<ColumnDefinition></ColumnDefinition>
+								<ColumnDefinition></ColumnDefinition>
+							</Grid.ColumnDefinitions>
+							<ComboBox x:Name="cboHour" Grid.Column="0" Height="30" Margin="10 0 0 0" FontWeight="DemiBold" Background="#fff8e3"
+									 Foreground="#FF303030" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" 
+									  VerticalAlignment="Top" SelectedValuePath="Content"></ComboBox>
+							<ComboBox x:Name="cboMinute" Grid.Column="1" Height="30" Margin="10 0 0 0" FontWeight="DemiBold" Background="#fff8e3"
+									 Foreground="#FF303030" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" 
+									  VerticalAlignment="Top"></ComboBox>
+							<ComboBox x:Name="cboAMPM" Grid.Column="2" Height="30" Margin="10 0 0 0" Background="#fff8e3" FontWeight="DemiBold"
+									 Foreground="#FF303030" FontSize="18" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" 
+									  VerticalAlignment="Top"></ComboBox>
+						</Grid>
+					</Grid>
+				</Grid>
+
+			</Grid>
+			<!-- End Right Column -->
+
+			<!-- Left Column -->
+			<Grid Grid.Column="1" Margin="0 0 50 0">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="40"></RowDefinition>
+					<RowDefinition Height="40"></RowDefinition>
+					<RowDefinition Height="40"></RowDefinition>
+					<RowDefinition Height="40"></RowDefinition>
+					<RowDefinition Height="40"></RowDefinition>
+					<RowDefinition Height="40"></RowDefinition>
+					<RowDefinition Height="40"></RowDefinition>
+					<RowDefinition></RowDefinition>
+				</Grid.RowDefinitions>
+				<Grid Grid.Row="0">
+					<!-- Name Row -->
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="105"></ColumnDefinition>
+						<ColumnDefinition></ColumnDefinition>
+					</Grid.ColumnDefinitions>
+					<Label Grid.Column="0" Foreground="#fff8e3" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+					   FontSize="16" FontWeight="DemiBold">Event Name:</Label>
+					<TextBox x:Name="txtEventName" Grid.Column="1" Height="30" Background="#fff8e3" Foreground="#FF303030" FontSize="16" FontWeight="DemiBold"
+							 VerticalContentAlignment="Center" Margin="0 0 5 0"></TextBox>
+				</Grid>
+				<!-- End Name Row -->
+
+				<Grid Grid.Row="1">
+					<!-- Type Row -->
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="105"></ColumnDefinition>
+						<ColumnDefinition></ColumnDefinition>
+					</Grid.ColumnDefinitions>
+					<Label Grid.Column="0" Foreground="#fff8e3" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+					   FontSize="16" FontWeight="DemiBold">Event Type:</Label>
+					<ComboBox x:Name="cboEventType" Grid.Column="1" Height="30" Background="#fff8e3" Foreground="#FF303030" FontSize="16" FontWeight="DemiBold"
+							 VerticalContentAlignment="Center" Margin="0 0 5 0"></ComboBox>
+				</Grid>
+				<!-- End Type Row -->
+
+				<Label Grid.Row="2" Foreground="#fff8e3" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+					   FontSize="16" FontWeight="DemiBold">Event Location:</Label>
+				<Grid Grid.Row="3">
+					<!-- Address Row -->
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="60"></ColumnDefinition>
+						<ColumnDefinition></ColumnDefinition>
+					</Grid.ColumnDefinitions>
+					<Label Grid.Column="0" Foreground="#fff8e3" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"
+					   FontSize="12" FontWeight="DemiBold">Address:</Label>
+					<TextBox x:Name="txtAddress" Grid.Column="1" Height="30" Background="#fff8e3" Foreground="#FF303030" FontSize="16" FontWeight="DemiBold"
+							 VerticalContentAlignment="Center" Margin="0 0 5 0"></TextBox>
+				</Grid>
+				<!-- End Address Row -->
+
+				<Grid Grid.Row="4">
+					<!-- City Row -->
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="60"></ColumnDefinition>
+						<ColumnDefinition></ColumnDefinition>
+					</Grid.ColumnDefinitions>
+					<Label Grid.Column="0" Foreground="#fff8e3" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"
+					   FontSize="12" FontWeight="DemiBold">City:</Label>
+					<TextBox x:Name="txtCity" Grid.Column="1" Height="30" Background="#fff8e3" Foreground="#FF303030" FontSize="16" FontWeight="DemiBold"
+							 VerticalContentAlignment="Center" Margin="0 0 5 0"></TextBox>
+				</Grid>
+				<!-- End City Row -->
+
+				<Grid Grid.Row="5">
+					<!-- StateZip Row -->
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="60"></ColumnDefinition>
+						<ColumnDefinition></ColumnDefinition>
+						<ColumnDefinition Width="75"></ColumnDefinition>
+						<ColumnDefinition></ColumnDefinition>
+					</Grid.ColumnDefinitions>
+					<Label Grid.Column="0" Foreground="#fff8e3" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"
+					   FontSize="12" FontWeight="DemiBold">State:</Label>
+					<ComboBox x:Name="cboState" Grid.Column="1" Height="30" Background="#fff8e3" Foreground="#FF303030" FontSize="16" FontWeight="DemiBold"
+							 VerticalContentAlignment="Center" Margin="0 0 5 0"/>
+					<Label Grid.Column="2" Foreground="#fff8e3" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"
+					   FontSize="12" FontWeight="DemiBold">Zip Code:</Label>
+					<TextBox x:Name="txtZip" Grid.Column="3" Height="30" Background="#fff8e3" Foreground="#FF303030" FontSize="16" FontWeight="DemiBold"
+							 VerticalContentAlignment="Center" Margin="0 0 5 0"></TextBox>
+				</Grid>
+				<!-- End StateZip Row -->
+
+				<Label Grid.Row="6" Foreground="#fff8e3" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+					   FontSize="16" FontWeight="DemiBold">Description:</Label>
+				<TextBox x:Name="txtDescription" Grid.Row="7" Margin="5" Background="#fff8e3" Foreground="#FF303030" 
+						 FontSize="16" TextWrapping="Wrap" VerticalContentAlignment="Top"
+						 Text="Enter a Description"></TextBox>
+			</Grid>
+			<!-- End Left Column -->
+		</Grid>
+		<!-- End Main Body Row -->
+
+		<!-- Start Footer Row -->
+		<Grid Grid.Row="2">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition></ColumnDefinition>
+				<ColumnDefinition></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+			<Button x:Name="btnCancel" Width="120" Height="40" Background="#FFAAAAAA" FontSize="16" Foreground="#FF303030" Click="BtnCancel_Click">Cancel</Button>
+			<Button x:Name="btnSubmitCreate" Grid.Column="1" Width="120" Height="40" Background="#FF707080" FontSize="16" Foreground="#FFBBBBBB" Click="BtnSubmitCreate_Click">Create Event</Button>
+			<Button x:Name="btnSubmitEdit" Grid.Column="1" Width="120" Height="40" Background="#FF707080" FontSize="16" Foreground="#FFBBBBBB" Click="BtnSubmitEdit_Click">Edit Event</Button>
+		</Grid>
+		<!-- End Footer Row -->
+	</Grid>
+</Page>

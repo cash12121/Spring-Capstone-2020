@@ -1,0 +1,27 @@
+﻿@model DataTransferObjects.EventApprovalVM
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/views/Shared/_InternalLayout.cshtml";
+}
+
+<h2 style="color:orangered">@Model.EventName</h2>
+
+<div>
+    <br /><br />
+    <h3 style="color:orangered">When</h3>
+    <h4>@Model.EventDateTime.Date.ToLongDateString() <br />At @Model.EventDateTime.ToLongTimeString()</h4>
+    <br />
+    <h3 style="color:orangered">Where</h3>
+    <h4>@Model.Address <br />@Model.City, @Model.State @Model.Zipcode</h4>
+    <br />
+    <h3 style="color:orangered">Details</h3>
+    <h4>@Model.Description</h4>
+    <br />
+    <h3 style="color:orangered">Created By</h3>
+    <h4>@Model.RequestedByName</h4>
+
+</div>
+<div>
+    <button class="btn btn-sm">@Html.ActionLink("Back To Events", "Index", "Events")</button>
+</div>

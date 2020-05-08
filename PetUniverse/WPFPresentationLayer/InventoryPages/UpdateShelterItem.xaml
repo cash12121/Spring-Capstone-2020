@@ -1,0 +1,76 @@
+﻿<!-- CREATED BY: Matt Deaton
+    DATE: 2020-06-03
+    CHECKED BY: Steven Coonrod
+        
+    This page is for Updating a Item that is already in the Shelter Inventory-->
+
+
+<Page x:Class="WPFPresentationLayer.InventoryPages.UpdateShelterItem"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFPresentationLayer.InventoryPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UpdateShelterItem">
+
+    <Grid Loaded="Grid_Loaded">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="90"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label x:Name="lblShelterInventoryHeader" Content="Update Shelter Item" VerticalAlignment="Center"
+               HorizontalAlignment="Center" FontWeight="DemiBold" FontSize="30" FontStyle="Italic" Grid.ColumnSpan="2"></Label>
+
+        <Label x:Name="lblDonorNameID" Grid.Column="2" Content="Donor Name and ID" VerticalAlignment="Center"
+               HorizontalAlignment="Center" FontWeight="DemiBold" FontSize="30" FontStyle="Italic" Grid.ColumnSpan="2"></Label>
+
+        <Label x:Name="lblItemName" Grid.Row="1" Grid.Column="0"
+               HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18">Item Name:</Label>
+        <TextBox x:Name="txtItemName" Grid.Row="1" Grid.Column="1"
+                 VerticalAlignment="Center" Margin="20 0" FontSize="18"/>
+
+        <Label x:Name="lblShelterItem" Grid.Row="1" Grid.Column="2"
+               HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18">For Shelter Use:</Label>
+        <CheckBox x:Name="chkShelterItem" Grid.Row="1" Grid.Column="3"
+                  HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="False" IsChecked="True"></CheckBox>
+
+        <Label x:Name="lblItemQty" Grid.Row="2" Grid.Column="0"
+               HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18">Item Quantity:</Label>
+        <TextBox x:Name="txtItemQty" Grid.Row="2" Grid.Column="1"
+                 VerticalAlignment="Center" Margin="20 0" FontSize="18"></TextBox>
+
+        <Label x:Name="lblShelterThreshold" Grid.Row="2" Grid.Column="2"
+               HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18">Shelter Theshold:</Label>
+        <TextBox x:Name="txtShelterThreshold" Grid.Row="2" Grid.Column="3"
+                 VerticalAlignment="Center" Margin="20 0" FontSize="18"></TextBox>
+
+        <Label x:Name="lblCategory" Grid.Row="3" Grid.Column="0"
+               HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18">Item Category:</Label>
+        <ComboBox x:Name="cboBxCategory" Grid.Row="3" Grid.Column="1"
+                  Margin="20 20" VerticalAlignment="Center" FontSize="18" Loaded="cboBxCategory_Loaded"></ComboBox>
+
+        <Label x:Name="lblItemDesc" Grid.Row="4" Grid.Column="0" 
+               VerticalAlignment="Center" FontSize="18" HorizontalAlignment="Right">Item Description:</Label>
+        <TextBox x:Name="txtItemDesc" Grid.Row="4" Grid.Column="1"
+                 VerticalAlignment="Center" Margin="7" TextWrapping="Wrap" AcceptsReturn="True"
+                 VerticalScrollBarVisibility="Visible" SpellCheck.IsEnabled="True" FontSize="14" Height="80"></TextBox>
+
+        <Button x:Name="btnCancel" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"
+                Width="150" Height="40" FontSize="16" Padding="15 0" Click="btnCancel_Click" >Cancel</Button>
+        <Button x:Name="btnSaveUpdate" Grid.Row="5" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"
+                Width="150" Height="40" FontSize="16" Padding="15 0" Click="btnSaveUpdate_Click" >Save Update</Button>
+    </Grid>
+</Page>

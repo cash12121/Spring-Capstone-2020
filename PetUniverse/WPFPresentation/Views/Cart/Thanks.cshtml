@@ -1,0 +1,27 @@
+﻿@*
+    Creator: Robert Holmes
+    Created: 04/29/2020
+    Approver:
+
+    Page thanking the user for their purchase.
+    Updater:
+    Updated:
+    Update:
+*@
+@{
+    ViewBag.Title = "Thanks";
+}
+
+<div class="container">
+    <div class="flex-row text-center">
+        <h1 class="my-2">Thanks</h1>
+    </div>
+    <div class="flex-row text-center">
+        <p>Thank you for your purchase.</p>
+    </div>
+    <div class="flex-row col text-center">
+        @Html.ActionLink("Return to Pet Universe home page", actionName: "Index", controllerName: "Home", routeValues: null, htmlAttributes: new { @class = "btn btn-primary" })
+    </div>
+</div>
+
+

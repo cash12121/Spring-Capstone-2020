@@ -1,0 +1,89 @@
+﻿@*
+    Creator: Robert Holmes
+    Created: 04/29/2020
+    Approver:
+
+    Page for collecting payment information from the user.
+    Updater:
+    Updated:
+    Update:
+*@
+@model WPFPresentation.Models.CompleteCheckoutViewModel
+@{
+    ViewBag.Title = "Review and Submit Payment";
+    string clientSecret = ViewData["ClientSecret"].ToString();
+}
+@section Scripts{
+    <script type="text/javascript">
+        var publicKey = '@StripeKey.PublicKey';
+        var clientSecret = '@clientSecret';
+        var billingAddressLine1 = '@Model.OrderDetails.BillingAddressLine1';
+        var billingAddressLine2 = '@Model.OrderDetails.BillingAddressLine2';
+        var billingCity = '@Model.OrderDetails.BillingCity';
+        var billingCountry = '@Model.OrderDetails.BillingCountry';
+        var billingPostalCode = '@Model.OrderDetails.BillingPostalCode'
+        var billingState = '@Model.OrderDetails.BillingState';
+        var billingName = '@Model.OrderDetails.CustomerName';
+        var billingPhone = '@Model.OrderDetails.CustomerPhone';
+        var customerEmail = '@Model.OrderDetails.Email';
+        var shippingAddressLine1 = '@Model.OrderDetails.ShippingAddressLine1';
+        var shippingAddressLine2 = '@Model.OrderDetails.ShippingAddressLine2';
+        var shippingCity = '@Model.OrderDetails.ShippingCity';
+        var shippingCountry = '@Model.OrderDetails.ShippingCountry';
+        var shippingPostalCode = '@Model.OrderDetails.ShippingPostalCode';
+        var shippingState = '@Model.OrderDetails.ShippingState';
+        var shippingName = '@Model.OrderDetails.ShippingName';
+        var shippingPhone = '@Model.OrderDetails.ShippingPhone';
+    </script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="~/Scripts/payment-scripts.js"></script>
+}
+<div class="d-flex m-4">
+    <h2>@ViewBag.Title</h2>
+</div>
+@Html.Partial("_ConfirmCartPartial", Model.Cart)
+<div class="container">
+    <div class="flex-row text-right">
+        <h4>Subtotal: @Model.Subtotal.ToString("C")</h4>
+    </div>
+    <div class="flex-row text-right">
+        <h4>Tax: @Model.TaxAmount.ToString("C")</h4>
+    </div>
+    <div class="flex-row text-right">
+        <h3>Total: @Model.Total.ToString("C")</h3>
+    </div>
+</div>
+<form action="/Cart/Thanks" method="post" id="payment-form">
+    <div class="payment-info card visible">
+        <fieldset>
+            <label>
+                <span>Card</span>
+                <div style="width:30em" id="card-element" class="field"><!--Gets injected with Stripe form--></div>
+            </label>
+        </fieldset>
+    </div>
+    <!-- Used to display form errors. -->
+    <div id="card-errors" role="alert"></div>
+    @Html.HiddenFor(m => m.OrderDetails.BillingAddressLine1)
+    @Html.HiddenFor(m => m.OrderDetails.BillingAddressLine2)
+    @Html.HiddenFor(m => m.OrderDetails.BillingCity)
+    @Html.HiddenFor(m => m.OrderDetails.BillingCountry)
+    @Html.HiddenFor(m => m.OrderDetails.BillingPostalCode)
+    @Html.HiddenFor(m => m.OrderDetails.BillingState)
+    @Html.HiddenFor(m => m.OrderDetails.Email)
+    @Html.HiddenFor(m => m.OrderDetails.CustomerName)
+    @Html.HiddenFor(m => m.OrderDetails.CustomerPhone)
+    @Html.HiddenFor(m => m.OrderDetails.ShippingAddressLine1)
+    @Html.HiddenFor(m => m.OrderDetails.ShippingAddressLine2)
+    @Html.HiddenFor(m => m.OrderDetails.ShippingCity)
+    @Html.HiddenFor(m => m.OrderDetails.ShippingCountry)
+    @Html.HiddenFor(m => m.OrderDetails.ShippingName)
+    @Html.HiddenFor(m => m.OrderDetails.ShippingPhone)
+    @Html.HiddenFor(m => m.OrderDetails.ShippingPostalCode)
+    @Html.HiddenFor(m => m.OrderDetails.ShippingState)
+    @Html.HiddenFor(m => m.OrderDetails.TaxRate)
+    <div class="flex-row justify-content-center">
+        <button type="submit" id="submit-button" class="col btn btn-lg btn-primary my-2" value="Submit Payment">Submit Payment</button>
+    </div>
+</form>
+

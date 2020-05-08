@@ -1,0 +1,35 @@
+﻿@model IEnumerable<DataTransferObjects.RecurringDonationVM>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DonationAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Interval)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DonationAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IntervalVM)
+        </td>
+        <td>
+            @Html.ActionLink("Cancel Recurring Donation", "CancelRecurringDonation", new { id = item.RecurringDonationID })
+        </td>
+    </tr>
+}
+
+</table>

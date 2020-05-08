@@ -1,0 +1,112 @@
+﻿<!-- CREATOR: Steve Coonrod
+     CREATED: 2/8/2020
+     APPROVER: Ryan Morganti 
+     
+     This is the main window for all event related activities 
+      
+     UPDATE BY: NA
+     UPDATE DATE: NA
+     CHANGE: NA -->
+<Page x:Class="WPFPresentationLayer.RecruitingPages.EventMgmt"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFPresentationLayer.RecruitingPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="845" d:DesignWidth="1280"
+      Title="EventMgmt" Height="845" Width="1280" Loaded="Page_Loaded" Background="#2e3137">
+
+	<Canvas x:Name="canViewDonRec" Height="780" Width="1280">
+		<Grid x:Name="grdEventMgmt" Width="1280">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="50"></RowDefinition>
+				<RowDefinition Height="35"></RowDefinition>
+				<RowDefinition Height="650"></RowDefinition>
+				<RowDefinition Height="30"></RowDefinition>
+			</Grid.RowDefinitions>
+			<Label Grid.Row="0" x:Name="lblEventMgmtHeader"
+				   Foreground="#fff8e3"
+				   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+				   FontSize="28" FontWeight="Bold"
+				   Content="Events">
+			</Label>
+
+			<Grid Grid.Row="1">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition></ColumnDefinition>
+					<ColumnDefinition></ColumnDefinition>
+					<ColumnDefinition></ColumnDefinition>
+					<ColumnDefinition></ColumnDefinition>
+					<ColumnDefinition></ColumnDefinition>
+					<ColumnDefinition></ColumnDefinition>
+					<ColumnDefinition></ColumnDefinition>
+					<ColumnDefinition></ColumnDefinition>
+					<ColumnDefinition></ColumnDefinition>
+				</Grid.ColumnDefinitions>
+				<Button x:Name="btnCreateEvent"
+					Grid.Column="0"
+					FontSize="16" FontWeight="DemiBold"
+					Click="btnCreateEvent_Click"
+					Content="Add New Event" 
+				></Button>
+				<Button x:Name="btnEditEvent"
+					Grid.Column="1"
+					FontSize="16" FontWeight="DemiBold"
+					Click="btnEditEvent_Click"
+					Content="Edit Event" 
+				></Button>
+				<Button x:Name="btnDeleteEvent"
+					Grid.Column="2"
+					FontSize="16" FontWeight="DemiBold"
+					Click="btnDeleteEvent_Click"
+					Content="Delete Event" 
+				></Button>
+				<Button x:Name="btnViewEventDetails"
+					Grid.Column="4"
+					FontSize="16" FontWeight="DemiBold"
+					Click="btnViewEventDetails_Click"
+					Content="View Details" 
+				></Button>
+				<Button x:Name="btnReviewEvent"
+					Grid.Column="5"
+					FontSize="16" FontWeight="DemiBold"
+					Click="btnReviewEvent_Click"
+					Content="Review Event" 
+				></Button>
+			</Grid>
+
+			<Grid Grid.Row="2">
+				<TabControl TabStripPlacement="Bottom" SelectionChanged="TabControl_SelectionChanged">
+					<TabItem x:Name="tabAllEvents" Header="All Events" Height="30" FontSize="14" FontWeight="DemiBold">
+						<Frame x:Name="frAllEvents" Source="./ListAllEvents.xaml" NavigationUIVisibility="Hidden"></Frame>
+					</TabItem>
+					<TabItem x:Name="tabPendingEvents" Header="Pending Approval" Height="30" FontSize="14" FontWeight="DemiBold" >
+						<Frame x:Name="frPendingEvents" Source="./ListPendingEvents.xaml" NavigationUIVisibility="Hidden"></Frame>
+					</TabItem>
+					<TabItem x:Name="tabApprovedEvents" Header="Active Events" Height="30" FontSize="14" FontWeight="DemiBold">
+						<Frame x:Name="frApprovedEvents" Source="./ListApprovedEvents.xaml" NavigationUIVisibility="Hidden"></Frame>
+					</TabItem>
+					<TabItem x:Name="tabEventApprovalForm" Height="30" Width="30" Visibility="Hidden">
+						<Frame x:Name="frEventApprovalForm" Source="./EventApprovalForm.xaml" NavigationUIVisibility="Hidden"></Frame>
+					</TabItem>
+
+				</TabControl>
+			</Grid>
+
+			<Grid Grid.Row="2" x:Name="grdCreateEditEvent" Visibility="Hidden">
+				<Frame x:Name="frCreateEditEvent" Source="./CreateEventForm.xaml" NavigationUIVisibility="Hidden"></Frame>
+			</Grid>
+
+			<!-- The Bottom Grid Row -->
+			<Grid Grid.Row="3">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition></ColumnDefinition>
+					<ColumnDefinition></ColumnDefinition>
+					<ColumnDefinition></ColumnDefinition>
+				</Grid.ColumnDefinitions>
+			</Grid>
+		</Grid>
+		<!-- End Grd EventMgmt -->
+	</Canvas>
+</Page>

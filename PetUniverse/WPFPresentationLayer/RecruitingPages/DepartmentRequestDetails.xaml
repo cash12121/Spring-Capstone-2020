@@ -1,0 +1,142 @@
+﻿<Page x:Class="WPFPresentationLayer.RecruitingPages.DepartmentRequestDetails"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFPresentationLayer.RecruitingPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="850" d:DesignWidth="1300"
+      Title="DepartmentRequestDetails">
+    <Grid>
+        <Grid Height="756">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="202"/>
+                <ColumnDefinition Width="202"/>
+                <ColumnDefinition Width="202"/>
+                <ColumnDefinition Width="202"/>
+                <ColumnDefinition Width="204"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="108"/>
+                <RowDefinition Height="108"/>
+                <RowDefinition Height="108"/>
+                <RowDefinition Height="108"/>
+                <RowDefinition Height="108"/>
+                <RowDefinition Height="108"/>
+                <RowDefinition Height="107"/>
+                <RowDefinition Height="107"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid Grid.Row="2" Width="1289" Height="845" Canvas.Top="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="13*"/>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="1170*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="65"></RowDefinition>
+                    <RowDefinition Height="65"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="70"></RowDefinition>
+                    <RowDefinition Height="10"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="310"></ColumnDefinition>
+                        <ColumnDefinition Width="310"></ColumnDefinition>
+                        <ColumnDefinition Width="310"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="lblRequestTypeHeader" Grid.Column="0" Content="Request Type" FontWeight="Bold" HorizontalContentAlignment="Left"
+                           VerticalContentAlignment="Center" Visibility="Hidden"></Label>
+                    <Label x:Name="lblRequestedGroupHeader" Grid.Column="1" Content="To:" FontWeight="Bold" HorizontalContentAlignment="Left"
+                           VerticalContentAlignment="Center" Visibility="Hidden"></Label>
+                    <Label x:Name="lblRequestingGroupHeader" Grid.Column="2" Content="From:" FontWeight="Bold" HorizontalContentAlignment="Left"
+                           VerticalContentAlignment="Center" Visibility="Hidden"></Label>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="310"></ColumnDefinition>
+                        <ColumnDefinition Width="310"></ColumnDefinition>
+                        <ColumnDefinition Width="310"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <ComboBox x:Name="cbbRequestType" Width="300" Margin="0 10" HorizontalAlignment="Left" IsEnabled="False" 
+                                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontWeight="DemiBold"
+                          ></ComboBox>
+                    <ComboBox x:Name="cbbRequestedGroup" Grid.Column="1" Width="300" Margin="0 10" HorizontalAlignment="Left" IsEnabled="False"
+                                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontWeight="DemiBold"></ComboBox>
+                    <Label x:Name="lblRequestUser" Grid.Column="2" Margin="15" Content="From:" VerticalAlignment="Center" HorizontalAlignment="Left"
+                               FontSize="18" FontWeight="Bold" ToolTip=""></Label>
+                    <ComboBox x:Name="cbbRequestingGroup" Grid.Column="2" Width="300" Margin="0 10" HorizontalAlignment="Left" IsEnabled="True" Visibility="Hidden"
+                                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontWeight="DemiBold"></ComboBox>
+
+                    <Button x:Name="btnCloseRequestDetails" Grid.Column="3" Margin="0 15 113 15" Width="100" HorizontalAlignment="Right" Content="Back" Click="btnCloseRequestDetails_Click"></Button>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="700"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="txtDeptRequestTopic" Grid.Column="0" Margin="0 10 20 10" VerticalContentAlignment="Center" FontSize="20"
+                         IsReadOnly="True"></TextBox>
+                    <Label x:Name="lblRequestStatus"  Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"
+                               FontSize="18" FontWeight="Bold" ToolTip=""></Label>
+                </Grid>
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="113"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="txtDeptRequestBody" TextWrapping="Wrap" FontSize="20" IsReadOnly="True" VerticalContentAlignment="Top"></TextBox>
+                </Grid>
+                <Grid Grid.Row="6" Visibility="Visible" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="113"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="txtDeptRequestResponses" TextWrapping="Wrap" IsReadOnly="True" Text="Comment Functionality Coming Soon!"></TextBox>
+                </Grid>
+                <Grid Grid.Row="7">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition ></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="113"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnRetractRequest" Margin="15" Content="Retract" FontSize="18" Visibility="Hidden"></Button>
+                    <Button x:Name="btnRespondToRequest" Margin="15" Content="Respond" FontSize="18" Visibility="Hidden"></Button>
+                    <Button x:Name="btnEditDepartmentRequest" Grid.Column="2" Margin="15" Content="Edit" 
+                                FontSize="18" Visibility="Hidden" Click="btnEditDepartmentRequest_Click"></Button>
+                    <Button x:Name="btnUpdateRequestStatus" Grid.Column="4" Margin="15" Content="Acknowledge Request" 
+                                FontSize="18" Visibility="Visible" Click="btnUpdateRequestStatus_Click"></Button>
+                    <Button x:Name="btnCreateDepartmentRequest" Grid.Column="4" Margin="15" Content="Create Request" 
+                                FontSize="18" Visibility="Hidden" Click="btnCreateDepartmentRequest_Click" ></Button>
+                </Grid>
+
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.ColumnSpan="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="50"></ColumnDefinition>
+                    <ColumnDefinition Width="210"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+            </Grid>
+        </Grid>
+
+        <Frame x:Name="frRequestList" NavigationUIVisibility="Hidden" Canvas.Top="10"/>
+    </Grid>
+</Page>

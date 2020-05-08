@@ -1,0 +1,40 @@
+﻿@*
+    Creator: Robert Holmes
+    Created: 04/29/2020
+    Approver: 
+
+    Partial view for confirming cart contents prior to payment.
+    Updater: 
+    Updated: 
+    Update: 
+*@
+@model DataTransferObjects.Cart
+
+<div class="container">
+    @foreach (var l in Model.Lines)
+    {
+        <div class="row my-2 align-items-center bg-light rounded">
+            <div class="col-2">
+                <img class="img-fluid" src="@Url.Action("GetImage", "Product", new { l.Product.ProductID })" />
+            </div>
+            <div class="col-4">
+                <h4><strong>@l.Product.Name</strong></h4>
+                <h4><small>@l.Product.Description</small></h4>
+            </div>
+
+            <div class="col-2 text-right">
+                <p><strong>@l.Product.Price.ToString("C")<span class="text-muted">x</span></strong></p>
+            </div>
+            <div class="col-2 text-center">
+                <p class="">@l.Amount</p>
+            </div>
+            <div class="col-2">
+                @{ 
+                    decimal totalPrice = l.Product.Price * l.Amount;
+                }
+                <p><strong>@totalPrice.ToString("C")</strong></p>
+            </div>
+
+        </div>
+    }
+</div>

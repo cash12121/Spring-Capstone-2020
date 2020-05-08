@@ -1,0 +1,609 @@
+﻿<!-- Name: Zach Behrensmeyer
+     Date: 2/8/2020
+     CHECKED BY: Steven Cardona
+     
+     This window is where the main activity in the console app will occur -->
+<Window x:Class="WPFPresentationLayer.PetUniverseHome"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFPresentationLayer"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" 
+        Title="PetUniverse" Height="900" Width="1500" Background="#fff8e3" Loaded="Window_Loaded" Closing="Window_Closing">
+    <Grid MinHeight="4" Margin="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0"/>
+            <RowDefinition/>
+            <RowDefinition Height="0"/>
+        </Grid.RowDefinitions>
+        <Grid Background="#2e3137" Grid.Row="1">
+            <StackPanel Grid.Row="1" Margin="0,16,0,0">
+                
+                <Button x:Name="btnInventory" Content="Inventory" Margin="10 100 10 10" Height="40" FontSize="18" FontWeight="Bold" Background="#fff8e3" Foreground="#2e3137" Click="btnInventory_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="15"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button x:Name="btnAM" Margin="10" Height="40" FontSize="16" Content="Animal Management" FontWeight="Bold" Background="#fff8e3" Foreground="#2e3137" Click="btnAM_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="15"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button x:Name="btnFm" Margin="10" Height="40" FontSize="16" Content="Facility Management" FontWeight="Bold" Background="#fff8e3" Foreground="#2e3137" Click="BtnFm_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="15"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button x:Name="btnPoS"  Margin="10" Height="40" Content="Point of Sale" FontSize="18" FontWeight="Bold" Background="#fff8e3" Foreground="#2e3137" Click="btnPoS_Click">
+
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="15"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button x:Name="btnVolHub" Margin="10" Content="Volunteer Hub" Height="40" FontSize="18" FontWeight="Bold" Background="#fff8e3" Foreground="#2e3137" Click="btnVolHub_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="15"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button x:Name="btnRequest" Content="Requests" Margin="10" Height="40" FontSize="18" FontWeight="Bold" Background="#fff8e3" Foreground="#2e3137" Click="BtnRequest_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="15"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button x:Name="btnAdoptions" Content="Adoptions" Margin="10" HorizontalContentAlignment="Center" Height="40" FontSize="18" FontWeight="Bold" Background="#fff8e3" Foreground="#2e3137" Click="BtnAdoptions_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="15"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button x:Name="btnDonRec" Content="Donations/Recruiting" Margin="10" HorizontalContentAlignment="Center" Height="40" FontSize="16" FontWeight="Bold" Background="#fff8e3" Foreground="#2e3137" Click="btnDonRec_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="15"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button x:Name="btnPersonnelManagement" Content="Personnel Management" Margin="10" HorizontalContentAlignment="Center" Height="40" FontSize="15" FontWeight="Bold" Background="#fff8e3" Foreground="#2e3137" Click="btnPersonnelManagement_Click" Visibility="Collapsed">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="15"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button x:Name="btnSysAdmin" Content="System Admin" Margin="10" Height="40" FontSize="18" FontWeight="Bold" Background="#fff8e3" Foreground="#2e3137" Click="btnSysAdmin_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="15"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button x:Name="btnLogout" Margin="10 50 10 10" Height="40" FontSize="18" Content="Logout" FontWeight="Bold" Background="#fff8e3" Foreground="#2e3137" Click="btnLogout_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="15"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <!-- Name: Zach Behrensmeyer
+             Date: 2/8/2020
+             CHECKED BY: Steven Cardona
+             
+             This canvas will contain the general controls for inventory
+              
+             UPDATE BY: NA
+             UPDATED NA
+             CHANGE: NA -->
+
+        <Canvas x:Name="canInventory" Width="1300" Height="850" Margin="0,16,0,0" Grid.RowSpan="2" Visibility="Hidden" Grid.Column="1" >
+            <TabControl x:Name="tabsetInventory" Grid.Row="2" Width="1289" Height="845" Canvas.Top="10">
+                <TabItem x:Name="tabViewInventory" Header="View Inventory" FontWeight="Bold" Background="#fff8e3">
+                    <Frame   Source="./InventoryPages/ViewInventory.xaml" NavigationUIVisibility="Hidden"/>
+                </TabItem>
+                <TabItem x:Name="tabViewOrders" Header="View Orders" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./InventoryPages/ViewOrders.xaml" NavigationUIVisibility="Hidden"/>
+                </TabItem>
+                <TabItem x:Name="tabViewSpecialOrders" Header="View Special Orders" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./InventoryPages/ViewSpecialOrders.xaml" NavigationUIVisibility="Hidden"/>
+                </TabItem>
+                <TabItem x:Name="tabViewItemReports" Header="View Item Reports" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./InventoryPages/ViewItemReports.xaml" NavigationUIVisibility="Hidden" />
+                </TabItem>
+                <TabItem x:Name="tavViewVendors" Header="View Vendors" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./InventoryPages/ViewVendors.xaml" NavigationUIVisibility="Hidden" />
+                </TabItem>
+                <TabItem x:Name="tabViewShelterInventory" Header="View Shelter Inventory" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./InventoryPages/ViewShelterItems.xaml" NavigationUIVisibility="Hidden"/>
+                </TabItem>
+                <TabItem x:Name="tabViewShipper" Header="View Shippers" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./InventoryPages/ViewShipper.xaml" NavigationUIVisibility="Hidden"/>
+                </TabItem>
+                <TabItem x:Name="tabViewOrderLine" Header="View Order Lines" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./InventoryPages/ViewOrderLine.xaml" NavigationUIVisibility="Hidden"/>
+                </TabItem>
+            </TabControl>
+        </Canvas>
+
+        <!-- Name: Zach Behrensmeyer
+             Date: 2/11/2020
+             CHECKED BY: Steven Cardona
+             
+             This canvas will contain the general controls for the recruitment group
+              
+             UPDATE BY: NA
+             UPDATED NA
+             CHANGE: NA -->
+
+        <Canvas x:Name="canRequests" Width="1300" Height="850" Margin="0,16,0,0" Grid.RowSpan="2" Visibility="Hidden" Grid.Column="1" >
+            <Frame x:Name="frListRequests" NavigationUIVisibility="Hidden" Canvas.Top="10"/>
+        </Canvas>
+
+
+        <!-- Name: Zach Behrensmeyer
+             Date: 2/8/2020
+             CHECKED BY: Steven Cardona
+             
+             This canvas will contain the general controls for animal management
+              
+             UPDATE BY: Ben Hanna
+             UPDATED 2/22/2020
+             CHANGE: Added 2 more tabs
+        
+             UPDATE BY: Ben Hanna
+             UPDATED 3/1/2020
+             CHANGE: Added a name to the handling frame so the active user may be passed to it. 
+        
+             UPDATE BY: Ben Hanna
+             UPDATED 3/19/2020
+             CHANGE: Added a name to the kennel frame so the active user may be passed to it. 
+        -->
+
+        <Canvas x:Name="canAM" Width="1300" Height="850" Margin="0,16,0,0" Grid.RowSpan="2" Visibility="Hidden" Grid.Column="1">
+            <TabControl x:Name="tabsetAM" Grid.Row="2" Width="1289" Height="845" Canvas.Top="10">
+                <TabItem x:Name="tabViewAnimals" Header="View Animals" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./AMPages/AnimalControls.xaml"/>
+                </TabItem>
+                <TabItem x:Name="tabViewAnimalActivity" Header="View Activity Records" FontWeight="Bold" Background="#fff8e3">
+                    <Frame x:Name="frameViewAnimalActivities" NavigationUIVisibility="Hidden"/>
+                </TabItem>
+                <TabItem x:Name="tabViewKennels" Header="View Location Records" FontWeight="Bold" Background="#fff8e3">
+                    <Frame x:Name="frameViewKennelRecords" Source="./AMPages/KennelControls.xaml" NavigationUIVisibility="Hidden"/>
+                </TabItem>
+                <TabItem x:Name="tabViewHandling" Header="View Handling Records" FontWeight="Bold" Background="#fff8e3">
+                    <Frame x:Name="frameViewHandlingNotes" Source="./AMPages/HandlingControls.xaml" NavigationUIVisibility="Hidden"/>
+                </TabItem>
+                <TabItem x:Name="tabViewVetAppointments" Header="View Vet Appointments" FontWeight="Bold" Background="#fff8e3">
+                    <Frame x:Name="frameViewVetAppointments" NavigationUIVisibility="Hidden"></Frame>
+                </TabItem>
+                <TabItem x:Name="tabViewAnimalPrescriptions" Header="View Animal Prescriptions" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./AMPages/VetPrescriptionControls.xaml" NavigationUIVisibility="Hidden"></Frame>
+                </TabItem>
+            </TabControl>
+        </Canvas>
+
+        <!-- Name: Carl Davis
+             Date: 2/21/2020
+             CHECKED BY: Chuck Baxter
+             
+             This canvas will contain the general controls for facility management
+              
+             UPDATE BY: Carl
+             UPDATED 3/4/2020
+             CHANGE: Changed the frame to an id
+             Checked By: Ethan Murphy 3/6/2020
+            
+             UPDATE BY: Ben Hanna
+             UPDATED 4/2/2020
+             CHANGE: Added the tab for the cleaning records
+             Checked By: Carl Davis 4/4/2020
+        
+        -->
+        <Canvas x:Name="canFM" Width="1300" Height="850" Margin="0,16,0,0" Grid.RowSpan="2" Visibility="Hidden" Grid.Column="1">
+            <TabControl x:Name="tabsetFM" Grid.Row="2" Width="1289" Height="845" Canvas.Top="10">
+                <TabItem x:Name="tabViewFacilityMaintenance" Header="View Facility Maintenance" FontWeight="Bold" Background="#fff8e3">
+                    <Frame x:Name="frameViewFacilityMaintenance" NavigationUIVisibility="Hidden"></Frame>
+                </TabItem>
+                <TabItem x:Name="tabViewFacilityInspection" Header="View Facility Inspection" FontWeight="Bold" Background="#fff8e3">
+                    <Frame x:Name="frameViewFacilityInspection" NavigationUIVisibility="Hidden"></Frame>
+                </TabItem>
+                <TabItem x:Name="tabViewKennelCleaningRecords" Header="View Kennel Cleaning" FontWeight="Bold" Background="#fff8e3">
+                    <Frame x:Name="frameViewKennelCleaningRecords" NavigationUIVisibility="Hidden"></Frame>
+                </TabItem>
+                <TabItem x:Name="tabViewFacilityInspectionItem" Header="View Inspection Item" FontWeight="Bold" Background="#fff8e3">
+                    <Frame x:Name="frameViewFacilityInspectionItem" NavigationUIVisibility="Hidden"></Frame>
+                </TabItem>
+                <TabItem x:Name="tabViewFacilityTaskItem" Header="View Facility Task" FontWeight="Bold" Background="#fff8e3">
+                    <Frame x:Name="frameViewFacilityTask" NavigationUIVisibility="Hidden"></Frame>
+                </TabItem>
+            </TabControl>
+        </Canvas>
+
+        <!-- Name: Zach Behrensmeyer
+             Date: 2/8/2020
+             CHECKED BY: Steven Cardona
+             
+             This canvas will contain the general controls for Point of Sale
+              
+             UPDATE BY: NA
+             UPDATED NA
+             CHANGE: NA -->
+
+        <Canvas x:Name="canPoS" Width="1300" Height="850" Margin="0,16,0,0" Grid.RowSpan="2" Grid.Column="1" Visibility="Hidden">
+            <TabControl x:Name="tabsetPoS" Grid.Row="2" Width="1289" Height="845" Canvas.Top="10">
+                <TabItem x:Name="tabViewSales" Header="View Sales" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./PoSPages/pgViewSalesData.xaml"/>
+                </TabItem>
+                <TabItem x:Name="InventoryItems" Header="Sale Items Inventory" FontWeight="Bold" Background="#fff8e3" Loaded="InventoryItems_Loaded">
+                    <Frame x:Name="frmInventoryItems" Source="./PoSPages/InventoryItems.xaml" NavigationUIVisibility="Hidden"/>
+                </TabItem>
+
+                <TabItem  x:Name="tabViewTransactions" Header="View Transactions" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./PoSPages/ViewAllTransactions.xaml"/>
+                </TabItem>
+
+                <TabItem x:Name="tabPromotions" Header="Promotions" FontWeight="Bold" Background="#fff8e3" Loaded="tabPromotions_Loaded" Visibility="Collapsed">
+                    <Frame x:Name="frmPromotions" NavigationUIVisibility="Hidden" />
+                </TabItem>
+
+                <TabItem x:Name="tabProduct" Header="Product" FontWeight="Bold" Background="#fff8e3" Visibility="Collapsed" >
+                    <Frame Source="./PoSPages/Product.xaml"/>
+                </TabItem>
+
+                <TabItem x:Name="tabOpenTransaction" Header="Open Transaction" 
+                          FontWeight="Bold" Background="#fff8e3" Loaded="tabOpenTransaction_Loaded">
+                    <Frame x:Name="frmOpenTransaction"/>
+                </TabItem>
+                <TabItem x:Name="tabTransactionAdmin" Header="Transaction Admin" 
+                         FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./PosPages/pgTransactionAdmin.xaml"/>
+                </TabItem>
+                <TabItem x:Name="tabSalesTax" Header="Sales Tax" 
+                         FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./PosPages/pgSalesTax.xaml"/>
+                </TabItem>
+                <!-- Creator: Robert Holmes
+                     Created: 2020/02/14
+                     Approver: Cash Carlson
+                
+                     Tab for checking out customers
+                
+                     Updater:
+                     Updated:
+                     Update: -->
+                <TabItem x:Name="tabCheckOut" Header="Check Out" FontWeight="Bold" Loaded="tabCheckOut_Loaded" Visibility="Collapsed" >
+                    <Frame x:Name="frmCheckOut" />
+                </TabItem>
+                <!-- Creator: Rasha Mohammed
+                 Date: 4/8/2020
+                 CHECKED BY: Ethan Holmes
+             
+                 This TabItem takes you to the Filter Item Page
+              
+                 UPDATE BY: NA
+                 UPDATED NA
+                 CHANGE: NA -->
+                <TabItem x:Name="tabPicture" Header="Filter Item" FontWeight="Bold" Background="#fff8e3" Visibility="Collapsed">
+                    <Frame Source="./PoSPages/FilterItem.xaml"/>
+                </TabItem>
+                <TabItem x:Name="tabCustomer" Header="Customer Portal" FontSize="18" FontWeight="Bold" Background="#fff8e3" Visibility="Collapsed">
+                    <Frame Source="./PoSPages/pgCustomerControls.xaml"/>
+                </TabItem>
+            </TabControl>
+        </Canvas>
+
+        <!-- Name: Zach Behrensmeyer
+             Date: 2/8/2020
+             CHECKED BY: Steven Cardona
+             
+             This canvas will contain the general controls for the volunteer hub
+              
+             UPDATE BY: NA
+             UPDATED NA
+             CHANGE: NA -->
+
+        <Canvas x:Name="canVolHub" Width="1300" Height="850" Margin="0,16,0,0" Grid.RowSpan="2" Visibility="Hidden" Grid.Column="1">
+            <TabControl x:Name="tabsetVolHub" Grid.Row="2" Width="1289" Height="845" Canvas.Top="10">
+                <TabItem x:Name="tabViewVolunteers" Header="View Volunteers" FontWeight="Bold"  Background="#fff8e3">
+                    <Frame NavigationUIVisibility="Hidden" Source="./VolunteerPages/ViewVolunteers.xaml"></Frame>
+                </TabItem>
+                <TabItem x:Name="CreateEditShift" Header="Volunteer Shifts" FontWeight="Bold"  Background="#fff8e3">
+                    <Frame Source="./VolunteerPages/CreateeditShift.xaml"></Frame>
+                </TabItem>
+                <TabItem x:Name="CreateEditVolunteerEvent" Header="Volunteer Events" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./VolunteerPages/frmCreateEditVolunteerEvent.xaml"></Frame>
+                </TabItem>
+                <TabItem x:Name="VolunteerSchedule"
+                         Header="Volunteer Schedule"
+                         FontWeight="Bold"
+                         Background="#fff8e3">
+                    <Frame Source="./VolunteerPages/VolunteerSchedule.xaml"></Frame>
+                </TabItem>
+                <TabItem x:Name="PrintVolunteerShifts"
+                         Header="Print Shifts"
+                         FontWeight="Bold"
+                         Background="#fff8e3">
+                    <Frame Source="./VolunteerPages/PrintVolunteerShifts.xaml"></Frame>
+                </TabItem>
+                <TabItem x:Name="Medicine"
+                         Header="Medicine"
+                         FontWeight="Bold"
+                         Background="#fff8e3">
+                    <Frame Source="./VolunteerPages/ViewDeleteCreateMedicine.xaml"></Frame>
+                </TabItem>
+                <TabItem x:Name="tabViewTasks" Header="Tasks" FontWeight="Bold"  Background="#fff8e3">
+                    <Frame x:Name="ViewTasks" Source="./VolunteerPages/TaskControls.xaml"/>
+                </TabItem>
+                <TabItem x:Name="ViewAllVolunteerSchedules"
+                         Header="All Volunteer Schedules"
+                         FontWeight="Bold"
+                         Background="#fff8e3">
+                    <Frame x:Name="frmViewAllVolunteerSchedules"
+                           Source="./VolunteerPages/ViewAllVolunteerSchedules.xaml" />
+                </TabItem>
+                <TabItem x:Name="FosterAppointments"
+                         Header="Foster Appointments"
+                         FontWeight="Bold"
+                         Background="#fff8e3">
+                    <Frame x:Name="frmFosterAppointments"
+                           Source="./VolunteerPages/FosterAppointments.xaml" />
+                </TabItem>
+                <TabItem x:Name="TreatmentRecordControls"
+                         Header="Treatment Records" 
+                         FontWeight="Bold" 
+                         Background="#fff8e3">
+                    <Frame Source="./VolunteerPages/TreatmentRecordControls.xaml"></Frame>
+                </TabItem>
+            </TabControl>
+        </Canvas>
+
+        <!-- Name: Zach Behrensmeyer
+             Date: 2/8/2020
+             CHECKED BY: Steven Cardona
+             
+             This canvas will contain the general controls for system admin
+              
+             UPDATE BY: NA
+             UPDATED NA
+             CHANGE: NA -->
+
+        <Canvas x:Name="canSysAd" Width="1300" Height="850" Margin="0,16,0,0" Grid.RowSpan="2" Grid.Column="1" Visibility="Hidden">
+            <TabControl x:Name="tabsetSysAdmin" Grid.Row="2" Width="1289" Height="845" Canvas.Top="10" >
+
+                <!-- Creator: Steven Cardona
+             Date: 2/8/2020
+             CHECKED BY: Zach Behrensmeyer
+             
+             This canvas will contain the general controls for system admin
+              
+             UPDATE BY: NA
+             UPDATED NA
+             CHANGE: NA -->
+
+                <TabItem x:Name="tabViewUsers" Header="Users" FontWeight="Bold" Background="#fff8e3">
+                    <Grid>
+                        <Frame x:Name="frmUserControls"  Source="./SystemAdminPages/pgUserControls.xaml" NavigationUIVisibility="Hidden"></Frame>
+                    </Grid>
+                </TabItem>
+
+                <TabItem x:Name="tabViewLogs" Header="AccessLogs" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./SystemAdminPages/pgLogView.xaml"></Frame>
+                </TabItem>
+                <TabItem x:Name="tabViewCustomers" Header="Customers" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./SystemAdminPages/pgCustomerControls.xaml"></Frame>
+                </TabItem>
+                <DockPanel Height="100" LastChildFill="False" Width="100"/>
+            </TabControl>
+        </Canvas>
+
+        <!-- Creator: Zach Behrensmeyer
+             Date: 2/20/2020
+             CHECKED BY: Michael Thompson
+             
+             This canvas will contain the general controls for Adoptions
+              
+             UPDATE BY: NA
+             UPDATED NA
+             CHANGE: NA -->
+        <Canvas x:Name="canAdoptions" Width="1300" Height="850" Margin="0,16,0,0" Grid.RowSpan="2" Visibility="Hidden" Grid.Column="1">
+            <TabControl x:Name="tabsetAdoptions" Grid.Row="2" Width="1289" Height="845" Canvas.Top="10">
+                <TabItem x:Name="tabAnimals" Header="Animal records" FontSize="18" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./AdoptionPages/AnimalsRecords.xaml" NavigationUIVisibility="Hidden"/>
+                </TabItem>
+                <TabItem x:Name="tabViewAdoption" Header="View Adoptions" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./AdoptionPages/AdoptionApplications.xaml" NavigationUIVisibility="Hidden"/>
+                </TabItem>
+                <!--<TabItem x:Name="tabViewInterviewer" Header="Interviewer" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./AdoptionPages/InterviewerPage.xaml" NavigationUIVisibility="Hidden"  Width="800"/>
+                </TabItem>-->
+                <TabItem x:Name="tabviewHomeInspector" Header="Inspections" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./AdoptionPages/frmHomeInspectionForm.xaml" NavigationUIVisibility="Hidden"/>
+                </TabItem>
+                <!--<TabItem x:Name="AppointmentSchedule" Header="Appointment Schedule" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./AdoptionPages/AppointmentSchedule.xaml" NavigationUIVisibility="Hidden"/>
+                </TabItem>-->
+                <TabItem x:Name="InHomeInspector" Header="Inspection Decision" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./AdoptionPages/frmInHomeInspectorDecision.xaml" NavigationUIVisibility="Hidden"/>
+                </TabItem>
+                <TabItem x:Name="tabAdoptionCustomers" Header="Adoption Customers" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./AdoptionPages/pgAdoptionCustomers.xaml" NavigationUIVisibility="Hidden"/>
+                </TabItem>
+                <TabItem x:Name="tabMeetAndGreets" Header="Appointments" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./AdoptionPages/pgMeetAndGreets.xaml" NavigationUIVisibility="Hidden"/>
+                </TabItem>
+                <TabItem x:Name="tabViewAdoptionProfiles" Header="Pet Profiles" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./AdoptionPages/pgAdoptionsAnimalProfile.xaml" ></Frame>
+                </TabItem>
+                <TabItem x:Name="tabInterviewer" Header="Interviewer Notes" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./AdoptionPages/pgAdoptionInterviewer.xaml" NavigationUIVisibility="Hidden"/>
+                </TabItem>
+                <TabItem x:Name="tabAdoptionAnimals" Header="Adoption Animals" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./AdoptionPages/pgAdoptionAnimalList.xaml" NavigationUIVisibility="Hidden"/>
+                </TabItem>
+            </TabControl>
+        </Canvas>
+
+        <!-- Creator: Steven Coonrod
+             Date: 2/20/2020
+             CHECKED BY: Zach Behrensmeyer
+             
+             This canvas will contain the general controls for Adoptions
+              
+             UPDATE BY: NA
+             UPDATED NA
+             CHANGE: NA -->
+
+        <Canvas x:Name="canDonRec" Width="1300" Height="850" Margin="0,16,0,0" Grid.RowSpan="2" Visibility="Hidden" Grid.Column="1">
+            <TabControl x:Name="tabsetDonRec" Grid.Row="2" Width="1289" Height="845" Canvas.Top="10">
+                <TabItem x:Name="tabViewDonMgt" Header="Shelter Inventory" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./InventoryPages/ShelterInventory.xaml" NavigationUIVisibility="Hidden"></Frame>
+                </TabItem>
+                <TabItem x:Name="tabViewEventManagement" Header="Events" FontWeight="Bold" Background="#fff8e3">
+                    <Frame x:Name="fEventMgmt" Source="./RecruitingPages/EventMgmt.xaml" NavigationUIVisibility="Hidden"></Frame>
+                </TabItem>
+                <TabItem x:Name="tabSocialMediaRequest" Header="Request Social Media Post" FontWeight="Bold" Background="#fff8e3">
+                    <Frame x:Name="frRequestSocialMedia" Source="./RecruitingPages/SocialMediaRequestForm.xaml" NavigationUIVisibility="Hidden"/>
+                </TabItem>
+
+                <TabItem x:Name="tabJobListing" Header="Job Listing" FontWeight="Bold" Background="#fff8e3">
+                    <Frame x:Name="JobListing" Source="./RecruitingPages/JobListing.xaml" NavigationUIVisibility="Hidden"></Frame>
+                </TabItem>
+            </TabControl>
+        </Canvas>
+
+        <!-- Creator: Lane Sandburg
+             Date: 2/20/2020
+             CHECKED BY: Zach Behrensmeyer
+             
+             This canvas will contain the general controls for personnel
+              
+             UPDATE BY: Jordan Lindo
+             UPDATED: 5/6/2020
+             CHANGE: Some tabs hidden. -->
+
+        <Canvas x:Name="canPersonnel" Width="1300" Height="850" Margin="0,16,0,0" Grid.RowSpan="2" Visibility="Hidden" Grid.Column="1">
+            <TabControl x:Name="tabsetPersonnel" Grid.Row="2" Width="1289" Height="845" Canvas.Top="10">
+                <TabItem x:Name="tabSchedule" Header="Schedule" FontSize="18" FontWeight="Bold" Background="#fff8e3" Visibility="Collapsed">
+                    <Frame x:Name="frSchedule"></Frame>
+                </TabItem>
+                <TabItem x:Name="tabSupervisorSchedule" Header="Supervisor Schedule" FontWeight="Bold" Background="#fff8e3" Visibility="Collapsed">
+                    <Frame x:Name="frSupervisorSchedule" NavigationUIVisibility="Hidden"></Frame>
+                </TabItem>
+                <TabItem x:Name="tabDepartment" Header="Departments" FontWeight="Bold"  Background="#fff8e3" Visibility="Collapsed">
+                    <Grid>
+                        <Frame Source="./PersonnelPages/pgDepartments.xaml" NavigationUIVisibility="Hidden"/>
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="tabShiftTimeManager" Header="ShiftTimeManager" FontWeight="Bold" Background="#fff8e3" Visibility="Collapsed">
+                    <Frame Source="./PersonnelPages/pgShiftTime.xaml" NavigationUIVisibility="Hidden"></Frame>
+                </TabItem>
+                <TabItem x:Name="tabTrainingVideos" Header="Training Videos" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./PersonnelPages/pgTrainingVideos.xaml" NavigationUIVisibility="Hidden"></Frame>
+                </TabItem>
+                <TabItem x:Name="tabBaseSchedule" Header="Base Schedule" FontWeight="Bold" Background="#fff8e3" Visibility="Collapsed">
+                    <Frame x:Name="frBaseSchedule" NavigationUIVisibility="Hidden"></Frame>
+                </TabItem>
+
+                <!-- Creator: Kaleb Bachert
+                 Date: 2/23/2020
+                 CHECKED BY: Zach Behrensmeyer
+             
+                 This TabItem takes you to the PersonnelRequests Page
+              
+                 UPDATE BY: NA
+                 UPDATED NA
+                 CHANGE: NA -->
+                <TabItem x:Name="tabViewPersonnelRequests" Header="View Requests" FontWeight="Bold" Background="#fff8e3" Loaded="tabViewPersonnelRequests_Loaded">
+                    <Frame x:Name="frmViewPersonnelRequests" HorizontalAlignment="Left" NavigationUIVisibility="Hidden"></Frame>
+                </TabItem>
+
+                <!-- Name: Chase Schulte
+             Date: 2/14/2020
+             CHECKED BY: Kaleb Bachert
+             
+             This tab will show a list of all roles in the db
+              
+             UPDATE BY: NA
+             UPDATE DATE: NA
+             CHANGE: NA -->
+                <TabItem x:Name="tabViewAllERoles" Header="View Roles" FontWeight="Bold" Background="#fff8e3">
+                    <Grid>
+                        <Canvas x:Name="canViewAllRoles">
+                            <Frame Source="./PersonnelPages/pgViewAllRoles.xaml" NavigationUIVisibility="Hidden"></Frame>
+                        </Canvas>
+                    </Grid>
+                </TabItem>
+                
+                <!-- Name: Matt Deaton
+             Date: 2020-04-11
+             CHECKED BY: Steve Coonrod
+             
+             This tab will show information to be used during an interview
+              
+             UPDATE BY: NA
+             UPDATE DATE: NA
+             CHANGE: NA -->
+                <TabItem x:Name="tabApplicantInterview" Header="Applicants" FontWeight="Bold" Background="#fff8e3">
+                    <Frame Source="./PersonnelPages/ViewApplicants.xaml" NavigationUIVisibility="Hidden"></Frame>
+                </TabItem>
+
+            </TabControl>
+        </Canvas>
+
+        <Canvas  x:Name="canMessages" Width="1300" Height="850" Margin="0,16,0,0" Grid.RowSpan="2" Visibility="Hidden" Grid.Column="1">
+            <Frame x:Name="FrameMessages" Source="./SystemAdminPages/pgMessages.xaml" NavigationUIVisibility="Hidden"></Frame>
+        </Canvas>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Background="#2e3137" Margin="0,0,0,831" Grid.RowSpan="2" Height="40" VerticalAlignment="Bottom" Grid.Column="1">
+            <Grid Width="1271"  Background="{x:Null}" RenderTransformOrigin="0.705,0.74">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="lblStatusBar" FontSize="15" Content="Hello," Padding="10 8 0 0"  Background="#2e3137" HorizontalAlignment="Right" VerticalContentAlignment="Center" Foreground="White" VerticalAlignment="Top" Width="240" Height="45" MouseUp="lblStatusBar_MouseUp" MouseEnter="lblStatusBar_MouseEnter" MouseLeave="lblStatusBar_MouseLeave" Grid.Column="1" Margin="0,0,32,0"/>
+                <Button  x:Name="btnMessages" Background="{x:Null}" BorderBrush="{x:Null}" fa:Awesome.Content="Envelope"  Foreground="White" VerticalContentAlignment="Center"  Grid.Column="2"  HorizontalAlignment="Right" Width="54" RenderTransformOrigin="0.51,0.568" Margin="0,4,46,-3"  Click="btnMessages_Click" >
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1.25" ScaleY="1.25"/>
+                            <TranslateTransform X="0.352" Y="3"/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                </Button>
+            </Grid>
+        </StackPanel>
+
+        <TextBlock x:Name="txtWelcome" Grid.Column="1" HorizontalAlignment="Left" Margin="378,366,0,0" Grid.RowSpan="2" FontSize="23" TextWrapping="Wrap" Text="Hello welcome to the PetUniverse Hub! Please select a button on the sidebar." VerticalAlignment="Top" Height="133" Width="448"/>
+    </Grid>
+</Window>

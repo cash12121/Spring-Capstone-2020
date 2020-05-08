@@ -1,0 +1,96 @@
+﻿@model WPFPresentation.Models.IndexViewModel
+
+@{
+    ViewBag.Title = "Manage";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div>
+    <h4>Change your account settings</h4>
+    <hr />
+    <table class="table">
+        <tr>
+            <th>
+                Name:
+            </th>
+            <th>
+                Email:
+            </th>
+            <th>
+                Phone Number:
+            </th>
+            <th>
+                Address:
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @ViewBag.FullName
+            </td>
+            <td>
+                @ViewBag.Email
+            </td>
+            <td>
+                @ViewBag.PhoneNumber
+            </td>
+            <td>
+                @ViewBag.Address
+            </td>
+        </tr>
+
+
+    </table>
+    <dl class="dl-horizontal">
+
+        <dt>Transaction History:</dt>
+        <dd>
+            [
+            @Html.ActionLink("View Your Transaction History", "TransactionHistory", "Transaction", new { customerEmail = User.Identity.Name }, null)
+            ]
+        </dd>
+        <dt>Password:</dt>
+        <dd>
+            [
+            @if (Model.HasPassword)
+            {
+                @Html.ActionLink("Change your password", "ChangePassword")
+            }
+            else
+            {
+                @Html.ActionLink("Create", "SetPassword")
+            }
+            ]
+        </dd>
+        <dt>
+            Adoption Applications:
+        </dt>
+        <dd>
+            [@Html.ActionLink("View Adoption Applications", "CustomerApplicationList", "Adoption", new { customerEmail = User.Identity.Name }, null)]
+        </dd>
+        <dt>
+            Adoption Appointments:
+        </dt>
+        <dd>
+            [@Html.ActionLink("View Adoption Appointments", "CustomerAppointmentSchedule", "Adoption", new { email = User.Identity.Name }, null)]
+        </dd>
+        <dt>Donations:</dt>
+        <dd>
+            [@Html.ActionLink("View Your Recurring Donations", "ActiveDonations", "Donations")]
+        </dd>
+        <dt>External Logins:</dt>
+        <dd>
+            @Model.Logins.Count [
+            @Html.ActionLink("Manage", "ManageLogins") ]
+        </dd>
+
+        <dt>Two-Factor Authentication:</dt>
+        <dd>
+            <p>
+                There are no two-factor authentication providers configured. See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
+                for details on setting up this ASP.NET application to support two-factor authentication.
+            </p>
+        </dd>
+    </dl>
+</div>

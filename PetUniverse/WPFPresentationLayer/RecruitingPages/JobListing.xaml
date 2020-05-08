@@ -1,0 +1,179 @@
+﻿<!-- Creator: Hassan Karar
+     Created: 2020/3/10
+     CHECKED BY:  Steve Coonrod.
+     
+     This window is used for creat job listing  -->
+<Page x:Class="WPFPresentationLayer.RecruitingPages.JobListing"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFPresentationLayer.RecruitingPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="JobListing">
+
+    <Canvas x:Name="canJobListing" Width="1800" Height="850" Margin="0,16,0,0" Grid.RowSpan="2" Visibility="Visible" Grid.Column="1" >
+        <Canvas x:Name="canViewJobListing" Width="1300" Height="850" Margin="0,16,0,0" Grid.RowSpan="2" Visibility="Visible" Grid.Column="1" Loaded="canViewJobListing_Loaded" >
+            <Canvas>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition ></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70"></RowDefinition>
+                            <RowDefinition ></RowDefinition>
+                            <RowDefinition Height="70"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="127*"/>
+                                <ColumnDefinition Width="273*"/>
+                                <ColumnDefinition Width="400*"/>
+                            </Grid.ColumnDefinitions>
+                            <DataGrid x:Name="DGViewDatat" IsReadOnly="True"   Grid.ColumnSpan="3" ></DataGrid>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <Label Name="lblError" Height="60" Width="120" HorizontalAlignment="Left" Margin="110 0"></Label>
+                            <Button Content="Delete" Name="btnDeleteJobListing" HorizontalAlignment="Left" Width="100" 
+                                    Height="30" Click="btnDeleteJobListing_Click"  />
+                            <Button Content="Edit" Name="btnEditJobListing" HorizontalAlignment="Center" Width="100"
+                                    Height="30" Click="btnEditJobListing_Click" />
+                            <Button Content="Create" Name="btnCreateJobListing" HorizontalAlignment="Right" Width="100" 
+                                    Height="30" Click="btnCreateJobListing_Click" />
+
+
+
+
+
+                        </Grid>
+                    </Grid>
+
+                </Grid>
+
+            </Canvas>
+
+        </Canvas>
+
+        <Canvas x:Name="canCreateJobListing" Width="1300" Height="850" Margin="0,16,0,0" Grid.RowSpan="2" Visibility="Hidden" Grid.Column="1" HorizontalAlignment="Center" Loaded="canViewJobListing_Loaded" >
+            <Canvas>
+
+
+                <Grid Height="600" Width="1000">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="25"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        
+                        
+                        <ColumnDefinition Width="450"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="1" Grid.Column="0"  HorizontalAlignment="Left">Role ID</Label>
+
+                    <ComboBox x:Name="cboDefaultPosition" Grid.Row="1" Grid.Column="0" Width="540" Height="40" HorizontalAlignment="Left"
+                                  Margin="5 0">
+
+                        <ComboBoxItem x:Name="admin">Admin</ComboBoxItem>
+                        <ComboBoxItem x:Name="customer">Customer</ComboBoxItem>
+                        <ComboBoxItem x:Name="employee">Employee</ComboBoxItem>
+                        <ComboBoxItem x:Name="volunteer">Volunteer</ComboBoxItem>
+
+                    </ComboBox
+>
+                    <TextBox x:Name="txtDescription" Text="Description"  Grid.Column="0" Grid.Row="2" GotFocus="lblDescription_GotFocus"></TextBox>
+                    <TextBox Name="txtBenefits"     Text="Benefits"      Grid.Column="0" Grid.Row="3" GotFocus="lblBenifits_GotFocus"></TextBox>
+                    <TextBox Name="txtRequirements"  Text="Requirements" Grid.Column="0" Grid.Row="4" GotFocus="lblRequirements_GotFocus"></TextBox>
+                    <TextBox Name="txtStartingWage"  Text="Starting Wage" Grid.Column="0" Grid.Row="5" GotFocus="lblStartingWage_GotFocus"></TextBox>
+
+
+
+
+                    <Label Name="lblCreateError" Height="60" Width="120" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" Margin="110 0"></Label>
+
+                    <Button Content="Back" Name="btnCancelJobListing" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Left" Width="100"
+                                    Height="30" Click="btnCancelJobListing_Click" />
+
+                    <Button Content="Save" Name="btnSave" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Right" Width="100"
+                                    Height="30" Click="btnSave_Click" />
+
+
+                </Grid>
+
+            </Canvas>
+
+        </Canvas>
+
+        <Canvas x:Name="canEditJobListing" Width="1300" Height="850" Margin="0,16,0,0" Grid.RowSpan="2" Visibility="Hidden" Grid.Column="1" HorizontalAlignment="Center" Loaded="canViewJobListing_Loaded" >
+            <Canvas>
+
+
+                <Grid Height="600" Width="1000">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="25"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="450"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <ComboBox x:Name="cboEditDefaultPosition" Grid.Row="1" Grid.Column="0" Width="820" Height="40" HorizontalAlignment="Left"
+                                  Margin="5 0">
+                        <ComboBoxItem x:Name="EditAdmin">Admin</ComboBoxItem>
+                        <ComboBoxItem x:Name="EditCustomer">Customer</ComboBoxItem>
+                        <ComboBoxItem x:Name="EditEmployee">Employee</ComboBoxItem>
+                        <ComboBoxItem x:Name="EditVolunteer">Volunteer</ComboBoxItem>
+
+                    </ComboBox>
+
+                    <TextBox x:Name="txtEditDescription" Text="Description"  Grid.Column="0" Grid.Row="2" GotFocus="lblDescription_GotFocus"></TextBox>
+                    <TextBox Name="txtEditBenefits"     Text="Benefits"      Grid.Column="0" Grid.Row="3" GotFocus="lblBenifits_GotFocus"></TextBox>
+                    <TextBox Name="txtEditRequirements"  Text="Requirements" Grid.Column="0" Grid.Row="4" GotFocus="lblRequirements_GotFocus"></TextBox>
+                    <TextBox Name="txtEditStartingWage"  Text="Starting Wage" Grid.Column="0" Grid.Row="5" GotFocus="lblStartingWage_GotFocus"></TextBox>
+
+                    <Label Name="lblEditError" Height="60" Width="120" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" Margin="110 0"></Label>
+                    <Button Content="Back" Name="btnBackJobListing" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Left" Width="100" 
+                                    Height="30" Click="btnBackJobListing_Click" />
+
+                    <Button Content="Save" Name="btnEditSave" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Right" Width="100" 
+                                    Height="30" Click="btnEditSave_Click_1"  />
+
+
+
+
+
+
+                </Grid>
+
+            </Canvas>
+
+        </Canvas>
+
+    </Canvas>
+
+
+
+
+
+</Page>

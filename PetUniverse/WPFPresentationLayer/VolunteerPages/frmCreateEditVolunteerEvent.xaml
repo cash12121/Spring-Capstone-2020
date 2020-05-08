@@ -1,0 +1,39 @@
+﻿<Page x:Class="WPFPresentationLayer.VolunteerPages.frmCreateEditVolunteerEvent"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFPresentationLayer.VolunteerPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="frmCreateEditVolunteerEvent">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="txtVolunteerEventTitle" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center">Event Title</TextBox>
+        <CheckBox x:Name="chkVolunteerEventActive" Grid.Row="3" Grid.Column="1"  Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 10 0 0">Active</CheckBox>
+        <TextBox x:Name="txtVolunteerEventDescription" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center">Event Description</TextBox>
+
+
+        <!--<Button x:Name="btnEditVolunteerEvent" Grid.Row="5" Grid.Column="1" Click="btnEditVolunteerEvent_Click" >Edit</Button>-->
+        <!--<Button x:Name="btnCancelVolunteerEvent" Grid.Row="5" Grid.Column="1"  >Cancel</Button>-->
+        <Button x:Name="btnSubmitVolunteerEvent" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Width="100" Height="30" Click="btnSubmitVolunteerEvent_Click" >Submit</Button>
+
+    </Grid>
+</Page>

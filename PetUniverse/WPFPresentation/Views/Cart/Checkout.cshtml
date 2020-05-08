@@ -1,0 +1,134 @@
+﻿@*
+    Creator: Robert Holmes
+    Created: 04/29/2020
+    Approver: 
+
+    Page for collecting user information before collecting payment.
+    Updater: 
+    Updated: 
+    Update:
+*@
+@model DataTransferObjects.OrderDetails
+@section Scripts {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.inputmask.min.js"></script>
+    <script src="~/Scripts/order-info-scripts.js"></script>
+    }
+
+<div class="d-flex justify-content-center">
+    <form class="col-sm-8" id="order-info-form" method="post" action="/Cart/CompleteCheckout">
+        <div class="d-flex text-center my-4">
+            <h3 class="text-center">Billing Information</h3>
+        </div>
+        <div class="d-flex row">
+            <div class="col form-group">
+                <label for="CustomerName">Name</label>
+                <input type="text" class="form-input form-control" id="CustomerName" name="CustomerName" placeholder="Zach Behrensmeyer" required />
+            </div>
+            <div class="col form-group">
+                <label for="CustomerPhone">Phone</label>
+                <input type="tel" class="phone form-input form-control" id="CustomerPhone" name="CustomerPhone" placeholder="(555) 555-5555" required />
+            </div>
+        </div>
+        <div class="d-flex row">
+            <div class="col form-group">
+                <label for="Email">Email</label>
+                <input type="text" class="form-input form-control" id="Email" name="Email" placeholder="zbehrens@PetUniverse.com" required />
+            </div>
+        </div>
+        <div class="d-flex row">
+            <div class="col form-group">
+                <label for="BillingAddressLine1">Address</label>
+                <input type="text" class="form-input form-control" id="BillingAddressLine1" name="BillingAddressLine1" placeholder="6301 Kirkwood Blvd SW" required />
+                <input type="text" class="form-input form-control" id="BillingAddressLine2" name="BillingAddressLine2" placeholder="Apt/Suite Number" />
+            </div>
+        </div>
+        <div class="d-flex row">
+            <div class="col form-group">
+                <label for="BillingCity">City</label>
+                <input type="text" class="form-input form-control" id="BillingCity" name="BillingCity" placeholder="Cedar Rapids" required />
+            </div>
+        </div>
+        <div class="d-flex row">
+            <div class="col form-group">
+                <label for="BillingState">State</label>
+                <select class="form-input form-control" id="BillingState" name="BillingState" required>
+                    <option selected disabled hidden>Select</option>
+                </select>
+            </div>
+            <div class="col form-group">
+                <label for="BillingPostalCode">ZIP</label>
+                <input type="text" class="form-input form-control" id="BillingPostalCode" name="BillingPostalCode" placeholder="52405" required />
+            </div>
+        </div>
+        <div class="d-flex row">
+            <div class="col form-group">
+                <label for="BillingCountry">Country</label>
+                <select class="form-input form-control" id="BillingCountry" name="BillingCountry" required>
+                    <option selected disabled hidden>Select</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="separateShippingInfo" />
+            <label class="custom-control-label" for="separateShippingInfo">Check here if shipping address is different than billing address</label>
+        </div>
+
+        <div id="shippingInfo" style="display:none">
+            <div class="d-flex m-4 text-center">
+                <h3>Shipping Information</h3>
+            </div>
+            <div class="d-flex row">
+                <div class="col form-group">
+                    <label for="ShippingName">Name</label>
+                    <input type="text" class="form-input form-control" id="ShippingName" name="ShippingName" placeholder="Same as Billing" />
+                </div>
+                <div class="col form-group">
+                    <label for="CustomerPhone">Phone</label>
+                    <input type="tel" class="phone form-input form-control" id="ShippingPhone" name="ShippingPhone" placeholder="Same as Billing" />
+                </div>
+            </div>
+            <div class="d-flex row">
+                <div class="col form-group">
+                    <label for="ShippingAddressLine1">Address</label>
+                    <input type="text" class="form-input form-control ignore" id="ShippingAddressLine1" name="ShippingAddressLine1" placeholder="Same as Billing" />
+                    <input type="text" class="form-input form-control ignore" id="shipping-address2" placeholder="Same as Billing" />
+                </div>
+            </div>
+            <div class="d-flex row">
+                <div class="col form-group">
+                    <label for="ShippingCity">City</label>
+                    <input type="text" class="form-input form-control" id="ShippingCity" name="ShippingCity" placeholder="Same as Billing" />
+                </div>
+            </div>
+            <div class="d-flex row">
+                <div class="col form-group">
+                    <label for="ShippingState">State</label>
+                    <select class="form-input form-control ignore" id="ShippingState" name="ShippingState" >
+                        <option selected disabled hidden>Same as Billing</option>
+                    </select>
+                </div>
+                <div class="col form-group">
+                    <label for="ShippingPostalCode">ZIP</label>
+                    <input type="text" class="form-input form-control ignore" id="ShippingPostalCode" name="ShippingPostalCode" placeholder="Same as Billing" />
+                </div>
+            </div>
+            <div class="d-flex row">
+                <div class="col form-group">
+                    <label for="ShippingCountry">Country</label>
+                    <select class="form-input form-control" id="ShippingCountry" name="ShippingCountry" >
+                        <option selected disabled hidden>Same as Billing</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="my-2" id="card-element"></div>
+
+        <div id="card-errors" role="alert"></div>
+
+        <div class="d-flex justify-content-center">
+            <input type="submit" class="btn btn-primary" id="btnSubmit" value="Complete" />
+        </div>
+    </form>
+</div>

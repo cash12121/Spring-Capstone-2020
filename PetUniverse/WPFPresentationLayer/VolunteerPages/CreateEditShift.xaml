@@ -1,0 +1,148 @@
+﻿<!--
+    AUTHOR: Timothy Lickteig
+    DATE: 2020-02-06
+    XAML code for the add new shift form
+    -->
+<Page x:Class="WPFPresentationLayer.CreateEditShift"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFPresentationLayer"
+        mc:Ignorable="d"
+        Title="frmCreateEditShift"
+       Height="450"
+        Width="1000">
+    <Canvas x:Name="canVolShift" Width="1200" Height="850" Margin="0,0,0,0" Visibility="Visible" >
+        <Canvas x:Name="canCreateEditShift" Width="1200"  Height="850" Visibility="Visible"  Canvas.Top="16" >
+            <Canvas>
+                <Grid Width="950" Height="500">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition ></RowDefinition>
+                        <RowDefinition ></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <ComboBox Grid.Row="1"
+                  x:Name="cboNeededRole" 
+                  Margin="20 10 20 10" Padding="5 2 0 0"></ComboBox>
+                    <Grid Grid.Row="2"
+              x:Name="grdShiftTitle">
+                        <TextBox Width="250"
+                                 Height="25"
+                     HorizontalAlignment="Left"
+                     x:Name="txtShiftTitle"
+                                 Padding="0 0 0 0"
+                     Margin="20 10 10 10">Shift Title</TextBox>
+                        <CheckBox Margin="170 0 0 1"
+                      x:Name="chkIsSpecialEvent"
+                      HorizontalAlignment="center"
+                      VerticalContentAlignment="Center"></CheckBox>
+                        <Label Width="85" Height="25"
+                   Margin="75 0 0 2"
+                   x:Name="lblSpecialEvent"
+                   VerticalContentAlignment="Center">Special Event</Label>
+                    </Grid>
+                    <DatePicker Grid.Row="3"
+                    x:Name="dteShiftDate"
+                                
+                    Margin="20 10 20 10" Padding="1 0 0 0"></DatePicker>
+                    <TextBox Grid.Row="4"
+                 x:Name="txtShiftNotes"
+                             Height="25"
+                 Margin="20 10 20 10">Shift Notes</TextBox>
+                    <ComboBox Grid.Row="5"
+                  x:Name="cboRecurrance"
+                              Height="25"
+                  Margin="20 10 20 10" Padding="5 1 0 0">One time</ComboBox>
+                    <TextBox Grid.Row="6"
+                             Height="25"
+                 x:Name="txtShiftDescription"
+                 Margin="20 10 20 10">Shift Description</TextBox>
+                    <Grid Grid.Row="7"
+              x:Name="grdShiftStartTime">
+                        <Grid.RowDefinitions>
+                            <RowDefinition ></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Margin="15 13 0 0">Start Time:</Label>
+                        <ComboBox Grid.Column="0" Grid.Row="1"
+                      x:Name="cboShiftStartHour"
+                      Margin="95 5 0 0"
+                      Width="55" Height="25"
+                      Padding="0 0 0 0"
+                      HorizontalAlignment="Left"
+                      HorizontalContentAlignment="Center"></ComboBox>
+                        <ComboBox Grid.Column="0" Grid.Row="1"
+                      x:Name="cboShiftStartMinute"
+                      Margin="0 5 575 0"
+                      Padding="0 0 0 0"
+                      Width="55" Height="25"
+                      HorizontalContentAlignment="Center"></ComboBox>
+                        <ComboBox Grid.Column="0" Grid.Row="1"
+                      x:Name="cboShiftStartAMorPM"
+                      Margin="0 5 445 0"
+                      Padding="0 0 0 0"
+                      Width="55" Height="25"
+                      HorizontalContentAlignment="Center"></ComboBox>
+                    </Grid>
+                    <Grid Grid.Row="8"
+              x:Name="grdShiftEndTime"              >
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="204*"></ColumnDefinition>
+                            <ColumnDefinition Width="271*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Margin="20 4 0 0" Grid.ColumnSpan="2">End Time:</Label>
+                        <ComboBox Grid.Column="0"
+                      x:Name="cboShiftEndHour"
+                      Width="55" Height="25"
+                      Margin="95,0,0,12"
+                      Padding="0 0 0 0"
+                      HorizontalAlignment="Left"
+                      HorizontalContentAlignment="Center"/>
+                        <ComboBox
+                      x:Name="cboShiftEndMinute"
+                      Width="55" Height="25"
+                      Margin="160,0,193,12"
+                      Padding="0 0 0 0"
+                      HorizontalContentAlignment="Center"/>
+                        <ComboBox
+                      x:Name="cboShiftEndAMorPM"
+                      Width="55" Height="25"
+                      Margin="0,0,445,12"
+                      Padding="0 0 0 0"
+                      HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
+                    </Grid>
+                    <Grid Grid.Row="9">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" 
+                    x:Name="btnCancelButton"
+                    Width="100" Height="30"
+                    Margin="20 10 20 10"
+                    Click="BtnCancelButton_Click">Cancel</Button>
+                        <Button Grid.Column="2"
+                    x:Name="btnSubmitButton"
+                    Margin="20 10 20 10"
+                    Width="100" Height="30"
+                    Click="BtnSubmitButton_Click">Submit</Button>
+                    </Grid>
+                </Grid>
+            </Canvas>
+        </Canvas>
+    </Canvas>
+</Page>

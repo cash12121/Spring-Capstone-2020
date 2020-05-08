@@ -1,0 +1,28 @@
+﻿@*
+	CREATED BY: Matt Deaton
+	DATE CREATED: 2020-04-07
+	APPROVED BY: Ryan Morganti
+
+	The view that goes along with the SuccessDetails from the FosterApplication Controller.
+*@
+@if (TempData["successMessage"] != null)
+{
+	<div class="alert alert-success">@TempData["successMessage"]</div>
+}
+<p>
+	You have submitted your application to foster an animal from Pet Universe.
+</p>
+<p>
+	We will look over your application and contact you.  Thanks for helping
+	to make our animal's lives better!
+</p>
+<br />
+
+<p> Check out these links for other ways you can help!</p>
+<div class="navbar-collapse collapse">
+	<ul class="nav navbar-nav">
+		<li>@Html.ActionLink("Adoption", "Index", "Adoption")</li>
+		<li>@Html.ActionLink("Donations", "Index", "Donations")</li>
+		<li>@Html.ActionLink("Donations FAQ", "DonationFAQ", "Donations")</li>
+	</ul>
+</div>

@@ -1,0 +1,34 @@
+﻿@*
+    Creator: Robert Holmes
+    Created: 04/29/2020
+    Approver:
+
+    Page for viewing a list of products.
+    Updater:
+    Updated:
+    Update:
+*@
+@model WPFPresentation.Models.ProductListViewModel
+
+@{
+    ViewBag.Title = "Browse Products";
+}
+<div class="container">
+    <div class="row">
+        <h2 class="my-2">@ViewBag.Title</h2>
+    </div>
+    <a class="btn btn-primary" data-toggle="collapse" href="#filter-options" role="button">
+        Filter
+    </a>
+    <div class="collapse" id="filter-options">
+        @Html.Action("FilterDropDowns", "Filter")
+    </div>
+
+</div>
+<div class="d-flex flex-wrap justify-content-center pt-5">
+    @foreach (var p in Model.Products)
+    {
+        @Html.Partial("_ProductPartial", p);
+    }
+</div>
+@Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", new { page = x, category = Model.CurrentCategory, type = Model.CurrentType, brand = Model.CurrentBrand }))

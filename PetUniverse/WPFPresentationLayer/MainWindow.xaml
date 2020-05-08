@@ -1,0 +1,43 @@
+﻿<!-- Name: Zach Behrensmeyer
+     Date: 2/8/2020
+     CHECKED BY: Steven Cardona
+     
+     This window is used for general login to the console app -->
+<Window x:Class="WPFPresentationLayer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFPresentationLayer"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="Login" Height="515"  ResizeMode="NoResize" Width="420" FontSize="14" Background="#fff8e3">
+    <Border Background="#2e3137" CornerRadius="20" Margin="20">
+        <Grid Margin="30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="65"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label x:Name="lblEmail" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="18" Foreground="White">Email</Label>
+            <TextBox x:Name="txtEmail" Text="zbehrens@PetUniverse.com" Grid.Row="3" FontSize="15" Grid.Column="1" Height="25" VerticalAlignment="Top"/>
+            <Label x:Name="lblPassword" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="18" Foreground="White">Password</Label>
+            <PasswordBox x:Name="pwdPassword" Grid.Row="5" Grid.Column="1" VerticalContentAlignment="Center" Password="newuser" Margin="0,1,0,24"/>
+            <Button x:Name="btnLogin" Grid.Row="6" Grid.Column="1" Margin="0,0,0,34" FontSize="18" VerticalAlignment="Bottom" Click="btnLogin_Click" >Login</Button>
+            <Label x:Name="lblLockoutMessage" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="12" Foreground="Red" Content=""  Grid.RowSpan="2"/>
+            <Button x:Name="ResetPassword" Grid.Row="6" Grid.Column="1" Margin="0,0,0,2" FontSize="18" VerticalAlignment="Bottom" Click="ResetPassword_Click" Content="Forgot Password?" />
+        </Grid>
+    </Border>
+</Window>

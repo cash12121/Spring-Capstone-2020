@@ -1,0 +1,123 @@
+﻿<Page x:Class="WPFPresentationLayer.VolunteerPages.TreatmentRecordControls"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFPresentationLayer.VolunteerPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="TreatmentRecordControls">
+
+    <!-- Canvas to view treatment records.-->
+    <Canvas x:Name="canViewTreatmentRecords" Height="845" Width="1289" Visibility="Visible">
+        <Grid Width="1279">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="725"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <DataGrid x:Name="dgTreatmentRecords" Grid.Row="0" Width="1280" Grid.ColumnSpan="3" SelectionMode="Single"
+                       Padding="0" CanUserResizeRows="False"
+                       CanUserResizeColumns="False" CanUserReorderColumns="False" IsReadOnly="True" Loaded="dgTreatmentRecords_Loaded" >
+            </DataGrid>
+
+            <Button x:Name="btnAddTreatmentRecord" Margin="5"  Grid.Row="1" Grid.Column="0" Width="100" Height="50" FontSize="16" Click="btnAddTreatmentRecord_Click" >Add Treatment Record</Button>
+            <Button x:Name="btnEditTreatmentRecord" Margin="5" Grid.Row="1" Grid.Column="1" Width="100" Height="50" FontSize="16" Click="btnEditTreatmentRecord_Click" >Edit Treatment Record</Button>
+            <Button x:Name="btnRemoveTreatmentRecord" Margin="5"  Grid.Row="1" Grid.Column="2" Width="100" Height="50" FontSize="16" Click="btnRemoveTreatmentRecord_Click" >Remove Treatment Record</Button>
+            
+        </Grid>
+        <!-- Canvas for viewing a form which allows you to add a treatment record-->
+        <Canvas Height="845" Width=" 1280" x:Name="canAddTreatmentRecord" Visibility="Hidden">
+            <Grid Height="800" Width=" 1280">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label FontSize="36" VerticalAlignment="Center" Grid.Row="0">Add New Treatment Record</Label>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="150"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+
+                    <!-- Vet ID -->
+                    <Label x:Name="lblVetID" Grid.Row="0" Grid.Column="0" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Right">Vet ID:</Label>
+                    <TextBox x:Name="txtVetID"  Grid.Row="0" Grid.Column="1" Background="LightGray" Height="30" 
+                     Margin="25 0 25 0" VerticalContentAlignment="Center" FontSize="16"></TextBox>
+
+
+                    <!-- Animal ID -->
+                    <Label x:Name="lblAnimalID" Grid.Row="1" Grid.Column="0" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Right">Animal ID:</Label>
+                    <TextBox x:Name="txtAnimalID"  Grid.Row="1" Grid.Column="1" Background="LightGray" Height="30" 
+                     Margin="25 0 25 0" VerticalContentAlignment="Center" FontSize="16"></TextBox>
+
+                    <!--Form Name-->
+                    <Label x:Name="lblFormName" Grid.Row="2" Grid.Column="0" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Right">Form Name:</Label>
+                    <TextBox x:Name="txtFormName" Grid.Row="2" Grid.Column="1" Background="LightGray" Height="30" 
+                      Margin="25 0 25 0" VerticalContentAlignment="Center" FontSize="16"></TextBox>
+
+                    <!-- Treatment Date-->
+                    <Label x:Name="lblTreatmentDate" Grid.Row="3" Grid.Column="0" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Right">Treatment Date:</Label>
+                    <Calendar x:Name="cndTreatmentDate" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" 
+                          VerticalAlignment="Center" Margin="0 0 12.5 0"/>
+
+                    <!-- Treatment Description-->
+                    <Label x:Name="lblTreatmentDescription" Grid.Row="4" Grid.Column="0" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Right">Treatment Description:</Label>
+                    <TextBox  x:Name="txtTreatmentDescription" Grid.Row="4" Grid.Column="1" Background="LightGray" Height="30" 
+                      Margin="25 0 25 0" VerticalContentAlignment="Center" FontSize="16"></TextBox>
+
+                    <!-- Notes-->
+                    <Label x:Name="lblNotes" Grid.Row="5" Grid.Column="0" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Right">Notes:</Label>
+                    <TextBox  x:Name="txtNotes" Grid.Row="5" Grid.Column="1" Background="LightGray" Height="30" 
+                      Margin="25 0 25 0" VerticalContentAlignment="Center" FontSize="16"></TextBox>
+
+                    <!-- Reason -->
+                    <Label x:Name="lblReason" Grid.Row="6" Grid.Column="0" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Right">Reason:</Label>
+                    <TextBox  x:Name="txtReason" Grid.Row="6" Grid.Column="1" Background="LightGray" Height="30" 
+                      Margin="25 0 25 0" VerticalContentAlignment="Center" FontSize="16"></TextBox>
+
+                    <!-- Urgency -->
+                    <Label x:Name="lblUrgency" Grid.Row="7" Grid.Column="0" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Right">Urgency:</Label>
+                    <TextBox  x:Name="txtUrgency" Grid.Row="7" Grid.Column="1" Background="LightGray" Height="30" 
+                      Margin="25 0 25 0" VerticalContentAlignment="Center" FontSize="16"></TextBox>
+
+                    <!--Submit-->
+                    <Button x:Name="BtnSubmitTreatmentRecordAdd" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" 
+                    Width="150" FontSize="36" Padding="10"
+                    VerticalAlignment="Center" HorizontalAlignment="Left" Click="BtnSubmitTreatmentRecordAdd_Click" >Submit</Button>
+
+                    <!--Cancel-->
+                    <Button x:Name="btnCancelTreatmentRecordAdd" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="2" 
+                    Width="150" FontSize="36" Padding="10"
+                    VerticalAlignment="Center" HorizontalAlignment="Right" Click="btnCancelTreatmentRecordAdd_Click" >Cancel</Button>
+                    
+                    <!--Save-->
+                    <Button x:Name="btnSaveTreatmentRecord" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" 
+                    Width="150" FontSize="36" Padding="10"
+                    VerticalAlignment="Center" HorizontalAlignment="Left" Click="btnSaveTreatmentRecord_Click" >Save</Button>
+                </Grid>
+
+            </Grid>
+        </Canvas>
+        
+    </Canvas>
+</Page>

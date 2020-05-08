@@ -1,0 +1,63 @@
+﻿@model IEnumerable<DataTransferObjects.JobListing>
+
+@{
+    ViewBag.Title = "Positions";
+}
+
+<h2>Positions</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Position)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Benefits)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Requirements)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartingWage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Responsibilities)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Position)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Benefits)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Requirements)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartingWage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Responsibilities)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.JobListingID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.JobListingID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.JobListingID })
+        </td>
+    </tr>
+}
+
+</table>

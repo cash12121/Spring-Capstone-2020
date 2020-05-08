@@ -1,0 +1,64 @@
+﻿@model IEnumerable<DataTransferObjects.ApplicationVM>
+
+@{
+
+}
+<br />
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AnimalName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AnimalSpeciesID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AnimalBreed)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnimalName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnimalSpeciesID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnimalBreed)
+            </td>
+
+            <td>
+                @Html.ActionLink("View Application", "CustomerApplicationDetails", new { adoptionApplicationID = item.AdoptionApplicationID }, new { @class = "btn btn-primary" })
+                
+            </td>
+        </tr>
+    }
+
+</table>
+
+@*@foreach (var item in Model)
+{
+    
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>Animal Name:</strong> @item.AnimalName</h5>
+                    <p class="card-text"><strong>Species:</strong> @item.AnimalSpeciesID <br /><strong>Breed:</strong> @item.AnimalBreed</p>
+                    @Html.ActionLink("View Application", "CustomerApplicationDetails", new { adoptionApplicationID = item.AdoptionApplicationID }, new { @class = "btn btn-primary" })
+                </div>
+            </div>
+        </div>
+
+
+
+        }*@

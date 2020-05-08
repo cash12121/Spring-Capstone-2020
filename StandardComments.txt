@@ -1,0 +1,34 @@
+Last Update: 2/14/2020
+
+Use these standard comments when creating your code.
+For complete coverage we should be not only adding comments on the class,
+but also on the METHOD HEADER for each public method in those classes.
+
+Standard CLASS comments:
+	/// <summary>
+	/// Creator: Your Name
+	/// Created: yyyy/mm/dd
+	/// Approver: Name
+	///
+	/// Actual summary of the class
+	/// (example: Class for the creation of User Objects with set data fields)
+	/// </summary>
+	
+Standard METHOD comments:
+	/// <summary>
+	/// Creator: Your Name
+	/// Created: yyyy/mm/dd
+	/// Approver:
+	/// 
+	/// Actual summary of the method
+	/// </summary>
+	///
+	/// <remarks>
+	/// Updater: Name
+	/// Updated: yyyy/mm/dd 
+	/// Update: (example: Fixed a problem when user inputs bad data)
+	/// </remarks>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
+
+

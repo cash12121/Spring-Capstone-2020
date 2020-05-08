@@ -1,0 +1,71 @@
+﻿<Page x:Class="WPFPresentationLayer.VolunteerPages.TaskControls"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFPresentationLayer.VolunteerPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="TaskControls"
+      Loaded="Window_Loaded">
+
+    <Canvas x:Name="canTaskControls" Width="1200" Height="850">
+        <Canvas x:Name="canViewTasks" Visibility="Visible">
+            <Grid Height="807" Width="1200">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="103"></RowDefinition>
+                    <RowDefinition ></RowDefinition>
+                    <RowDefinition Height="70"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <DataGrid x:Name="dgVolTaskList" SelectionMode="Single" IsReadOnly="True" Grid.Row="1"
+                                    Grid.ColumnSpan="4" Grid.RowSpan="1" >
+                </DataGrid>
+                <Button x:Name="btnEditVolunteerTask"  Grid.Column="3" Grid.Row="2" Content="Edit" HorizontalAlignment="Left" Margin="10 0 0 0" Width="100" Height="30" Click="btnEditVolunteerTask_Click"></Button>
+                <Button x:Name="btnAddTask" Grid.Column="2" Grid.Row="2" Content="Add" HorizontalAlignment="Right" Margin="0 0 10 0"  Width="100" Height="30" Click="BtnAddTask_Click"></Button>
+                <Button x:Name="btnDeleteVolunteerTask" Grid.Column="3" Grid.Row="2" Content="Delete" HorizontalAlignment="Center" Margin="47 0 0 0" Width="88" Height="30" Click="btnDeleteVolunteerTask_Click"/>
+            </Grid>
+        </Canvas>
+        <Canvas x:Name="canCreateTask" Visibility="Hidden">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                    <ColumnDefinition Width="300"></ColumnDefinition>
+                    <!--<ColumnDefinition Width="150"></ColumnDefinition>-->
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition x:Name="Row1" Height="75"></RowDefinition>
+                    <RowDefinition x:Name="Row2" Height="35"></RowDefinition>
+                    <RowDefinition x:Name="Row3" Height="35"></RowDefinition>
+                    <RowDefinition x:Name="Row4" Height="35"></RowDefinition>
+                    <RowDefinition x:Name="Row5" Height="95"></RowDefinition>
+                    <RowDefinition x:Name="Row6" Height="90"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Label x:Name="lblEventDate" Content="Date" HorizontalAlignment="Right" Margin="0,4,10,0" Grid.Row="2" VerticalAlignment="Top" HorizontalContentAlignment="Right" Height="25" Width="91"/>
+
+                <Label x:Name="lblEventDescription" Content="Description" HorizontalAlignment="Right" Margin="0,1,10,0" Grid.Row="3" VerticalAlignment="Top" HorizontalContentAlignment="Right" Height="25" Width="91"/>
+
+
+                <TextBox  x:Name="txtVolunteerTaskDescription" Grid.Column="1" HorizontalAlignment="Left" Height="93" Margin="10,31,0,0" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="236" Grid.RowSpan="3"/>
+                <TextBox  x:Name="txtVolunteerTaskDate" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="10,1,0,0" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="236"/>
+                <Button x:Name="btnCreateVolunteerTask" Visibility="Visible" Content="Add" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="254,101,-19,-39" Grid.Row="5" VerticalAlignment="Top" Width="66" Click="btnCreateVolunteerTask_Click"/>
+                <Label x:Name="lblAssignmentGroup" Content="Assignment Group&#xD;&#xA;" HorizontalAlignment="Left" Margin="35,5,0,0" Grid.Row="1" VerticalAlignment="Top" Width="116"/>
+                <Label x:Name="lblTaskType" Content="Task Type" HorizontalAlignment="Left" Margin="82,51,0,0" VerticalAlignment="Top" Height="25" Width="69"/>
+                <Label x:Name="lblTaskName" HorizontalAlignment="Left" Margin="73,22,0,0" VerticalAlignment="Top" Width="68" Height="24" Content="Task Name"/>
+                <ComboBox x:Name="comboAssignmentGroup" HorizontalAlignment="Left" Margin="10,5,0,0" Grid.Row="1" VerticalAlignment="Top" Width="236" Height="25" Grid.Column="1"/>
+                <ComboBox x:Name="comboTaskType" Grid.Column="1" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top" Width="236" Height="25"/>
+                <TextBox x:Name="txtTaskName" Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="10,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="236"/>
+                <ListBox Grid.Column="1" HorizontalAlignment="Left" Height="125" Margin="10,57,0,-52" Grid.Row="4" VerticalAlignment="Top" Width="108" Grid.RowSpan="2"/>
+                <ListBox Grid.Column="1" HorizontalAlignment="Left" Height="125" Margin="139,57,0,-52" Grid.Row="4" VerticalAlignment="Top" Width="107" Grid.RowSpan="2"/>
+                <Button x:Name="btnSave" Content="Save" Visibility="Hidden" Grid.Column="1" HorizontalAlignment="Left" Height="35" Margin="265,108,-30,-52" Grid.Row="5" VerticalAlignment="Top" Width="66" Click="btnSave_Click"/>
+            </Grid>
+        </Canvas>
+
+    </Canvas>
+</Page>

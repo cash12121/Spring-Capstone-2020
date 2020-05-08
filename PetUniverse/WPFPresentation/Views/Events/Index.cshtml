@@ -1,0 +1,87 @@
+﻿@model IEnumerable<DataTransferObjects.PUEvent>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_InternalLayout.cshtml";
+}
+
+<header><h1 style="color:orangered">Upcoming Events</h1></header>
+
+@if (Request.IsAuthenticated && (User.IsInRole("Administrator") || User.IsInRole("Donation Coordinator")))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+
+<table class="table table-hover">
+    <tr>
+        <th style="color:orangered">
+            @Html.DisplayNameFor(model => model.EventName)
+        </th>
+        <th style="color:orangered">
+            @Html.DisplayNameFor(model => model.EventTypeID)
+        </th>
+        <th style="color:orangered">
+            @Html.DisplayNameFor(model => model.EventDateTime)
+        </th>
+        <th style="color:orangered">
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th style="color:orangered">
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th style="color:orangered">
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th style="color:orangered">
+            @Html.DisplayNameFor(model => model.Zipcode)
+        </th>
+        <th style="color:orangered">
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventTypeID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zipcode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.EventID })
+                @if (Request.IsAuthenticated && (User.IsInRole("Administrator") || User.IsInRole("Donation Coordinator")))
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.EventID })
+                }
+                @if (Request.IsAuthenticated && (User.IsInRole("Administrator") || User.IsInRole("Donation Coordinator")))
+                {
+                    @Html.ActionLink("Delete", "Delete", new { id = item.EventID })
+                }
+            </td>
+        </tr>
+    }
+
+</table>

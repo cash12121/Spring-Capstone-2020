@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DataTransferObjects.JobApplication>
+
+@{
+    ViewBag.Title = "Applications";
+    Layout = "~/views/Shared/_InternalLayout.cshtml";
+}
+<header><h1>Applications</h1></header>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplicationID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplicantID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubmitDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var application in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => application.ApplicationID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => application.ApplicantID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => application.SubmitDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>

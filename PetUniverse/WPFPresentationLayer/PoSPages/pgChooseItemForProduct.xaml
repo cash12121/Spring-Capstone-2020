@@ -1,0 +1,40 @@
+﻿<!-- 
+                Name: Robert Holmes
+                Date: 2020/03/17
+                Approver: Jaeho Kim
+             
+                This page allows the user to select an item to create a product for.
+              
+                Updater: NA
+                Updated: NA
+                Update: NA -->
+    <Page x:Class="WPFPresentationLayer.PoSPages.pgChooseItemForProduct"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFPresentationLayer.PoSPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="850" d:DesignWidth="1280"
+      Title="pgChooseItemForProduct">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition />
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Choose an item to create a product for:" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Right" Margin="0, 0, 10, 0" Grid.Row="1" VerticalAlignment="Center" Width="75" Click="btnSearch_Click" />
+        <TextBox x:Name="txtSearch" HorizontalAlignment="Right" Height="23" Margin="0, 0, 95, 0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+
+        <DataGrid x:Name="dgItems" FontWeight="Medium" Grid.Row="2" IsReadOnly="True" SelectionMode="Single" AutoGeneratingColumn="dgItems_AutoGeneratingColumn" MouseDoubleClick="dgItems_MouseDoubleClick" />
+
+        <Button x:Name="btnChoose" Content="Choose Item" Height="20" Width="75" Grid.Row="3" Margin="0, 0, 10, 0"  HorizontalAlignment="Right" Click="btnChoose_Click" />
+        <Button x:Name="btnCancel" Content="Cancel" Height="20" Width="75" Grid.Row="3" Margin="10, 0, 0, 0" HorizontalAlignment="Left" Click="btnCancel_Click" />
+    </Grid>
+</Page>

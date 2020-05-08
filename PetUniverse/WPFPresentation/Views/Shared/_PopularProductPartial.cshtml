@@ -1,0 +1,17 @@
+﻿@*
+    Creator: Robert Holmes
+    Created: 04/29/2020
+    Approver:
+
+    Partial view for a popular item.
+    Updater:
+    Updated:
+    Update:
+*@@model DataTransferObjects.Product
+<li class="col-2 rd-brand-tile">
+    <a href="@Url.Action("Details", "Product", new { productID = Model.ProductID })">
+        <div>
+            <img src="@Url.Action("GetImage", "Product", new { Model.ProductID })" class="center-block img-fluid" style="width:auto;">
+        </div>
+    </a>
+</li>

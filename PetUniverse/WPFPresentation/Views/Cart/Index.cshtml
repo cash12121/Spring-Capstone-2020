@@ -1,0 +1,91 @@
+﻿@*
+    Creator: Robert Holmes
+    Created: 04/29/2020
+    Approver:
+
+    Page for viewing cart contents.
+    Updater:
+    Updated:
+    Update:
+*@
+@model WPFPresentation.Models.CartIndexViewModel
+@{
+    ViewBag.Title = "Your Cart";
+}
+
+<div>
+    @if (TempData["message"] != null)
+    {
+        <div class="alert alert-secondary">@TempData["message"]</div>
+    }
+</div>
+<h2 class="m-5">Your Selected Items</h2>
+<div class="container">
+    <div class="card-header">
+        <div class="card-title">
+            <div class="row">
+                <div class="col-6">
+                    <h5>Shopping Cart</h5>
+                </div>
+                <div class="col-6">
+                    @using (Html.BeginForm("Index", "Product"))
+                    {
+                        <div>
+                            <input type="submit" class="btn btn-primary btn-sm btn-block" value="Continue Shopping" />
+                        </div>
+                    }
+
+                </div>
+            </div>
+            @foreach (var l in Model.Cart.Lines)
+            {
+                <div class="row row-cols-4 m-2 align-items-center bg-light rounded">
+                    <div class="col-2">
+                        <img class="img-fluid" src="@Url.Action("GetImage", "Product", new { l.Product.ProductID })" />
+                    </div>
+                    <div class="col-4">
+                        <h4><strong>@l.Product.Name</strong></h4>
+                        <h4><small>@l.Product.Description</small></h4>
+                    </div>
+
+                    <div class="col-2 text-right">
+                        <h6><strong>@l.Product.Price.ToString("C")<span class="text-muted">x</span></strong></h6>
+                    </div>
+                    <div class="col-2 input-group">
+                        @using (Html.BeginForm("RemoveOneFromCart", "Cart", new { productID = l.Product.ProductID, returnUrl = Request.Url }))
+                        {
+                            <input type="submit" class="btn btn-primary btn-sm" value="-" />
+                        }
+
+                        <p class="mx-1 my-auto">@l.Amount</p>
+
+                        @using (Html.BeginForm("AddToCart", "Cart", new { productID = l.Product.ProductID, returnUrl = Request.Url }))
+                        {
+                            <input type="submit" class="btn btn-primary btn-sm" value="+" />
+                        }
+                    </div>
+                    <div class="col-2">
+                        @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                        {
+                            @Html.Hidden("ProductID", l.Product.ProductID)
+                            @Html.HiddenFor(x => x.ReturnUrl)
+                            <input class="btn btn-danger" type="submit" value="Remove" />
+                        }
+                    </div>
+                </div>
+            }
+            <div class="row">
+                <div class="col-8 text-right">
+                    <h4>Total: <strong>@Html.Action("GetPreTaxTotal")</strong></h4>
+                    <h4><small class="text-muted"> + taxes and fees</small></h4>
+                </div>
+                <span class="col-1"></span>
+                <div class="col-2">
+                    @Html.ActionLink("Checkout", "Checkout", null, new { @class = "btn btn-lg btn-primary m-2" })
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

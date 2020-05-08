@@ -1,0 +1,118 @@
+﻿@model IEnumerable<DataTransferObjects.ShiftDetailsVM>
+
+@{
+    //Cast the viewbags to DataObjects
+    DataTransferObjects.ShiftDetailsVM shiftDetails = ViewBag.ShiftDetails;
+}
+@* JS for making Calendar *@
+@section scripts{
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#calendar').fullCalendar({
+                @if(ViewBag.DefaultDate != "")
+                    {
+                        <text>defaultDate: "@ViewBag.DefaultDate",</text>
+                    }
+                theme: false,
+
+
+                header: {
+                    left: 'title',
+                    right: 'today prev,next,',
+                    center: 'month,agendaWeek,agendaDay'
+
+                },
+                buttonText: {
+                    today: 'This Month',
+                    prev: '<<',
+                  next: '>>'
+                },
+
+
+                defaultView: 'month',
+                editable: false,
+                allDaySlot: false,
+                selectable: true,
+
+                events: [
+                    @foreach (var item in Model)
+{
+    if (!item.Equals(Model.Last()))
+    {
+                          <text>{ shiftID: '@item.ShiftID', title: '@item.RoleID', start: '@item.ShiftDate.ToShortDateString() @item.ShiftStartTime' , end: '@item.ShiftDate.ToShortDateString() @item.ShiftEndTime' },</text>
+    }
+    else
+    {
+                            <text>{ shiftID: '@item.ShiftID', title: '@item.RoleID', start: '@item.ShiftDate.ToShortDateString() @item.ShiftStartTime' , end: '@item.ShiftDate.ToShortDateString() @item.ShiftEndTime' }</text>
+    }
+
+}
+                ],
+
+                eventClick: function (event) {
+                    var shiftID = event.shiftID
+                    //Refresh page with new shiftID
+                    window.location.href = "/ScheduleSupervisor/ShiftCalendarEmployee?id=" + shiftID
+
+                }
+            });
+
+        });
+
+
+    </script>
+}
+@* End of JS for making Calendar *@
+
+<br />
+@{
+    if (shiftDetails != null)
+    {
+        Html.RenderPartial("EmployeeShiftDetails", shiftDetails);
+    }
+    else
+    {
+        <div class="row">
+            <div class=" col-lg-4 col-xs-12">
+                <h2>@ViewBag.name</h2>
+                <h2>No Role</h2>
+                <br />
+                <ul class="list-group">
+                    <li style="
+                            font-weight: bold;
+                            background-color: #e95420;
+                            border-top: 1px solid #972b06;
+                            border-left: 1px solid #cc4313;
+                            border-right: 1px solid #cc4313;"
+                        class="list-group-item">No Schedule</li>
+                    <li class="list-group-item">Start Date: N/A</li>
+                    <li class="list-group-item">End Date: N/A</li>
+                </ul>
+                <br />
+                <br>
+                <div>
+                    <ul class="list-group">
+                        <li style="
+                            font-weight: bold;
+                            background-color: #e95420;
+                            border-top: 1px solid #972b06;
+                            border-left: 1px solid #cc4313;
+                            border-right: 1px solid #cc4313;"
+                            class="list-group-item">No Shift Time</li>
+                        <li class="list-group-item">Start Time: N/A</li>
+                        <li class="list-group-item">End Time: N/A</li>
+                        <li class="list-group-item">Department: N/A</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="calendar" class="col-lg-8"></div>
+
+        </div>
+    }
+
+    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "ChooseRequestType")'">Submit Scheduling Request</button>
+    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "PoliciesAndStandards")'">Policies and Standards</button>
+
+}

@@ -1,0 +1,102 @@
+﻿<!--
+CREATOR: Kaleb Bachert
+CREATED: 2020/3/5
+APPROVER: Lane Sandburg
+View for creating a Schedule Change Request
+-->
+@model WPFPresentation.Models.UserWithShiftList
+@using DataTransferObjects
+
+<br />
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Create", "RequestScheduleChange"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Select a Shift to Swap</h4>
+        <hr />
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Select a Date</label>
+            <div class="col-md-10">
+                <input type="text" name="ShiftDate" id="ShiftDate" data-provide="datepicker" class="form-control" onchange="refreshView()" value="@ViewBag.SelectedDate" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Select a Shift</label>
+            <div class="col-md-10">
+                @Html.DropDownList("shiftList",
+                      (List<SelectListItem>)ViewBag.ShiftList,
+                      htmlAttributes: new { @class = "form-control", id = "shiftList" })
+            </div>
+            <p id="ShiftSelectionError" class="alert-danger"></p>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input id="submit" type="button" value="Submit Schedule Change Request" onclick="submitScheduleChangeRequest()" class="btn btn-primary" />
+            </div>
+        </div>
+
+        <script>
+            $('#ShiftDate').datepicker({
+                format: 'MM-dd-yyyy'
+            });
+
+            function refreshView() { //This function won't call from a separate file
+                var dateSelection = $("#ShiftDate").val().toString();
+                var currentUserID = @Model.UserID;
+
+                var postData = JSON.stringify({ 'userID': currentUserID, 'selectedDate': dateSelection });
+
+                $.ajax({ //This, for some reason, is the only way that seems to go to the GET method, even though POST is specified
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    type: "POST",
+                    url: "/RequestScheduleChange/CreateAjax",
+                    data: postData,
+                    success: function (data) {
+                        window.location.href = data;
+                    },
+                    traditional: true
+                });
+            }
+
+            function submitScheduleChangeRequest() {
+                var selectedShiftID = $("#shiftList").val();
+                var dateSelection = $("#ShiftDate").val().toString();
+
+                if (selectedShiftID.toString() != "") {
+                    $('#ShiftSelectionError').html("");
+
+                    var postData = JSON.stringify({ 'shiftID': selectedShiftID, 'shiftDate': dateSelection });
+
+                    $.ajax({
+                        contentType: 'application/json; charset=utf-8',
+                        dataType: 'json',
+                        type: "POST",
+                        url: "/RequestScheduleChange/CreateRequest",
+                        data: postData,
+                        success: function (data) {
+                            window.location.href = data;
+                        },
+                        traditional: true
+                    });
+                }
+                else {
+                    $('#ShiftSelectionError').html("Must select a shift!");
+                }
+            }
+        </script>
+
+        <div>
+            @Html.ActionLink("Back to Request Types", "Index", "ChooseRequestType")
+        </div>
+    </div>
+}

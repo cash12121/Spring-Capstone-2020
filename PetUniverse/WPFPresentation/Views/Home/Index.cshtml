@@ -1,0 +1,106 @@
+﻿<!--
+   Creator: Gabrielle Legrand
+   Created: 2/6/2020
+
+   Updater: Robert Holmes
+   Updated: 04/29/2020
+   Update: Added real popular items
+
+-->
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<span></span>
+@Html.Partial("_CarouselPartial")
+
+<section>
+    <div class="productInfo">
+        &nbsp;
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="row mb-4">
+                    <a href="https://unsplash.it/1200/768.jpg?image=251" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+                        <img src="https://unsplash.it/600.jpg?image=251" class="img-fluid">
+                    </a>
+                    <a href="https://unsplash.it/1200/768.jpg?image=252" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+                        <img src="https://unsplash.it/600.jpg?image=252" class="img-fluid">
+                    </a>
+                    <a href="https://unsplash.it/1200/768.jpg?image=253" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+                        <img src="https://unsplash.it/600.jpg?image=253" class="img-fluid">
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div>
+    <h2 class=" text-center text-uppercase">Our Popular Items</h2>
+    <h3 class="  text-bold text-center">Click an image below to get started</h3>
+</div>
+
+<div>
+    &nbsp;
+    <ul class="list-unstyled list-inline row padding-top-lg">
+        @for (int i = 0; i < 6; i++)
+        {
+            @Html.Action("GetPopularItem", "Product", new { index = i });
+        }
+    </ul>
+</div>
+<div class="text-center padding-top-lg">
+    <a href="#!" class="btn btn-primary" onclick="clickTrackLink(this);">Start Saving</a>
+</div>
+
+
+
+
+
+<div class="row">
+    <div class="col-md-7">
+        <a href="#">
+            <img class="img-fluid rounded mb-3 mb-md-0" src="~/Content/Images/happyManDogWalker.jpeg" />
+        </a>
+    </div>
+    <div class="col-md-5">
+        <h3>A few words from our participants...</h3>
+        <blockquote class="blockquote text-center align-content-center ">
+            <div class="bottomdiv">
+                <p class="mb-0">
+                    I volunteered at Pet Universe and I can honestly say I haven't met a more dedicated and kind group of people.
+                    I enjoyed every job that I tried, but dog walking was my favorite!
+                </p>
+                <footer class="blockquote-footer">Ragnar White in <cite title="Source Title">Pet Universe Weekly</cite></footer>
+            </div>
+
+        </blockquote>
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <div class="col-md-7">
+        <a href="#">
+            <img class="img-fluid rounded mb-3 mb-md-0" src="~/Content/Images/happyWoman.jpeg" />
+        </a>
+    </div>
+    <div class="col-md-5">
+        <blockquote class="blockquote text-center align-content-center">
+            <div class="bottomdiv">
+                <p class="mb-0">
+                    Everyone, employees and volunteers alike were so helpful through the adoption process, and were SO accomodating
+                    when I had questions, and concerns. I will be forever grateful..they helped me find the perfect pet, and my best friend!
+                </p>
+                <footer class="blockquote-footer">Natalie Cobbler in<cite title="Source Title">Pet Universe Weekly</cite></footer>
+            </div>
+        </blockquote>
+    </div>
+</div>
+
+<hr>
+
+

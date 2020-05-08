@@ -1,0 +1,84 @@
+﻿@{
+    Layout = null;
+}
+
+@model DataTransferObjects.ShiftDetailsVM
+
+
+<div class="row">
+    <div class=" col-lg-4 col-xs-12">
+        <h2>@ViewBag.name</h2>
+        <h2>@Model.RoleID</h2>
+        <br />
+        <ul class="list-group">
+            <li style="
+                            font-weight: bold;
+                            background-color: #e95420;
+                            border-top: 1px solid #972b06;
+                            border-left: 1px solid #cc4313;
+                            border-right: 1px solid #cc4313;"
+                class="list-group-item">Schedule</li>
+            <li class="list-group-item">Start Date: @Model.ShiftScheduleStartDate</li>
+            <li class="list-group-item">End Date: @Model.ShiftScheduleEndDate</li>
+        </ul>
+        <br />
+        <br>
+        <div>
+            <ul class="list-group">
+                <li style="
+                            font-weight: bold;
+                            background-color: #e95420;
+                            border-top: 1px solid #972b06;
+                            border-left: 1px solid #cc4313;
+                            border-right: 1px solid #cc4313;"
+                    class="list-group-item">Shift Time</li>
+                <li class="list-group-item">Start Time: @Model.ShiftStartTime</li>
+                <li class="list-group-item">End Time: @Model.ShiftEndTime</li>
+                <li class="list-group-item">Department: @Model.ShiftTimeDeptID</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="calendar" class="col-lg-8"></div>
+
+</div>
+<br />
+<div class="row">
+    <h1 class= "col-lg-3">Availabilites</h1>
+</div>
+@{
+    IEnumerable<DataTransferObjects.EmployeeAvailability> availabilities = Model.ShiftAvailabilities;
+}
+@if (availabilities.Count() != 0)
+{
+    <div class="col-xs-12">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>
+                    @Html.DisplayName("StartTime")
+                </th>
+                <th>
+                    @Html.DisplayName("EndTime")
+                </th>
+                <th>
+                    @Html.DisplayName("DayOfWeek")
+                </th>
+
+            </tr>
+            @foreach (var item in availabilities)
+            {
+                <tr>
+                    <td>@item.StartTime</td>
+                    <td>@item.EndTime</td>
+                    <td>@item.DayOfWeek</td>
+                </tr>
+            }
+
+
+        </table>
+    </div>
+}
+else
+{
+    <div class="row"><h3 class="col-xs-3">No Availabilites</h3></div>
+}

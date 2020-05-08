@@ -1,0 +1,36 @@
+﻿<Page x:Class="WPFPresentationLayer.VolunteerPages.VolunteerSchedule"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:WPFPresentationLayer.VolunteerPages"
+      mc:Ignorable="d"
+      d:DesignHeight="450"
+      d:DesignWidth="800"
+      Title="Page1">
+    <Canvas x:Name="ViewVolunteerSchedule" Visibility="Visible" Width="1200" Height="850">
+        <Canvas>
+            <Canvas x:Name="canViewVolSch">
+                <Grid Height="807" Width="1200">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="103"></RowDefinition>
+                        <RowDefinition ></RowDefinition>
+                        <RowDefinition Height="70"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="txtVolunteerID" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Width="200" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Padding="0 0 0 0" Margin="0 0 0 20">1000000</TextBox>
+                    <DataGrid x:Name="dteShiftList" SelectionMode="Single" IsReadOnly="True" Grid.Row="1"
+                                    Grid.ColumnSpan="4" Grid.RowSpan="1" >
+                    </DataGrid>
+                    <Button x:Name="btnSubmit" Grid.Column="3" Grid.Row="0" Content="View Shifts" HorizontalAlignment="Left" Margin="20 40 0 0" Width="100" Height="30" Click="BtnSubmit_Click"></Button>
+                    <Button x:Name="btnAddShift" Grid.Column="2" Grid.Row="2" Content="Add Shift" HorizontalAlignment="Right" Margin="0 0 10 0"  Width="100" Height="30" Click="BtnAddShift_Click"></Button>
+                </Grid>
+            </Canvas>
+        </Canvas>
+    </Canvas>
+</Page>

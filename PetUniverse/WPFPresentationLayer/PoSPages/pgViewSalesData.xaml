@@ -1,0 +1,35 @@
+﻿<!-- Creator: Cash Carlson
+     Created: 03/19/2020
+     Approver: Rob Holmes
+     
+     This window is where the main activity for viewing sales data-->
+<Page x:Class="WPFPresentationLayer.PoSPages.pgViewSalesData"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFPresentationLayer.PoSPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="pgViewSalesData" Loaded="Page_Loaded">
+    <Canvas x:Name="canViewSalesData" Height="845" Width="1289">
+        <Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*"></RowDefinition>
+				<RowDefinition Height="45px"></RowDefinition>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+			<DataGrid x:Name="dgSalesData" Grid.Row="0" Width="1280" Grid.Column="0" Padding="0"
+					  IsReadOnly="True" CanUserResizeRows="False" FontSize="12" FontWeight="Medium"
+					  CanUserResizeColumns="False" CanUserReorderColumns="False"/>
+			<Label Content="Employee ID:" Grid.Row="1" FontSize="18" FontWeight="Medium" VerticalAlignment="Center"></Label>
+			<TextBox x:Name="txtEmployeeID" Grid.Row="1" FontSize="18" FontWeight="Bold" Width="100" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="120 0 0 0"></TextBox>
+			<Button x:Name="btnViewEmployeeSales" Content="View All Employee Sales" Grid.Row="1" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20"
+					Width="150" Margin="240 0 0 0" FontWeight="Bold" Click="btnViewEmployeeSales_Click"></Button>
+			<Button x:Name="btnViewAllSales" Content="View All Sales" Grid.Row="1" HorizontalAlignment="Left" 
+					VerticalAlignment="Center" Height="20" Width="100" Margin="400 0 0 0" FontWeight="Bold" Click="btnViewAllSales_Click"></Button>
+		</Grid>
+	</Canvas>
+</Page>

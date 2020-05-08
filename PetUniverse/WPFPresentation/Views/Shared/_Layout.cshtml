@@ -1,0 +1,53 @@
+﻿@*
+
+*@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Pet Universe</title>
+    @Styles.Render("~/Content/css")
+    <link rel="icon " src="~/favicon.ico" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Scripts/Manual-Bootstrap-Lightbox/ekko-lightbox.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/71b8d441af.js" crossorigin="anonymous"></script>
+    @Styles.Render("~/Content/fullcalendarcss")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/bootstrap-datepicker.min.css" rel="stylesheet" />
+
+</head>
+<body>
+    <header>
+        @Html.Partial("_NavExternalPartial")
+    </header>
+    <div class="container body-content">
+        <span><br /><br /></span>
+        @RenderBody()
+        <hr />
+        <!-- Footer -->
+        <footer class="page-footer font-small blue pt-4 card-footer">
+            @Html.Partial("_ExternalFooterPartial")
+        </footer>
+        <!-- Footer -->
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/fullcalendarjs")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <script src="~/Scripts/bootstrap-datepicker.min.js"></script>
+    <script src="~/Scripts/Manual-Bootstrap-Lightbox/ekko-lightbox.js"></script>
+    <script src="~/Scripts/Manual-Bootstrap-Lightbox/ekko-lightbox.min.js"></script>
+
+
+    <script>
+        $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+            event.preventDefault();
+            $(this).ekkoLightbox();
+        });
+    </script>
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/bootstrap-datepicker.min.js"></script>
+    <script src="~/Scripts/request-type-dropdown-view-selector.js"></script>
+</body>
+</html>

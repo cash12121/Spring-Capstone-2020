@@ -1,0 +1,128 @@
+﻿<Page x:Class="WPFPresentationLayer.FMPages.FacilityInspectionItemControls"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFPresentationLayer.FMPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="845" d:DesignWidth="1280"
+      Title="FacilityInspectionItemControls">
+
+    <!-- Name: Carl Davis
+             Date: 4/2/2020
+             CHECKED BY: Ethan Murphy 4/3/2020
+             
+             xaml to view, edit, and create facility inspection item records
+              
+             UPDATE BY: NA
+             UPDATED NA
+             CHANGE: NA -->
+    <Canvas x:Name="canViewFacilityInspectionItem" Height="845" Width="1280">
+        <Canvas x:Name="canView">
+            <Grid Width="1000">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="675"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btnRefresh" Grid.Row="1" Grid.Column="1" Width="100" Margin="642,10,-242,635" HorizontalAlignment="Center" Click="btnRefresh_Click">Refresh</Button>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="170"></ColumnDefinition>
+                        <ColumnDefinition Width="120"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <ComboBox x:Name="cmbFacilityInspectionItemFields" Grid.Row="0" Grid.Column="0" Height="30" Width="200"
+                      Margin="0,50,143,-40" VerticalContentAlignment="Center" FontSize="16" HorizontalAlignment="Right" Grid.ColumnSpan="2"  />
+                    <TextBox x:Name="txtSearchItem" Grid.Row="0" Grid.Column="1" Width="150" Background="LightGray" Height="30" 
+                     Margin="32,50,108,-40" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="16" Grid.ColumnSpan="2" ></TextBox>
+                    <Button x:Name="btnSearch" Grid.Row="0" Grid.Column="2" Width="100" Margin="17,50,0,-40" HorizontalAlignment="Left" Click="btnSearch_Click">Search</Button>
+
+                </Grid>
+                <DataGrid x:Name="dgFacilityInspectionItem" Grid.Row="1" Grid.ColumnSpan="2" SelectionMode="Single" IsReadOnly="True" Loaded="dgFacilityInspectionItem_Loaded" MouseDoubleClick="dgFacilityInspectionItem_MouseDoubleClick" Margin="37,61,-242,35" Grid.RowSpan="2"/>
+
+                <Grid Grid.Row="2" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+
+
+                    <Button x:Name="btnAddFacilityInspectionItem" Margin="392,32,-242,-22" Grid.Column="1" Width="100" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Height="30" Click="btnAddFacilityInspectionItem_Click">Add Inspection</Button>
+                </Grid>
+
+            </Grid>
+        </Canvas>
+        <Canvas Height="845" Width="1280" x:Name="canAddFacilityInspectionItem" Visibility="Hidden">
+            <Grid Canvas.Left="38" Canvas.Top="144">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="lblFacilityInspectionItem" FontSize="36" VerticalAlignment="Center" Grid.Row="0" Margin="266,74,202,494" Grid.RowSpan="2">Enter Facility Inspection Item Record</Label>
+                <Grid Grid.Row="1" Margin="104,90,-104,-90">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="250"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="500"></ColumnDefinition>
+                        <ColumnDefinition Width="600"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <!--Item Name-->
+                    <Label x:Name="lblItemName" Grid.Row="0" Grid.Column="0" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Left">Item Name:</Label>
+                    <TextBox x:Name="txtItemName"  Grid.Row="0" Grid.Column="1" Background="LightGray" Height="30" 
+                     Margin="25 0 25 0" VerticalContentAlignment="Center" FontSize="16"></TextBox>
+
+                    <!--User ID-->
+                    <Label x:Name="lblUserID" Grid.Row="1" Grid.Column="0" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Left">User ID:</Label>
+                    <TextBox x:Name="txtUserID"  Grid.Row="1" Grid.Column="1" Background="LightGray" Height="30" 
+                     Margin="25 0 25 0" VerticalContentAlignment="Center" FontSize="16" IsReadOnly="True"></TextBox>
+
+                    <!--Inspection ID-->
+                    <Label x:Name="lblFacilityInspectionID" Grid.Row="2" Grid.Column="0" FontSize="22" VerticalAlignment="Center" 
+                       HorizontalAlignment="Left">Facility Inspection ID:</Label>
+                    <ComboBox x:Name="cmbFacilityInspectionID" Grid.Row="2" Grid.Column="1" Height="30" Background="LightGray"
+                      Margin="25,4,25,5" VerticalContentAlignment="Center" FontSize="16"  />
+
+                    <!--ItemDescription-->
+                    <Label x:Name="lblItemDescription" Grid.Row="3" Grid.Column="0" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Left">Item Description:</Label>
+                    <TextBox  x:Name="txtItemDescription" Grid.Row="3" Grid.Column="1" Background="LightGray" Height="30" 
+                      Margin="25 0 25 0" VerticalContentAlignment="Center" FontSize="16"></TextBox>
+
+                    <!--Submit-->
+                    <Button x:Name="BtnSubmitInspectionItemRecord" Grid.Row="6" Grid.Column="1" 
+                    Width="100" Height="30"
+                    VerticalAlignment="Center" HorizontalAlignment="Center" Click="BtnSubmitInspectionItemRecord_Click" Margin="500,155,0,65">Submit</Button>
+
+                    <!--Update-->
+                    <Button x:Name="btnUpdateInspectionItemRecord" Grid.Row="6" Grid.Column="1" 
+                    Width="100" Visibility="Hidden" Height="30"
+                    VerticalAlignment="Center" HorizontalAlignment="Center" Click="btnUpdateInspectionItemRecord_Click" Margin="500,155,0,65">Update</Button>
+
+                    <!--Cancel-->
+                    <Button x:Name="btnCancelInspectionItemRecord" Grid.Row="6" Grid.Column="1" 
+                     Width="100" Height="30"
+                     VerticalAlignment="Center" HorizontalAlignment="Right" Click="btnCancelInspectionItemRecord_Click" Margin="0,155,105,65">Cancel</Button>
+
+
+                </Grid>
+            </Grid>
+        </Canvas>
+    </Canvas>
+</Page>

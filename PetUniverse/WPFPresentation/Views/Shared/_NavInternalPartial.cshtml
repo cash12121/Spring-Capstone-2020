@@ -1,0 +1,62 @@
+﻿@*
+    Code written by: Gabrielle Legrand
+    Modified by: Derek Taylor
+    Author: Gabrielle Legrand
+
+    Updater: Robert Holmes
+    Updated: 04/29/2020
+    Update: Added search functionality and real featured products.
+*@
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+    <a class="navbar-brand" href="~/">Pet Universe</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="~/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="~/Product">Browse Products</a>
+            </li>
+            <li>
+                <a class="nav-link" href="~/Adoption">Animals</a>
+            </li>
+            @if (User.IsInRole("Administrator") || User.IsInRole("Cashier") || User.IsInRole("Manager"))
+            {
+                <li>
+                    <a class="nav-link" href="~/ScheduleSupervisor/ShiftCalendarEmployee">Scheduling & Personnel</a>
+                </li>
+            }
+
+            <li class="nav-item">
+                <a class="nav-link" href="/Events">Events</a>
+            </li>
+            @if (User.IsInRole("Volunteer"))
+            {
+                <li>
+                    <a href="@Url.Action("Index", "VolunteerShift")" class="nav-link">
+                        Volunteer Schedule
+                    </a>
+                </li>
+            }
+            @if (User.IsInRole("Administrator"))
+            {
+                <li>
+                    <a class="nav-link" href="~/Admin">Admin</a>
+                </li>
+            }
+            <li class="nav-item">
+                <a href="@Url.Action("Index", "Cart")" class="nav-link">View Cart</a>
+            </li>
+        </ul>
+        @using (Html.BeginForm("Search", "Product", FormMethod.Get, new { @class = "form-inline my-2 my-lg-0" }))
+        {
+            <input class="form-control mr-sm-2" type="text" name="searchString" placeholder="Search">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+        }
+        @Html.Partial("_LoginPartial")
+    </div>
+</nav>

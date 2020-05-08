@@ -1,0 +1,181 @@
+﻿<h2>@ViewBag.Title</h2>
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Select All Days and Times you can Work</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Day of the Week</label>
+            <div class="col-md-10">
+                <select id="weekDayList" name="weekDayList">
+                    <option value="Sunday">Sunday</option>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Start Time", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                <input type="time" name="startTime" id="startTime" class="form-control" value=@DateTime.Now.ToShortTimeString() style="width: 140px;"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("End Time", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                <input type="time" name="endTime" id="endTime" class="form-control" value=@DateTime.Now.ToShortTimeString() style="width: 140px;"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2 col-md-offset-2">
+                <input type="button" id="btnAddAvailability" onclick="addAvailabilityToList()" value="Add Availability" class="btn btn-primary" />
+            </div>
+        </div>
+
+        <h3 id="errorMessage" class="alert-danger"></h3>
+
+        <table id="availabilityList" class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Week Day</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" id="submitRequest" onclick="submitAvailabilityRequest()" value="Submit Availability Request" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    var availabilityArray = new Array();
+
+    function addAvailabilityToList() { //This function won't call from a separate file
+        var selectedWeekDay = $("#weekDayList").val();
+        var selectedStartTime = $("#startTime").val();
+        var selectedEndTime = $("#endTime").val();
+
+        //Convert Selected Times to TimeSpans, for easy comparison
+        var selectedStartTimeStamp = new Date("January 1, 2020 " + selectedStartTime);
+        selectedStartTimeStamp = selectedStartTimeStamp.getTime();
+
+        var selectedEndTimeStamp = new Date("January 1, 2020 " + selectedEndTime);
+        selectedEndTimeStamp = selectedEndTimeStamp.getTime();
+
+        //If neither Time is empty
+        if (selectedStartTime != "" && selectedEndTime != "") {
+            var timeOverlap = false;
+
+            //If your selected StartTime is later than your selected EndTime, there is a time overlap
+            if (selectedStartTimeStamp > selectedEndTimeStamp) {
+                timeOverlap = true;
+                $('#errorMessage').html("Start Time must come before End Time!");
+            }
+
+            //No overlap yet
+            if (!timeOverlap) {
+                //For each row in the availabilityList table
+                $("#availabilityList tbody tr").each(function () {
+                    //Get table row values
+                    var itemDayOfWeek = $(this).children().eq(0).text();
+                    var itemStartTime = $(this).children().eq(1).text();
+                    var itemEndTime = $(this).children().eq(2).text();
+
+                    //If this row has the same WeekDay as your selected WeekDay
+                    if (itemDayOfWeek === selectedWeekDay) {
+                        //Convert all Times into TimeStamps for easy comparison
+                        var itemStartTimeStamp = new Date("January 1, 2020 " + itemStartTime);
+                        itemStartTimeStamp = itemStartTimeStamp.getTime();
+
+                        var itemEndTimeStamp = new Date("January 1, 2020 " + itemEndTime);
+                        itemEndTimeStamp = itemEndTimeStamp.getTime();
+
+                        //If your selected StartTime is between (inclusive) the table row's start and end time, there is a time overlap
+                        if (selectedStartTimeStamp >= itemStartTimeStamp && selectedStartTimeStamp <= itemEndTimeStamp) {
+                            timeOverlap = true;
+                            $('#errorMessage').html("Selected times overlap another " + itemDayOfWeek + " availability!");
+                        }
+                        //If your selected EndTime is between (inclusive) the table row's start and end time, there is a time overlap
+                        else if (selectedEndTimeStamp >= itemStartTimeStamp && selectedEndTimeStamp <= itemEndTimeStamp) {
+                            timeOverlap = true;
+                            $('#errorMessage').html("Selected times overlap another " + itemDayOfWeek + " availability!");
+                        }
+                        //If your selected StartTime is before the table row's start and
+                        //your selected EndTime is after the table row's end, there is a time overlap
+                        else if (selectedStartTimeStamp <= itemStartTimeStamp && selectedEndTimeStamp >= itemEndTimeStamp) {
+                            timeOverlap = true;
+                            $('#errorMessage').html("Selected times overlap another " + itemDayOfWeek + " availability!");
+                        }
+                    }
+                });
+            }
+
+            //No Time overlap problems
+            if (!timeOverlap) {
+                $('#availabilityList').append('<tr><th>' +
+                    selectedWeekDay + '</th><td>' +
+                    selectedStartTime + '</td><td>' +
+                    selectedEndTime + '</td></tr>');
+
+                //Add each successful availability, to an array
+                availabilityArray.push(selectedWeekDay);
+                availabilityArray.push(selectedStartTime);
+                availabilityArray.push(selectedEndTime);
+
+                $('#errorMessage').html("");
+            }
+        }
+    }
+
+    function submitAvailabilityRequest() { //This function won't call from a separate file
+        //One successful addition is 3 values in the array
+        if (availabilityArray.length < 3) {
+            $('#errorMessage').html("Must select availability before submitting!");
+        }
+        else {
+            var postData = JSON.stringify({ 'availabilityStringList': availabilityArray });
+
+            $.ajax({
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                type: "POST",
+                url: "/RequestAvailabilityChange/Create",
+                data: postData,
+                success: function (data) {
+                    window.location.href = data;
+                },
+                traditional: true
+            });
+        }
+    }
+</script>
+
+<div>
+    @Html.ActionLink("Back to Request Types", "Index", "ChooseRequestType")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C6FD50E2-3D51-419B-9A9F-2BBE84CB74AD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataAccessFakes</RootNamespace>
+    <AssemblyName>DataAccessFakes</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Prod|AnyCPU'">
+    <OutputPath>bin\Prod\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FakeActiveTimeOffAccessor.cs" />
+    <Compile Include="FakeAdoptionAnimalAccessor.cs" />
+    <Compile Include="FakeAdoptionAppointmentAccessor.cs" />
+    <Compile Include="FakeAdoptionCustomerAccessor.cs" />
+    <Compile Include="FakeAdoptionInterviewerAccessor.cs" />
+    <Compile Include="FakeAnimalAccessor.cs" />
+    <Compile Include="FakeAnimalActivityAccessor.cs" />
+    <Compile Include="FakeAnimalHandlingAccessor.cs" />
+    <Compile Include="FakeAnimalKennelAccessor.cs" />
+    <Compile Include="FakeAnimalKennelCleaningAccessor.cs" />
+    <Compile Include="FakeAnimalPrescriptionAccessor.cs" />
+    <Compile Include="FakeAnimalStatusAccessor.cs" />
+    <Compile Include="FakeApplicantAccessor.cs" />
+    <Compile Include="FakeApplicationAccessor.cs" />
+    <Compile Include="FakeAppointmentAccessor.cs" />
+    <Compile Include="FakeAppointmentTypeAccessor.cs" />
+    <Compile Include="FakeAvailabilityAccessor.cs" />
+    <Compile Include="FakeBackRecordAccessor.cs" />
+    <Compile Include="FakeBaseScheduleAccessor.cs" />
+    <Compile Include="FakeCustomerAccessor.cs" />
+    <Compile Include="FakeDepartmentAccessor.cs" />
+    <Compile Include="FakeDepartmentAccessorFailedConnection.cs" />
+    <Compile Include="FakeDonationAccessor.cs" />
+    <Compile Include="FakeEmployeeAvailabilityAccessor.cs" />
+    <Compile Include="FakeERoleAccessor.cs" />
+    <Compile Include="FakeEventAccessor.cs" />
+    <Compile Include="FakeFacilityInspectionAccessor.cs" />
+    <Compile Include="FakeFacilityInspectionItemAccessor.cs" />
+    <Compile Include="FakeFacilityMaintenanceAccessor.cs" />
+    <Compile Include="FakeFacilityTaskAccessor.cs" />
+    <Compile Include="FakeFosterAppointmentAccessor.cs" />
+    <Compile Include="FakeHomeInspectorAccessor.cs" />
+    <Compile Include="FakeInHomeInspectionAppointmentDecisionAccessor.cs" />
+    <Compile Include="FakeInventoryItemsAccessor.cs" />
+    <Compile Include="FakeItemAccessor.cs" />
+    <Compile Include="FakeItemCategoryAccessor.cs" />
+    <Compile Include="FakeItemReportAccessor.cs" />
+    <Compile Include="FakeJobListingAccessor.cs" />
+    <Compile Include="FakeLocationAccessor.cs" />
+    <Compile Include="FakeLogAccessor.cs" />
+    <Compile Include="FakeMedicalHistoryAccessor.cs" />
+    <Compile Include="FakeMedicineAccessor.cs" />
+    <Compile Include="FakeMessageAccessor.cs" />
+    <Compile Include="FakeNewAnimalChecklistAccessor.cs" />
+    <Compile Include="FakeOrderAccessor.cs" />
+    <Compile Include="FakeOrderLineAccessor.cs" />
+    <Compile Include="FakePetUniverseUserERolesAccessor.cs" />
+    <Compile Include="FakePictureAccessor.cs" />
+    <Compile Include="FakePoSCustomerPortalAccessor.cs" />
+    <Compile Include="FakeProductAccessor.cs" />
+    <Compile Include="FakePromotionAccessor.cs" />
+    <Compile Include="FakeReceivingRecordAccessor.cs" />
+    <Compile Include="FakeRequestAccessor.cs" />
+    <Compile Include="FakeReviewerAccessor.cs" />
+    <Compile Include="FakeSalesTaxAccessor.cs" />
+    <Compile Include="FakeScheduleAccessor.cs" />
+    <Compile Include="FakeScheduleHoursAccessor.cs" />
+    <Compile Include="FakeShiftAccessor.cs" />
+    <Compile Include="FakeShiftTimeAccessor.cs" />
+    <Compile Include="FakeShipperAccessor.cs" />
+    <Compile Include="FakeSpecialOrderAccessor.cs" />
+    <Compile Include="FakeStatusAccessor.cs" />
+    <Compile Include="FakeTrainingVideoAccessor.cs" />
+    <Compile Include="FakeTransactionAccessor.cs" />
+    <Compile Include="FakeTransactionAdminAccessor.cs" />
+    <Compile Include="FakeTreatmentRecordAccessor.cs" />
+    <Compile Include="FakeUserAccessor.cs" />
+    <Compile Include="FakeVendorAccessor.cs" />
+    <Compile Include="FakeVetAppointmentAccessor.cs" />
+    <Compile Include="FakeVolunteerAccessor.cs" />
+    <Compile Include="FakeVolunteerEventAccessor.cs" />
+    <Compile Include="FakeVolunteerTaskAccessor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FakeSalesData.cs" />
+    <Compile Include="FakeVolunteerShiftAccessor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessInterfaces\DataAccessInterfaces.csproj">
+      <Project>{c9c0c512-dbd6-4250-b98f-1b50e597bdef}</Project>
+      <Name>DataAccessInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataTransferObjects\DataTransferObjects.csproj">
+      <Project>{b3679b25-08ad-45b6-9057-5784c8ccf5f7}</Project>
+      <Name>DataTransferObjects</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

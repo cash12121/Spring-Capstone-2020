@@ -1,0 +1,106 @@
+﻿<!--
+CREATOR: Kaleb Bachert
+CREATED: 2020/3/5
+APPROVER: Lane Sandburg
+View for creating a Time Off Request
+-->
+
+@{
+    Layout = null;
+}
+
+@model DataTransferObjects.TimeOffRequest
+
+<br />
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Enter the Start and End Dates</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EffectiveStart, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" name="StartDate" id="StartDate" data-provide="datepicker" class="form-control" value="@DateTime.Now.AddDays(1).ToShortDateString()" />
+                <p id="StartDateError" class="alert-danger"></p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EffectiveEnd, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" name="EndDate" id="EndDate" data-provide="datepicker" class="form-control" value="@DateTime.Now.AddDays(1).ToShortDateString()" />
+                <p id="EndDateError" class="alert-danger"></p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <!-- input id="submit" type="submit" value="Submit Time Off Request" class="btn btn-default" / -->
+                <input type="button" id="submit" onclick="submitTimeOffRequest()" value="Submit Time Off Request" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    function submitTimeOffRequest() {
+        //now is todays date
+        var now = new Date();
+        now.setHours(0, 0, 0, 0);
+
+        //Selected Start and End dates
+        var startString = $("#StartDate").val();
+        var endString = $("#EndDate").val();
+        var startDate = new Date(startString);
+        var endDate = new Date(endString);
+
+        //If startDate is after today, and endDate is startDate or later
+        if (startDate > now && endDate >= startDate) {
+            $('#StartDateError').html("");
+            $('#EndDateError').html("");
+
+            var postData = JSON.stringify({ 'startDate': startString, 'endDate': endString });
+
+            $.ajax({
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                type: "POST",
+                url: "/RequestTimeOff/Create",
+                data: postData,
+                success: function (data) {
+                    window.location.href = data;
+                },
+                traditional: true
+            });
+        }
+        else {
+            if (startDate <= now) {
+                $('#StartDateError').html("Start Date can be no sooner than tomorrow.");
+            }
+            else {
+                $('#StartDateError').html("");
+            }
+            if (endDate < startDate) {
+                $('#EndDateError').html("End Date must be later than Start Date.");
+            }
+            else {
+                $('#EndDateError').html("");
+            }
+        }
+    }
+</script>
+
+<div>
+    @Html.ActionLink("Back to Request Types", "Index", "ChooseRequestType")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,44 @@
+﻿@{
+    Layout = null;
+}
+
+@model DataTransferObjects.VolunteerShiftVM
+
+
+<div class="row">
+    <div class=" col-lg-4 col-xs-12">
+        <h2>@ViewBag.name</h2>
+        <h2>@Model.ShiftTitle</h2>
+        <br />
+        <ul class="list-group">
+            <li style="
+                            font-weight: bold;
+                            background-color: #e95420;
+                            border-top: 1px solid #972b06;
+                            border-left: 1px solid #cc4313;
+                            border-right: 1px solid #cc4313;"
+                class="list-group-item">Schedule</li>
+            <li class="list-group-item">Start Date: @Model.VolunteerShiftDate</li>
+            <li class="list-group-item">End Date: @Model.VolunteerShiftDate</li>
+        </ul>
+        <br />
+        <br>
+        <div>
+            <ul class="list-group">
+                <li style="
+                            font-weight: bold;
+                            background-color: #e95420;
+                            border-top: 1px solid #972b06;
+                            border-left: 1px solid #cc4313;
+                            border-right: 1px solid #cc4313;"
+                    class="list-group-item">Shift Time</li>
+                <li class="list-group-item">Start Time: @Model.ShiftStartTime</li>
+                <li class="list-group-item">End Time: @Model.ShiftEndTime</li>
+                <li class="list-group-item">Department: @Model.ShiftDescription</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="calendar" class="col-lg-8"></div>
+
+</div>

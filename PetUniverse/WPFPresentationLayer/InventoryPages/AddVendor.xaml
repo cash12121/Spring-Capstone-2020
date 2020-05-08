@@ -1,0 +1,55 @@
+﻿<!--
+Created By: Brandyn T. Coverdill
+Date: 2020/04/16
+Comment: Add Vendor Page
+-->
+<Page x:Class="WPFPresentationLayer.InventoryPages.AddVendor"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFPresentationLayer.InventoryPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddVendor">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="175px"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="100px"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label x:Name="lblVendorID" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18">Vendor ID:</Label>
+        <TextBox x:Name="txtVendorID" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Margin="20 0" IsReadOnly="True" Background="Bisque" ToolTip="You cannot edit this information.">Auto-generated</TextBox>
+        <Label x:Name="lblVendorName" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18">Vendor Name</Label>
+        <TextBox x:Name="txtVendorName" Grid.Row="2" Grid.Column="2" Margin="20 0" VerticalAlignment="Center"></TextBox>
+        <Label x:Name="lblVendorAddress" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18">Vendor Address</Label>
+        <TextBox x:Name="txtVendorAddress" Grid.Row="3" Grid.Column="2" Margin="20 0" VerticalAlignment="Center"></TextBox>
+        <Label x:Name="lblVendorPhone" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18">Vendor Phone</Label>
+        <TextBox x:Name="txtVendorPhone" Grid.Row="1" Grid.Column="4" Margin="20 0" VerticalAlignment="Center"></TextBox>
+        <Label x:Name="lblVendorEmail" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18">Vendor Email</Label>
+        <TextBox x:Name="txtVendorEmail" Grid.Row="2" Grid.Column="4" Margin="20 0" VerticalAlignment="Center"></TextBox>
+        <Label x:Name="lblVendorState" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18">Vendor State</Label>
+        <TextBox x:Name="txtVendorState" Grid.Row="4" Grid.Column="2" Margin="20 0" VerticalAlignment="Center"></TextBox>
+        <Label x:Name="lblVendorCity" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18">Vendor City</Label>
+        <TextBox x:Name="txtVendorCity" Grid.Row="5" Grid.Column="2" Margin="20 0" VerticalAlignment="Center"></TextBox>
+        <Label x:Name="lblVendorZip" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18">Vendor Zip</Label>
+        <TextBox x:Name="txtVendorZip" Grid.Row="6" Grid.Column="2" Margin="20 0" VerticalAlignment="Center"></TextBox>
+        <Button x:Name="btnBack" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="15 0" Click="btnBack_Click">Back</Button>
+        <Button x:Name="btnSaveVendor" Grid.Row="8" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="15 0" Click="btnSaveVendor_Click">Add Vendor</Button>
+    </Grid>
+</Page>

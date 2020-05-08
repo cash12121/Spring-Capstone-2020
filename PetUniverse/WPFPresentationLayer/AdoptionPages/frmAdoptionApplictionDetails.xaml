@@ -1,0 +1,133 @@
+﻿<!--/// <summary>
+    /// Creator: Mohamed Elamin
+    /// Created: 2020/02/19
+    /// Approver: Awaab Elamin, 2020/02/21
+    ///
+    /// This window is the user interface.
+    /// 
+    /// </summary>
+     
+      -->
+<Page x:Class="WPFPresentationLayer.frmAdoptionApplictionDetails"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFPresentationLayer"
+        mc:Ignorable="d"
+        Title="frmAdoptionApplictionDetails" Height="450" Width="700" Loaded="Window_Loaded">
+
+    <Grid>
+
+
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+
+            <RowDefinition Height="40"></RowDefinition>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+
+
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="160"></RowDefinition>
+
+                <RowDefinition Height="40"></RowDefinition>
+
+            </Grid.RowDefinitions>
+
+
+        </Grid>
+
+        <Label Grid.Row="1" VerticalAlignment="Center"
+               HorizontalContentAlignment="Right"
+               Margin="0 0 10 0">Appointment ID</Label>
+
+        <Label Grid.Row="2" VerticalAlignment="Center"
+               HorizontalContentAlignment="Right"
+               Margin="0 0 10 0">AdoptionApplication ID</Label>
+
+        <Label Grid.Row="3" VerticalAlignment="Center"
+               HorizontalContentAlignment="Right"
+               Margin="0 0 10 0">AppointmentType ID</Label>
+
+        <Label Grid.Row="4" VerticalAlignment="Center"
+               HorizontalContentAlignment="Right"
+               Margin="0 0 10 0">Date andTime</Label>
+
+        <Label Grid.Row="5" VerticalAlignment="Center"
+               HorizontalContentAlignment="Right"
+               Margin="0 0 10 0">Notes</Label>
+
+        <Label Grid.Row="6" VerticalAlignment="Center"
+               HorizontalContentAlignment="Right"
+               Margin="0 0 10 0">Decision</Label>
+
+        <Label Grid.Row="7" VerticalAlignment="Center"
+               HorizontalContentAlignment="Right"
+               Margin="0 0 10 0">Location Name</Label>
+
+        <Label Grid.Row="8" VerticalAlignment="Center"
+               HorizontalContentAlignment="Right"              
+               Margin="0 0 10 0">Active</Label>
+
+        <TextBox x:Name="txtAppointmentID" Padding="10 0" Grid.Row="1" Grid.Column="1"
+                 VerticalContentAlignment="Center"  Margin="0 5 40 5"
+                 Background="LightBlue" ToolTip="This item is assigned by the system."></TextBox>
+
+        <TextBox x:Name="txtAdoptionApplicationID" Padding="10 0" Grid.Row="2" Grid.Column="1"
+                 VerticalContentAlignment="Center" Margin="0 5 40 5" 
+                 Background="LightBlue" ToolTip="This item is assigned by the system."></TextBox>
+
+        <TextBox x:Name="txtAppointmentTypeID" Padding="10 0" Grid.Row="3" Grid.Column="1"
+                 VerticalContentAlignment="Center" Margin="0 5 40 5"
+                 Background="LightBlue" ToolTip="This item is assigned by the system."></TextBox>
+
+        <TextBox x:Name="DateTime" Padding="10 0" Grid.Row="4" Grid.Column="1"
+                 VerticalContentAlignment="Center" Margin="0 5 40 5"></TextBox>
+
+        <TextBox x:Name="txtNotes" Padding="10 0" Grid.Row="5" Grid.Column="1"
+                 VerticalContentAlignment="Center" Margin="0 5 40 5"></TextBox>
+
+        <ComboBox x:Name="cmbDecision" Padding="10 0" Grid.Row="6" Grid.Column="1"
+                  VerticalContentAlignment="Center" Margin="0 5 40 5">
+            <ComboBoxItem Name="Deny">Deny</ComboBoxItem>
+            <ComboBoxItem Name="Facilitator">Approve</ComboBoxItem>
+        </ComboBox>
+        <TextBox x:Name="txtLocationID" Padding="10 0" Grid.Row="7" Grid.Column="1"
+                 VerticalContentAlignment="Center" Margin="0 5 40 5"></TextBox>
+
+        <TextBox x:Name="txtActive" Padding="10 0" Grid.Row="8" Grid.Column="1"
+                 VerticalContentAlignment="Center" Margin="0 5 40 5"></TextBox>
+
+
+
+        <Button x:Name="btnEdit" Grid.Row="9" Grid.Column="0" Margin="0,0,4.5,5" Width="100"
+                 HorizontalAlignment="Right" Content="Edit" Click="btnEdit_Click" Height="30" VerticalAlignment="Bottom"></Button>
+        <Button x:Name="btnSave" Grid.Row="9" Grid.Column="0" Margin="5" Width="100"
+                 HorizontalAlignment="Right" Content="Save"
+                Visibility="Hidden" Click="BtnSave_Click"></Button>
+        <Button x:Name="btnCancel" Grid.Row="9" Grid.Column="1" Margin="5" Width="100"
+                 HorizontalAlignment="Left" Content="Cancel" Click="BtnCancel_Click"></Button>
+
+    </Grid>
+</Page>

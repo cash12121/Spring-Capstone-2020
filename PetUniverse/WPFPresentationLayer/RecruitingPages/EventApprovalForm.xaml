@@ -1,0 +1,235 @@
+﻿<!-- CREATOR: Steve Coonrod
+     CREATED: 2020/02/12
+     APPROVER: Ryan Morganti
+     
+     This window is used for approving an event, UC-633(ApproveEvent) 
+      
+     UPDATE BY: NA
+     UPDATE DATE: NA
+     CHANGE: NA -->
+<Page x:Class="WPFPresentationLayer.RecruitingPages.EventApprovalForm"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFPresentationLayer.RecruitingPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="EventApprovalForm" Background="#2e3137" Loaded="Page_Loaded">
+
+	<Grid>
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="600"></ColumnDefinition>
+				<ColumnDefinition></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+
+			<Grid Grid.Column="0">
+				<!-- Left Column -->
+				<Grid.RowDefinitions>
+					<RowDefinition Height="40"></RowDefinition>
+					<RowDefinition></RowDefinition>
+					<RowDefinition Height="20"></RowDefinition>
+					<RowDefinition></RowDefinition>
+					<RowDefinition></RowDefinition>
+				</Grid.RowDefinitions>
+				<Label Grid.Row="0"
+					   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+					   Foreground="#fff8e3" FontSize="18" FontWeight="Bold"
+					   Content="Event Details"></Label>
+
+				<Image x:Name="picEventPicture" Grid.Row="1" Margin="150 10"></Image>
+				<Label Grid.Row="2" Grid.Column="0" x:Name="lblBannerPath"
+							HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+							Foreground="#fff8e3" FontSize="10"
+							Content="Banner Path"></Label>
+				<Grid Grid.Row="3">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition></ColumnDefinition>
+						<ColumnDefinition></ColumnDefinition>
+					</Grid.ColumnDefinitions>
+					<Grid Grid.Column="0">
+						<Grid.RowDefinitions>
+							<RowDefinition></RowDefinition>
+							<RowDefinition></RowDefinition>
+							<RowDefinition></RowDefinition>
+							<RowDefinition></RowDefinition>
+							<RowDefinition></RowDefinition>
+						</Grid.RowDefinitions>
+
+						<Label Grid.Row="0"
+							HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+							Foreground="#fff8e3" FontSize="20" FontWeight="DemiBold"
+							Content="Event Name"></Label>
+						<Label Grid.Row="1" x:Name="lblEventName"
+							HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+							Foreground="#fff8e3" FontSize="18" FontWeight="DemiBold"
+							Content="Event Name"></Label>
+						<Label Grid.Row="3"
+							HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+							Foreground="#fff8e3" FontSize="20" FontWeight="DemiBold"
+							Content="Event Type"></Label>
+						<Label Grid.Row="4" x:Name="lblEventType"
+							HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+							Foreground="#fff8e3" FontSize="16" FontWeight="DemiBold"
+							Content="Event Type"></Label>
+					</Grid>
+					<Grid Grid.Column="1">
+						<Grid Grid.Row="2">
+							<Grid.RowDefinitions>
+								<RowDefinition></RowDefinition>
+								<RowDefinition></RowDefinition>
+								<RowDefinition></RowDefinition>
+								<RowDefinition Height="5"></RowDefinition>
+								<RowDefinition></RowDefinition>
+								<RowDefinition></RowDefinition>
+							</Grid.RowDefinitions>
+							<Label Grid.Row="0"
+							HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+							Foreground="#fff8e3" FontSize="20" FontWeight="DemiBold"
+							Content="Event Location"></Label>
+							<Label Grid.Row="1" x:Name="lblEventAddressLineOne"
+							HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+							Foreground="#fff8e3" FontSize="16" FontWeight="DemiBold"
+							Content="Event Address"></Label>
+							<Label Grid.Row="2" x:Name="lblEventAddressLineTwo"
+							HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+							Foreground="#fff8e3" FontSize="16" FontWeight="DemiBold"
+							Content="City, State Zipcode"></Label>
+							<Label Grid.Row="4"
+							HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+							Foreground="#fff8e3" FontSize="20" FontWeight="DemiBold"
+							Content="Event Date and Time"></Label>
+							<Label Grid.Row="5" x:Name="lblEventTime"
+							HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+							Foreground="#fff8e3" FontSize="16" FontWeight="DemiBold"
+							Content="Event Time"></Label>
+						</Grid>
+					</Grid>
+				</Grid>
+				<Grid Grid.Row="4">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="35"></RowDefinition>
+						<RowDefinition></RowDefinition>
+					</Grid.RowDefinitions>
+					<Label Grid.Row="0"
+					   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+					   Foreground="#fff8e3" FontSize="20" FontWeight="DemiBold"
+					   Content="Event Description"></Label>
+					<TextBlock Grid.Row="1" x:Name="lblEventDescription" Margin="80 10" TextWrapping="Wrap"
+					   Foreground="#fff8e3" FontSize="16" FontWeight="DemiBold"
+					   Text="Description"></TextBlock>
+				</Grid>
+
+			</Grid>
+			<!-- End Left Grid -->
+
+			<Grid Grid.Column="2">
+				<!-- Right Column -->
+				<Grid.RowDefinitions>
+					<RowDefinition Height="140"></RowDefinition>
+					<RowDefinition Height="150"></RowDefinition>
+					<RowDefinition Height="55"></RowDefinition>
+					<RowDefinition Height="55"></RowDefinition>
+					<RowDefinition></RowDefinition>
+				</Grid.RowDefinitions>
+				<Grid Grid.Row="0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="35"></RowDefinition>
+						<RowDefinition></RowDefinition>
+						<RowDefinition></RowDefinition>
+						<RowDefinition></RowDefinition>
+					</Grid.RowDefinitions>
+					<Label Grid.Row="0"
+					   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+					   Foreground="#fff8e3" FontSize="18" FontWeight="Bold"
+					   Content="Requested By"></Label>
+					<Label Grid.Row="1" x:Name="lblRequestedByName"
+					   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+					   Foreground="#fff8e3" FontSize="18" FontWeight="DemiBold"
+					   Content="First Last"></Label>
+					<Label Grid.Row="2"
+					   HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom"
+					   Foreground="#fff8e3" FontSize="18" FontWeight="Bold"
+					   Content="Date Requested"></Label>
+					<Label Grid.Row="3" x:Name="lblDateRequested"
+					   HorizontalContentAlignment="Center" VerticalContentAlignment="Top"
+					   Foreground="#fff8e3" FontSize="18" FontWeight="DemiBold"
+					   Content="Date Requested"></Label>
+				</Grid>
+				<!-- End RequestedBy Grid -->
+
+				<Grid Grid.Row="1">
+					<Grid.RowDefinitions>
+						<RowDefinition></RowDefinition>
+						<RowDefinition></RowDefinition>
+						<RowDefinition></RowDefinition>
+						<RowDefinition></RowDefinition>
+					</Grid.RowDefinitions>
+					<Label Grid.Row="0"
+					   HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom"
+					   Foreground="#fff8e3" FontSize="18" FontWeight="Bold"
+					   Content="Reviewed By"></Label>
+					<Label Grid.Row="1" x:Name="lblReviewerName"
+					   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+					   Foreground="#fff8e3" FontSize="18" FontWeight="DemiBold"
+					   Content="First Last"></Label>
+					<Grid Grid.Row="2">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition></ColumnDefinition>
+							<ColumnDefinition Width=".8*"></ColumnDefinition>
+						</Grid.ColumnDefinitions>
+						<Label Grid.Column="0" x:Name="lblNeededVolunteers"
+							HorizontalContentAlignment="Right" VerticalContentAlignment="Center"
+							Foreground="#fff8e3" FontSize="18" FontWeight="DemiBold"
+							Content="Volunteers Needed "></Label>
+						<TextBox Grid.Column="1" x:Name="txtVolunteersNeeded" Width="80" Height="30"
+								 HorizontalAlignment="Left" FontSize="18" FontWeight="DemiBold" Background="#fff8e3" Foreground="#FF202030"
+								 HorizontalContentAlignment="Center">0</TextBox>
+					</Grid>
+					<Grid Grid.Row="3">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition></ColumnDefinition>
+							<ColumnDefinition Width=".4*"></ColumnDefinition>
+						</Grid.ColumnDefinitions>
+						<Label x:Name="lblAutogen"
+							Grid.Column="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"
+							FontSize="12" Foreground="#fff8e3"
+							Content="Auto-generate generic volunteer task for this event  "></Label>
+						<CheckBox Grid.Column="1" x:Name="chkAutoGenVolunteerTask" VerticalAlignment="Center" IsChecked="True" HorizontalAlignment="Left">
+							<CheckBox.LayoutTransform>
+								<ScaleTransform ScaleX="2" ScaleY="2"></ScaleTransform>
+							</CheckBox.LayoutTransform>
+						</CheckBox>
+					</Grid>
+				</Grid>
+				<!-- End Reviewed By Grid -->
+
+				<Label x:Name="lblEventStatus"
+					Grid.Row="3" Background="#FF303030" Foreground="#fff8e3"
+					   FontSize="18" FontWeight="DemiBold" HorizontalContentAlignment="Center"
+					   VerticalContentAlignment="Center" Margin="50 5"
+					   Content="Status: " Visibility="Hidden"></Label>
+
+				<Button Grid.Row="2" x:Name="btnApprove"
+						Width="150" Margin="3" Foreground="#FFBBBBBB" Background="#FF405580" 
+						FontSize="20" FontWeight="DemiBold"
+						Content="Approve Event" Click="btnApprove_Click"></Button>
+				<Button Grid.Row="3" x:Name="btnDisapprove"
+						Width="150" Margin="3" Foreground="#FFBBBBBB" Background="#FF904040" 
+						FontSize="20" FontWeight="DemiBold"
+						Content="Disapprove" Click="btnDisapprove_Click"></Button>
+
+				<TextBox Grid.Row="4" x:Name="txtEventDisapprovalReason" Margin="40 10" TextWrapping="Wrap"
+					   Foreground="#FF202030" FontSize="16" FontWeight="DemiBold" Background="#fff8e3"
+						 VerticalContentAlignment="Top"
+					   Text="Disapproval Reason" GotFocus="txtEventDisapprovalReason_GotFocus" 
+						 ToolTipService.InitialShowDelay="1000"
+						 ToolTipService.ShowDuration="2000"
+						 ToolTipService.BetweenShowDelay="10000"
+						 ToolTip="Reason for disapproval"></TextBox>
+			</Grid>
+			<!-- End Right Grid -->
+		</Grid>
+	</Grid>
+</Page>

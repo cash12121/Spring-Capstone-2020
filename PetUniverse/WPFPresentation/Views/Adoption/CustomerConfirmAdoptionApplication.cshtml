@@ -1,0 +1,46 @@
+﻿@model DataTransferObjects.Animal
+
+<br/>
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AnimalName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnimalName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dob)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dob)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnimalSpeciesID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnimalSpeciesID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnimalBreed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnimalBreed)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Apply", "CustomerAdoptionApplicationConfirmed", new { email = User.Identity.Name, animalID = ViewBag.AnimalID }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-primary" })
+</p>

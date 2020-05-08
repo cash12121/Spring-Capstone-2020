@@ -1,0 +1,54 @@
+﻿@model IEnumerable<DataTransferObjects.Animal>
+@using System.Drawing;
+
+<br/>
+
+<h2 class="row justify-content-center">Animals Available for Adoption</h2>
+@*<br/>
+<div class="card-deck" style="width: 100%;">*@
+
+@*@foreach (var item in Model)
+{
+    <div class="card" style="width: 40%;">
+        @if (item.ProfileImageData != null)
+        {
+            <img class="card-img-top" alt="@item.AnimalName"
+                 src="@Url.Action("GetImage", new { item.AnimalID })" />
+        }
+        <div class="card-body">
+            <h5 class="card-title">@item.AnimalName</h5>
+            <p class="card-text">@item.ProfileDescription</p>
+
+        </div>
+    </div>
+
+
+}*@
+@*</div>*@
+<div class="row justify-content-center">
+    @foreach (var item in Model)
+    {
+    
+        <div class="col-sm-3" style="margin: 1em;">
+            <div class="card " style="width: 18rem;">
+
+                @if (item.ProfileImageData != null)
+                {
+                    <img class="card-img-top" alt="@item.AnimalName" style="width: auto; height: 10rem;"
+                         src="@Url.Action("GetImage", new { item.AnimalID })" />
+                }
+                else
+                {
+                    <img class="card-img-top" alt="@item.AnimalName" style="width: auto; height: 10rem;"
+                         src="~/Content/Images/noImage2.jpg" />
+                }
+                <div class="card-body">
+                    <h5 class="card-title">@item.AnimalName</h5>
+                    <p class="card-text">@item.ProfileDescription</p>
+                    @Html.ActionLink("Apply To Adopt!", "CustomerStartApplication", new { email = User.Identity.Name, animalID = item.AnimalID }, new { @class = "btn btn-primary" })
+                </div>
+            </div>
+        </div>
+    
+    }
+</div>

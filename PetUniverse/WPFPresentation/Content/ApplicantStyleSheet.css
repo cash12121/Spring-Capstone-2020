@@ -1,0 +1,18 @@
+﻿.table {
+    width: 75%;
+    min-width: 400px;
+    float: right;
+}
+
+#createNew {
+    clear: both;
+    float: right;
+}
+
+header h1 {
+    text-align: center;
+}
+
+nav {
+    float: left;
+}

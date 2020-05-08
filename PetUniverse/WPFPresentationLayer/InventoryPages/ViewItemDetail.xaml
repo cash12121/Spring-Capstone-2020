@@ -1,0 +1,51 @@
+﻿<!--
+/// <summary>
+/// Creator: Brandyn T. Coverdill
+/// Created: 2020/03/03
+/// Approver: 
+/// Approver: 
+///
+/// This page is for viewing details specifically for an item selected.
+/// </summary>
+    
+-->
+<Page x:Class="WPFPresentationLayer.InventoryPages.ViewItemDetail"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFPresentationLayer.InventoryPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ViewItemDetail" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="157*"></ColumnDefinition>
+            <ColumnDefinition Width="208*"></ColumnDefinition>
+            <ColumnDefinition Width="435*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label x:Name="lblItemID" Grid.Row="1" FontSize="18px" VerticalAlignment="Center" Margin="67,15,58,18" Height="32">Item ID:</Label>
+        <TextBox x:Name="txtItemID" Grid.Row="1" Height="30" Grid.Column="1" VerticalAlignment="Center" Margin="20,19,20,16" IsReadOnly="True"></TextBox>
+        <Label x:Name="lblItemName" Grid.Row="2" FontSize="18px"  VerticalAlignment="Center" Margin="67,17,58,13" Height="34">Item Name:</Label>
+        <TextBox x:Name="txtItemName" Grid.Row="2" Height="30" Grid.Column="1" VerticalAlignment="Center" Margin="20,17" IsReadOnly="True"></TextBox>
+        <Label x:Name="lblItemLocation" Grid.Row="3" FontSize="18px" VerticalAlignment="Center" Margin="67,13,58,17" Height="34">Item Location:</Label>
+        <TextBox x:Name="txtItemLocation" Grid.Row="3" Height="30" Grid.Column="1" VerticalAlignment="Center" Margin="20,17" IsReadOnly="True"></TextBox>
+        <Label x:Name="lblItemCount" Grid.Row="4" FontSize="18px" VerticalAlignment="Center" Margin="67,17,58,13" Height="34">Item Count:</Label>
+        <TextBox x:Name="txtItemCount" Grid.Row="4" Height="30" Grid.Column="1" VerticalAlignment="Center" Margin="20,17" IsReadOnly="True"></TextBox>
+        <Label x:Name="lblItemDescription" Grid.Row="1" Grid.Column="2" FontSize="18px" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="134,15,145,16" Height="34" Width="156">Item Description:</Label>
+        <TextBox x:Name="txtItemDescription" Grid.Row="2" Grid.Column="2" Grid.RowSpan="3" Margin="92,0,105,45" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" IsReadOnly="True"></TextBox>
+        <Button Width="100" Height="30" x:Name="btnBack" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="15 3" Click="btnBack_Click" Margin="220,17,115,17" Grid.Column="2">Back</Button>
+        <Button Width="100" Height="30" x:Name="btnSave" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="15 3" Visibility="Hidden" Click="btnSave_Click" Margin="325,17,10,17">Save</Button>
+        <Button Width="100" Height="30" x:Name="btnEdit" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="15 3" Click="btnEdit_Click" Margin="325,17,10,17">Edit</Button>
+    </Grid>
+</Page>

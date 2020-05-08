@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B3679B25-08AD-45B6-9057-5784C8CCF5F7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataTransferObjects</RootNamespace>
+    <AssemblyName>DataTransferObjects</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Prod|AnyCPU'">
+    <OutputPath>bin\Prod\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActiveTimeOff.cs" />
+    <Compile Include="AdoptionAnimalVM.cs" />
+    <Compile Include="AdoptionApplication.cs" />
+    <Compile Include="AdoptionAppointment.cs" />
+    <Compile Include="AdoptionAppointmentVM.cs" />
+    <Compile Include="AdoptionCustomer.cs" />
+    <Compile Include="AdoptionCustomerVM.cs" />
+    <Compile Include="AmountDue.cs" />
+    <Compile Include="Animal.cs" />
+    <Compile Include="AnimalActivity.cs" />
+    <Compile Include="AnimalActivityType.cs" />
+    <Compile Include="AnimalHandlingNotes.cs" />
+    <Compile Include="AnimalKennel.cs" />
+    <Compile Include="AnimalKennelCleaningRecord.cs" />
+    <Compile Include="AnimalMedical.cs" />
+    <Compile Include="AnimalNames.cs" />
+    <Compile Include="AnimalPrescriptions.cs" />
+    <Compile Include="AnimalPrescriptionVM.cs" />
+    <Compile Include="AnimalStatus.cs" />
+    <Compile Include="AnimalVetAppointments.cs" />
+    <Compile Include="ApplciationPreviousExperience.cs" />
+    <Compile Include="Applicant.cs" />
+    <Compile Include="ApplicantVM.cs" />
+    <Compile Include="Application.cs" />
+    <Compile Include="ApplicationAvailability.cs" />
+    <Compile Include="ApplicationEducation.cs" />
+    <Compile Include="ApplicationNameVM.cs" />
+    <Compile Include="ApplicationReference.cs" />
+    <Compile Include="ApplicationResume.cs" />
+    <Compile Include="ApplicationSkill.cs" />
+    <Compile Include="ApplicationVM.cs" />
+    <Compile Include="Appointment.cs" />
+    <Compile Include="AppointmentLocationVM.cs" />
+    <Compile Include="AvailabilityRequest.cs" />
+    <Compile Include="AvailabilityRequestVM.cs" />
+    <Compile Include="AvilabilityVM.cs" />
+    <Compile Include="BaseSchedule.cs" />
+    <Compile Include="BaseScheduleLine.cs" />
+    <Compile Include="BaseScheduleLineVM.cs" />
+    <Compile Include="BaseScheduleVM.cs" />
+    <Compile Include="Cart.cs" />
+    <Compile Include="CreditCardVM.cs" />
+    <Compile Include="CreditCardVM2.cs" />
+    <Compile Include="Customer.cs" />
+    <Compile Include="CustomerErrorVM.cs" />
+    <Compile Include="CustomerQuestionnar.cs" />
+    <Compile Include="CustomerQuestionnarVM.cs" />
+    <Compile Include="CustomerSurveyVM.cs" />
+    <Compile Include="Department.cs" />
+    <Compile Include="DepartmentRequest.cs" />
+    <Compile Include="DepartmentRequestVM.cs" />
+    <Compile Include="Donation.cs" />
+    <Compile Include="Donor.cs" />
+    <Compile Include="EmpCustProblemVM.cs" />
+    <Compile Include="EmployeeAvailability.cs" />
+    <Compile Include="ERole.cs" />
+    <Compile Include="EventApprovalVM.cs" />
+    <Compile Include="EventRequest.cs" />
+    <Compile Include="EventType.cs" />
+    <Compile Include="FacilityInspection.cs" />
+    <Compile Include="FacilityInspectionItem.cs" />
+    <Compile Include="FacilityMaintenance.cs" />
+    <Compile Include="FacilityTask.cs" />
+    <Compile Include="Foster.cs" />
+    <Compile Include="FosterAppointment.cs" />
+    <Compile Include="FosterAppointmentVM.cs" />
+    <Compile Include="GeneralQuestion.cs" />
+    <Compile Include="HomeInspectorAdoptionAppointmentDecision.cs" />
+    <Compile Include="InventoryItems.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="ItemCategory.cs" />
+    <Compile Include="ItemLocation.cs" />
+    <Compile Include="ItemReport.cs" />
+    <Compile Include="JobApplication.cs" />
+    <Compile Include="JobListing.cs" />
+    <Compile Include="Location.cs" />
+    <Compile Include="LogItem.cs" />
+    <Compile Include="MedicalHistory.cs" />
+    <Compile Include="Medication.cs" />
+    <Compile Include="Medicine.cs" />
+    <Compile Include="Messages.cs" />
+    <Compile Include="NewAnimalChecklist.cs" />
+    <Compile Include="OpenPosition.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="OrderDetails.cs" />
+    <Compile Include="OrderItemLine.cs" />
+    <Compile Include="OrderLine.cs" />
+    <Compile Include="PagingInfo.cs" />
+    <Compile Include="PetUniverseShiftTime.cs" />
+    <Compile Include="PetUniverseUser.cs" />
+    <Compile Include="Picture.cs" />
+    <Compile Include="Product.cs" />
+    <Compile Include="ProductVM.cs" />
+    <Compile Include="Promotion.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PUEvent.cs" />
+    <Compile Include="PUUserVMAvailability.cs" />
+    <Compile Include="PUUserVMHours.cs" />
+    <Compile Include="questionnair.cs" />
+    <Compile Include="ReceivingRecord.cs" />
+    <Compile Include="RecurringDonation.cs" />
+    <Compile Include="RecurringDonationVM.cs" />
+    <Compile Include="Request.cs" />
+    <Compile Include="RequestResponse.cs" />
+    <Compile Include="RequestVM.cs" />
+    <Compile Include="SalesDataVM.cs" />
+    <Compile Include="SalesTax.cs" />
+    <Compile Include="Schedule.cs" />
+    <Compile Include="ScheduleChangeRequest.cs" />
+    <Compile Include="ScheduleChangeRequestVM.cs" />
+    <Compile Include="ScheduleVM.cs" />
+    <Compile Include="ScheduleWithHoursWorked.cs" />
+    <Compile Include="Shift.cs" />
+    <Compile Include="ShiftDetailsVM.cs" />
+    <Compile Include="ShiftUserVM.cs" />
+    <Compile Include="ShiftVM.cs" />
+    <Compile Include="Shipper.cs" />
+    <Compile Include="SocialMediaRequest.cs" />
+    <Compile Include="SpecialOrder.cs" />
+    <Compile Include="SpecialOrderItemLine.cs" />
+    <Compile Include="States.cs" />
+    <Compile Include="TimeOffRequest.cs" />
+    <Compile Include="TimeOffRequestVM.cs" />
+    <Compile Include="TrainingVideo.cs" />
+    <Compile Include="TrainingVideoVM.cs" />
+    <Compile Include="Transaction.cs" />
+    <Compile Include="TransactionLineProducts.cs" />
+    <Compile Include="TransactionStatus.cs" />
+    <Compile Include="TransactionType.cs" />
+    <Compile Include="TransactionVM.cs" />
+    <Compile Include="TreatmentRecord.cs" />
+    <Compile Include="TreatmentRecordVM.cs" />
+    <Compile Include="Vendor.cs" />
+    <Compile Include="ViewResponds.cs" />
+    <Compile Include="Volunteer.cs" />
+    <Compile Include="VolunteerEvent.cs" />
+    <Compile Include="VolunteerEventVM.cs" />
+    <Compile Include="VolunteerShift.cs" />
+    <Compile Include="VolunteerShiftVM.cs" />
+    <Compile Include="VolunteerTask.cs" />
+    <Compile Include="VolunteerTaskVM.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

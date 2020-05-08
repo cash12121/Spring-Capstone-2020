@@ -1,0 +1,69 @@
+﻿<!--
+CREATOR: Kaleb Bachert
+CREATED: 2020/3/13
+APPROVER: Lane Sandburg
+View for selecting a Type of request to submit, the Create View will appear within this View
+-->
+@using DataTransferObjects
+@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.Owin
+@section Scripts{
+    <script src="~/Scripts/bootstrap-datepicker.min.js"></script>
+    <script src="~/Scripts/request-type-dropdown-view-selector.js"></script>
+    <script src="~/Scripts/refresh-schedule-change-request-shift-list.js"></script>
+}
+<h2>@ViewBag.Title</h2>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<div class="col-md-10">
+
+    <br />
+
+    @if (null != @ViewBag.outputMessage)
+    {
+        if (@ViewBag.outputMessage.Contains("SUCCESS"))
+        {
+            <h3 class="alert-success">@ViewBag.outputMessage</h3>
+        }
+        else
+        {
+            <h3 class="alert-danger">@ViewBag.outputMessage</h3>
+        }
+    }
+
+    <label>
+        Select a Request Type
+        <select class="requestTypesDropDown">
+            <option value=""></option>
+            <option value="Time Off">Time Off</option>
+            <option value="Availability Change">Availability Change</option>
+            <option value="Schedule Change">Schedule Change</option>
+        </select>
+    </label>
+
+    <!-- Get the current user from the ApplicationUserManager -->
+    @{ApplicationUserManager userManager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+    var userid = User.Identity.GetUserId();
+    var user = userManager.Users.First(u => u.Id == userid); }
+
+    <!-- Create a PetUniverseUser object from the ApplicationUser -->
+    @{PetUniverseUser currentUser = new PetUniverseUser { PUUserID = Convert.ToInt32(user.EmployeeID), FirstName = user.GivenName, LastName = user.FamilyName };}
+
+    <!-- A Date String must be passed into the ScheduleChangeController, this is the default date -->
+    @{string defaultDateSelection = DateTime.Now.AddDays(1).ToShortDateString();}
+
+    <div class="col-md-10 timeOffHideableViewDiv">
+
+        @{ Html.RenderAction("Create", "RequestTimeOff", currentUser); }
+
+    </div>
+    <div class="col-md-10 availabilityHideableViewDiv">
+
+        @{ Html.RenderAction("Create", "RequestAvailabilityChange", currentUser); }
+
+    </div>
+    <div class="col-md-10 scheduleChangeHideableViewDiv">
+
+        @{ Html.RenderAction("Create", "RequestScheduleChange", new { userID = currentUser.PUUserID, selectedDate = defaultDateSelection }); }
+
+    </div>
+</div>

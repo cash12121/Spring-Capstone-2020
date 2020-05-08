@@ -1,0 +1,29 @@
+﻿@*
+    Creator: Robert Holmes
+    Created: 04/29/2020
+    Approver:
+
+    Partial view for creating each product listing.
+    Updater:
+    Updated:
+    Update:
+*@
+@model DataTransferObjects.Product
+
+<div class="card m-2" style="width: 18rem;">
+    <a href="@Url.Action("Details", "Product", new {productID = Model.ProductID})">
+        <img class="card-img-top" src="@Url.Action("GetImage", "Product", new { Model.ProductID })" alt="Image Missing!">
+    </a>
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p>@Model.Price.ToString("C")</p>
+        @using (Html.BeginForm("AddToCart", "Cart"))
+        {
+            <div class="float-right">
+                @Html.HiddenFor(x => x.ProductID)
+                @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                <input type="submit" class="btn btn-primary" value="Add to cart" />
+            </div>
+        }
+    </div>
+</div>
