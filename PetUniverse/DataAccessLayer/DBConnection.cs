@@ -21,11 +21,8 @@ namespace DataTransferObjects
 
 
         //Connection string for school
-        //@"Data Source=localhost;Initial Catalog=PetUniverseDB;Integrated Security=True"; // Connection string for school
+        @"Data Source=localhost;Initial Catalog=PetUniverseDB;Integrated Security=True"; // Connection string for school
 
-        // Presentation Connect String **DO NOT REMOVE**
-
-        @"Data Source=tcp:dbpetuniverse.database.windows.net,1433;Initial Catalog = PetUniverseDB; User Id = csdadmin@dbpetuniverse.database.windows.net;Password=Kirkwood01;";
 
 
         /// <summary>
